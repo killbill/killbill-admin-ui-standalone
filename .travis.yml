@@ -15,7 +15,7 @@ jdk:
   - oraclejdk7
 
 script:
-  - bundle exec rake
+  - RAILS_ENV=production bundle exec rake
 
 matrix:
   allow_failures:

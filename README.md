@@ -30,5 +30,5 @@ Build
 You need at least jruby-1.7.6.
 
 ```
-bundle install && bundle exec rake
+bundle install && RAILS_ENV=production bundle exec rake
 ```
