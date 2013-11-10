@@ -1,0 +1,9 @@
+production:
+  adapter: <%= java.lang.System.getProperty('kaui.db.adapter', 'jdbcmysql') %>
+  encoding: <%= java.lang.System.getProperty('kaui.db.encoding', 'utf8') %>
+  url: <%= java.lang.System.getProperty('kaui.db.url', 'jdbc:mysql://localhost:3306/killbill') %>
+  username: <%= java.lang.System.getProperty('kaui.db.username', 'killbill') %>
+  password: <%= java.lang.System.getProperty('kaui.db.password', 'killbill') %>
+  database: <%= java.lang.System.getProperty('kaui.db.database') %>
+  host: <%= java.lang.System.getProperty('kaui.db.host') %>
+  port: <%= java.lang.System.getProperty('kaui.db.port') %>
