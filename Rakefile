@@ -6,8 +6,8 @@ require File.expand_path('../config/application', __FILE__)
 
 KauiStandalone::Application.load_tasks
 
-require 'warbler'
-Warbler::Task.new
-
-Rake::Task[:default].prerequisites.clear
-task :default => ['assets:precompile', :war]
+# See https://github.com/jruby/warbler/issues/106
+# require 'warbler'
+# Warbler::Task.new
+# Rake::Task[:default].prerequisites.clear
+# task :default => ['assets:precompile', :war]

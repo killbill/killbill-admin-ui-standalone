@@ -27,17 +27,17 @@ Build
 
 You need at least jruby-1.7.6.
 
-The default `rake` task will create a the war:
+To create a self-contained war:
 
 ```
-bundle install && RAILS_ENV=production bundle exec rake
+bundle install && export RAILS_ENV=production && bundle exec rake assets:precompile && bundle exec warble
 ```
 
 
 Alternatively, if you want to create a self-executable war:
 
 ```
-bundle install && RAILS_ENV=production bundle exec rake assets:precompile && RAILS_ENV=production bundle exec warble executable war
+bundle install && export RAILS_ENV=production && bundle exec rake assets:precompile && bundle exec warble executable war
 ```
 
 You can then run it using:
@@ -49,7 +49,7 @@ java -Dkaui.url=http://127.0.0.1:8080 \
      -Dkaui.db.url=jdbc:mysql://localhost/killbill \
      -Dkaui.db.username=killbill \
      -Dkaui.db.password=killbill \
-     -jar kaui-standalone.war --httpPort=3000
+     -jar killbill-admin-ui-standalone.war --httpPort=3000
 ```
 
 The startup process will be done when the following message appears:
