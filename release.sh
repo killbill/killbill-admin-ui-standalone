@@ -11,7 +11,7 @@ fi
 VERSION=`grep -E '<version>([0-9]+\.[0-9]+\.[0-9]+)</version>' pom.xml | sed 's/[\t \n]*<version>\(.*\)<\/version>[\t \n]*/\1/'`
 
 echo "Building artifact"
-rake
+bash -x build.sh
 
 ARTIFACT="$PWD/killbill-admin-ui-standalone.war"
 echo "Pushing $ARTIFACT to Maven Central"
