@@ -19,4 +19,4 @@ group :development do
   gem 'warbler', '~> 1.4.4'
 end
 
-gem 'kaui', '~> 0.7.0'
+gem 'kaui', '~> 0.7.2'
