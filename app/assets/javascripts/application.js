@@ -10,6 +10,24 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require js-routes
+//= require log4javascript
+//= require moment.min
+//= require spin.min
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require d3
+//= require twitter/bootstrap
+//= require bootstrap-datepicker
+//= require bootstrap
+//= require jquery.dataTables.min
+//= require jquery.spin
+//= require kaui/bootstrap-tweaks
+//= require kaui/validation
+//= require kanaui/dashboard
+//= require kanaui/killbill
+//= require kanaui/purl
+//= require kanaui/reports.dataTables
+//= require kanaui/reports.graphs
+//= require kanaui/reports
+//= require kanaui/reports.urls

@@ -1,9 +1,41 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: kaui
+  username: root
+  password: root
+  host: 127.0.0.1
+  port: 3306
+
 production:
+<% if defined?(JRUBY_VERSION) %>
   adapter: <%= java.lang.System.getProperty('kaui.db.adapter', 'jdbcmysql') %>
   encoding: <%= java.lang.System.getProperty('kaui.db.encoding', 'utf8') %>
-  url: <%= java.lang.System.getProperty('kaui.db.url', 'jdbc:mysql://localhost:3306/killbill') %>
-  username: <%= java.lang.System.getProperty('kaui.db.username', 'killbill') %>
-  password: <%= java.lang.System.getProperty('kaui.db.password', 'killbill') %>
+  url: <%= java.lang.System.getProperty('kaui.db.url', 'jdbc:mysql://localhost:3306/kaui') %>
+  username: <%= java.lang.System.getProperty('kaui.db.username', 'root') %>
+  password: <%= java.lang.System.getProperty('kaui.db.password', 'root') %>
   database: <%= java.lang.System.getProperty('kaui.db.database') %>
   host: <%= java.lang.System.getProperty('kaui.db.host') %>
   port: <%= java.lang.System.getProperty('kaui.db.port') %>
+<% else %>
+  adapter: mysql2
+  encoding: utf8
+  database: kaui
+  username: root
+  password: root
+  host: 127.0.0.1
+  port: 3306
+<% end %>
+
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+

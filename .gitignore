@@ -20,5 +20,5 @@ kaui-standalone.war
 killbill-admin-ui-standalone.war
 killbill-admin-ui-standalone.war.asc
 pom.xml.asc
-
+Gemfile.lock
 .idea

@@ -2,6 +2,12 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require "jquery-rails"
+require "twitter-bootstrap-rails"
+require "d3_rails"
+
+require "js-routes"
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -33,6 +39,9 @@ module KauiStandalone
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # See http://stackoverflow.com/questions/11484912/jruby-on-rails-assetsprecompile-does-nothing
+    #config.assets.initialize_on_precompile = false
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -56,10 +65,19 @@ module KauiStandalone
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    # See http://stackoverflow.com/questions/11484912/jruby-on-rails-assetsprecompile-does-nothing
-    config.assets.initialize_on_precompile = false
-
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.after_initialize do
+
+      Kanaui.current_tenant_user = lambda { |session, user|
+        Kaui.current_tenant_user_options(user, session)
+      }
+
+      Kaui.layout =  'layouts/application'
+      Kanaui.layout =  'layouts/application'
+    end
+
+
   end
 end

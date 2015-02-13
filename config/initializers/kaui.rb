@@ -1,3 +1,3 @@
-# Configure Kaui Preferences
-Kaui.config do |config|
-end
+require 'symmetric-encryption'
+
+SymmetricEncryption.load!('config/symmetric-encryption.yml', 'development')

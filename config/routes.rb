@@ -1,11 +1,11 @@
 KauiStandalone::Application.routes.draw do
 
-  # This line mounts Kaui's routes at the root of your application.
-  # If you're mounting this engine into an existing application, change it to e.g.
-  # mount Kaui::Engine, :at => '/kaui', :as => "kaui_engine"
-  #
-  # Don't modify the :as => "kaui_engine" option though.
-  mount Kaui::Engine, :at => '/', :as => "kaui_engine"
+  # We mount KAUI as root, since this is the primary engine and Kanaui will be mounted under /kanaui
+  mount Kaui::Engine => "/", :as => "kaui_engine"
+
+  mount Kanaui::Engine => "/analytics", :as => "kanaui_engine"
+
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
