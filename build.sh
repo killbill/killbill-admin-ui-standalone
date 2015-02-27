@@ -10,4 +10,4 @@ $RAKE assets:precompile
 $BUNDLE warble
 
 # For quick testing:
-# $BUNDLE warble executable war
+#$BUNDLE warble executable war

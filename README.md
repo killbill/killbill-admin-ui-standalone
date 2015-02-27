@@ -44,12 +44,13 @@ You can then run it using:
 
 ```
 java -Dkaui.url=http://127.0.0.1:8080 \
+     -Djetty.port=3000 \
      -Dkaui.api_key=bob \
      -Dkaui.api_secret=lazar \
      -Dkaui.db.url=jdbc:mysql://localhost/killbill \
      -Dkaui.db.username=killbill \
      -Dkaui.db.password=killbill \
-     -jar killbill-admin-ui-standalone.war --httpPort=3000
+     -jar killbill-admin-ui-standalone.war
 ```
 
 The startup process will be done when the following message appears:
