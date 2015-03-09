@@ -27,7 +27,7 @@ gem "js-routes", "~> 1.0.0"
 gem 'kaui', '~> 0.8.3'
 #gem 'kaui', :path => '../killbill-admin-ui'
 
-gem 'kanaui', '~> 0.0.3'
+gem 'kanaui', '~> 0.0.4'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
 
 if defined?(JRUBY_VERSION)
