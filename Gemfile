@@ -23,10 +23,11 @@ gem 'd3_rails', '~> 3.2.8'
 gem 'twitter-bootstrap-rails', '~> 3.2.0'
 gem "js-routes", "~> 1.0.0"
 
-gem 'kaui', path: '../kaui'
+gem 'kaui', '0.11.0'
 #gem 'kaui', :path => '../killbill-admin-ui'
 
-gem 'kanaui', :path => '../killbill-analytics-ui'
+gem 'kanaui', '0.3.0'
+#gem 'kanaui', :path => '../killbill-analytics-ui'
 
 if defined?(JRUBY_VERSION)
 
