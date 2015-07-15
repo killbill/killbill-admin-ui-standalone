@@ -20,7 +20,8 @@
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap
-//= require jquery.dataTables.min
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require jquery.spin
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation
