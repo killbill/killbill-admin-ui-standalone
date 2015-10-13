@@ -9,6 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap_and_overrides
- *= require kanaui/dashboard
+ *= require kanaui
  *= require_tree .
  */

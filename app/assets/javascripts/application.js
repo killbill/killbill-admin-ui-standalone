@@ -25,10 +25,4 @@
 //= require jquery.spin
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation
-//= require kanaui/dashboard
-//= require kanaui/killbill
-//= require kanaui/purl
-//= require kanaui/reports.dataTables
-//= require kanaui/reports.graphs
-//= require kanaui/reports
-//= require kanaui/reports.urls
+//= require kanaui
