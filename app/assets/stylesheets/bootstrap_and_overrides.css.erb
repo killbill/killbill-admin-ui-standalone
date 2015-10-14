@@ -1,0 +1,17 @@
+/*
+ *= require twitter-bootstrap-static/bootstrap
+ *
+ * Use Font Awesome icons (default)
+ * To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+ *= require twitter-bootstrap-static/fontawesome
+*/
+
+/* Override Bootstrap 3 font locations */
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('<%= asset_path('glyphicons-halflings-regular.eot') %>');
+    src: url('<%= asset_path('glyphicons-halflings-regular.eot?#iefix') %>') format('embedded-opentype'),
+    url('<%= asset_path('glyphicons-halflings-regular.woff') %>') format('woff'),
+    url('<%= asset_path('glyphicons-halflings-regular.ttf') %>') format('truetype'),
+    url('<%= asset_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') %>') format('svg');
+}
