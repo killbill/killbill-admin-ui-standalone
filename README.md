@@ -14,8 +14,6 @@ System properties required:
 
 ```
 -Dkaui.url=http://127.0.0.1:8080
--Dkaui.api_key=bob
--Dkaui.api_secret=lazar
 -Dkaui.db.url=jdbc:mysql://localhost/killbill
 -Dkaui.db.username=killbill
 -Dkaui.db.password=killbill
@@ -30,32 +28,36 @@ You need at least jruby-1.7.6.
 To create a self-contained war:
 
 ```
-bundle install && export RAILS_ENV=production && bundle exec rake assets:precompile && bundle exec warble
+bundle install && \
+export RAILS_ENV=production && \
+bundle exec rake assets:precompile && \
+bundle exec warble
 ```
 
 
 Alternatively, if you want to create a self-executable war:
 
 ```
-bundle install && export RAILS_ENV=production && bundle exec rake assets:precompile && bundle exec warble executable war
+bundle install && \
+export RAILS_ENV=production && \
+bundle exec rake assets:precompile && \
+bundle exec warble executable war
 ```
 
 You can then run it using:
 
 ```
 java -Dkaui.url=http://127.0.0.1:8080 \
-     -Djetty.port=3000 \
-     -Dkaui.api_key=bob \
-     -Dkaui.api_secret=lazar \
-     -Dkaui.db.url=jdbc:mysql://localhost/killbill \
+     -Dkaui.db.url=jdbc:mysql://localhost/kaui \
      -Dkaui.db.username=killbill \
      -Dkaui.db.password=killbill \
+     -Dwarbler.port=3000 \
      -jar killbill-admin-ui-standalone.war
 ```
 
 The startup process will be done when the following message appears:
 
 ```
-INFO: Winstone Servlet Engine v0.9.10 running: controlPort=disabled
+2015-10-13 18:11:43.571:INFO:oejs.Server:main: Started @25244ms
 ```
 

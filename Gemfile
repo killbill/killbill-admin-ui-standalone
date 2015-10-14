@@ -9,7 +9,7 @@ gem 'i18n', '~>0.7.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 5.0'
+  gem 'sass-rails', '~> 5.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -30,14 +30,17 @@ gem 'kanaui', '0.3.0'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
 
 if defined?(JRUBY_VERSION)
+  gem 'warbler', '~> 1.4.9'
 
-  gem 'warbler', '~> 1.4.5'
+  gem 'therubyrhino', '~> 2.0.4'
 
   gem 'activerecord-jdbc-adapter', '~> 1.3.9'
   gem 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
   gem 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
   gem 'jdbc-mysql', '~> 5.1.25'
 else
+  gem 'therubyracer', '~> 0.12.2'
+
   gem 'sqlite3'
   gem 'mysql2', '0.3.17'
 end

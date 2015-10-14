@@ -2,12 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-require "jquery-rails"
-require "twitter-bootstrap-rails"
-require "d3_rails"
-
-require "js-routes"
-
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -69,15 +63,11 @@ module KauiStandalone
     config.assets.version = '1.0'
 
     config.after_initialize do
-
-      Kanaui.current_tenant_user = lambda { |session, user|
+      Kanaui.current_tenant_user = lambda do |session, user|
         Kaui.current_tenant_user_options(user, session)
-      }
+      end
 
-      Kaui.layout =  'layouts/application'
-      Kanaui.layout =  'layouts/application'
+      Kanaui.layout = Kaui.config[:layout]
     end
-
-
   end
 end

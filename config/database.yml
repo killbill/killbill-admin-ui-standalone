@@ -11,6 +11,8 @@ development:
   password: root
   host: 127.0.0.1
   port: 3306
+  pool: 25
+  timeout: 5000
 
 production:
 <% if defined?(JRUBY_VERSION) %>
@@ -22,6 +24,8 @@ production:
   database: <%= java.lang.System.getProperty('kaui.db.database') %>
   host: <%= java.lang.System.getProperty('kaui.db.host') %>
   port: <%= java.lang.System.getProperty('kaui.db.port') %>
+  pool: <%= java.lang.System.getProperty('kaui.db.pool', '25') %>
+  timeout: <%= java.lang.System.getProperty('kaui.db.timeout', '5000') %>
 <% else %>
   adapter: mysql2
   encoding: utf8
@@ -30,12 +34,13 @@ production:
   password: root
   host: 127.0.0.1
   port: 3306
+  pool: 25
+  timeout: 5000
 <% end %>
-
 
 test:
   adapter: sqlite3
   database: db/test.sqlite3
-  pool: 5
+  pool: 25
   timeout: 5000
 
