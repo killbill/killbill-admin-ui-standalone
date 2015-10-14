@@ -17,15 +17,14 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require d3
+//= require bootstrap-datepicker
 //
 // Kanaui
 //= require js-routes
-//= require spin.min
-//= require jquery.spin
-//= require jquery.dataTables.min
-//= require bootstrap-datepicker
 //= require log4javascript
-//= require moment.min
+//= require moment
+//= require spin
+//= require jquery.spin
 //= require kanaui/kanaui
 //
 // Kaui (needs to be loaded last for overrides)
