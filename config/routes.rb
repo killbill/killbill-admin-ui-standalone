@@ -1,11 +1,15 @@
 KauiStandalone::Application.routes.draw do
 
-  # We mount KAUI as root, since this is the primary engine and Kanaui will be mounted under /kanaui
-  mount Kaui::Engine => "/", :as => "kaui_engine"
+  # We mount KAUI as root, since this is the primary engine
+  mount Kaui::Engine => '/', :as => 'kaui_engine'
 
-  mount Kanaui::Engine => "/analytics", :as => "kanaui_engine"
+  mount Kanaui::Engine => '/analytics', :as => 'kanaui_engine'
 
-  root :to => "home#index"
+  scope '/main' do
+    match '/available_engines' => 'main#available_engines', :via => :get, :as => 'available_engines'
+  end
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
