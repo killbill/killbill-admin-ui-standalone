@@ -2,6 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require 'avatax'
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -66,8 +68,12 @@ module KauiStandalone
       Kanaui.current_tenant_user = lambda do |session, user|
         Kaui.current_tenant_user_options(user, session)
       end
-
       Kanaui.layout = Kaui.config[:layout]
+
+      Avatax.current_tenant_user = lambda do |session, user|
+        Kaui.current_tenant_user_options(user, session)
+      end
+      Avatax.layout = Kaui.config[:layout]
     end
   end
 end

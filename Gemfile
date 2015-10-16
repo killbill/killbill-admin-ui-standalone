@@ -33,6 +33,10 @@ gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
 gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'HEAD'
 
+#gem 'killbill-avatax', '0.0.1'
+#gem 'killbill-avatax', :path => '../killbill-avatax-ui'
+gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
+
 if defined?(JRUBY_VERSION)
   gem 'warbler', '~> 1.4.9'
 

@@ -5,6 +5,10 @@ class MainController < ActionController::Base
         {
             :path => kanaui_engine_path,
             :name => 'Analytics'
+        },
+        {
+            :path => avatax_engine_path,
+            :name => 'Avatax'
         }
     ]
     render :json => plugins
