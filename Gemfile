@@ -37,6 +37,9 @@ gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'HEAD'
 #gem 'killbill-avatax', :path => '../killbill-avatax-ui'
 gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
 
+#gem 'killbill-client', :path => '../killbill-client-ruby'
+gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
+
 if defined?(JRUBY_VERSION)
   gem 'warbler', '~> 1.4.9'
 

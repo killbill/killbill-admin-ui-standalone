@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Common options for the Kill Bill client
+  def options_for_klient(options = {})
+    user_tenant_options = Kaui.current_tenant_user_options(current_user, session)
+    user_tenant_options.merge(options)
+    user_tenant_options
+  end
+
 end
