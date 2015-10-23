@@ -12,12 +12,12 @@ class MainController < ApplicationController
     KillBillClient::Model::PluginInfo.plugins_info(options_for_klient).each do |plugin_info|
       next unless plugin_info.running
 
-      if plugin_info.plugin_name == 'analytics'
+      if plugin_info.plugin_name == 'analytics-plugin'
         plugins << {
             :path => kanaui_engine_path,
             :name => 'Analytics'
         }
-      elsif plugin_info.plugin_name == 'avatax'
+      elsif plugin_info.plugin_name == 'avatax-plugin'
         plugins << {
             :path => avatax_engine_path,
             :name => 'Avatax'
