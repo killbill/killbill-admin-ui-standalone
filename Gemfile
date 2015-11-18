@@ -25,20 +25,21 @@ gem 'd3_rails', '~> 3.2.8'
 gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'dafba608bf07df6826519adcc4f0c9510e8d93b4'
 gem "js-routes", "~> 1.0.0"
 
-#gem 'kaui', '0.11.0'
+gem 'kaui', '~> 0.14'
 #gem 'kaui', :path => '../killbill-admin-ui'
-gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
+#gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
 
-#gem 'kanaui', '0.3.0'
+gem 'kanaui', '~> 0.4'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
-gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'HEAD'
+#gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'HEAD'
 
-#gem 'killbill-avatax', '0.0.1'
+gem 'killbill-avatax', '~> 0.0'
 #gem 'killbill-avatax', :path => '../killbill-avatax-ui'
-gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
+#gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
 
+gem 'killbill-client', '~> 0.23'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
-gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
+#gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
 
 if defined?(JRUBY_VERSION)
   gem 'warbler', '~> 1.4.9'
