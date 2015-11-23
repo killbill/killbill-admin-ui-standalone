@@ -4,4 +4,7 @@ Warbler::Config.new do |config|
 
   # Application directories to be included in the webapp.
   config.dirs = %w(app config db lib log public script vendor tmp)
+
+  # See https://github.com/jruby/warbler/issues/266
+  config.includes = FileList["init.rb"]
 end
