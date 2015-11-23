@@ -23,7 +23,8 @@ gem 'd3_rails', '~> 3.2.8'
 #gem 'twitter-bootstrap-rails', '~> 3.2.0'
 # Version 3.2.1
 gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'dafba608bf07df6826519adcc4f0c9510e8d93b4'
-gem "js-routes", "~> 1.0.0"
+#gem "js-routes", "~> 1.1"
+gem 'js-routes', :github => 'railsware/js-routes', :ref => 'ad75635e85bdf78016d55f6b5ef02a7c9223be16'
 
 gem 'kaui', '~> 0.14'
 #gem 'kaui', :path => '../killbill-admin-ui'

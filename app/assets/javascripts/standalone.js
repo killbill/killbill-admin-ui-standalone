@@ -1,5 +1,5 @@
 function populatePluginMenu() {
-    var available_engines_path = Routes.available_engines_path({format: "json"});
+    var available_engines_path = Routes.available_engines_url({format: "json"});
 
     var populateHTML = function (allEngines) {
         if (allEngines.length === 0) {
