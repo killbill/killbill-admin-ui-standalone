@@ -38,7 +38,7 @@ gem 'killbill-avatax', '~> 0.0'
 #gem 'killbill-avatax', :path => '../killbill-avatax-ui'
 #gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
 
-gem 'killbill-client', '~> 0.23'
+gem 'killbill-client', '~> 0.24'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
 

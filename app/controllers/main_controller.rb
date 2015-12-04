@@ -9,8 +9,11 @@ class MainController < ApplicationController
   def find_available_plugins
     plugins = []
 
-    KillBillClient::Model::PluginInfo.plugins_info(options_for_klient).each do |plugin_info|
-      next unless plugin_info.running
+    nodes_info = KillBillClient::Model::NodesInfo.nodes_info(options_for_klient) || []
+    plugins_info = nodes_info.first.plugins_info || []
+
+    plugins_info.each do |plugin_info|
+      next unless plugin_info.state == 'RUNNING'
 
       if plugin_info.plugin_name == 'analytics-plugin'
         plugins << {
