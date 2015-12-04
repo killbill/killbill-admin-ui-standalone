@@ -25,6 +25,11 @@ class MainController < ApplicationController
             :path => avatax_engine_path,
             :name => 'Avatax'
         }
+      elsif plugin_info.plugin_name == 'killbill-kpm'
+        plugins << {
+            :path => kpm_engine_path,
+            :name => 'KPM'
+        }
       elsif plugin_info.bundle_symbolic_name == 'org.apache.felix.webconsole'
         plugins << {
             :path => "#{KillBillClient.url}/plugins/system/console/bundles",

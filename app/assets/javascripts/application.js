@@ -27,6 +27,9 @@
 //= require jquery.spin
 //= require kanaui/kanaui
 //
+// KPM
+//= require kpm/kpm
+//
 // Kaui (needs to be loaded last for overrides)
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation
