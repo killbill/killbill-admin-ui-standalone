@@ -1,8 +1,3 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
 development:
   adapter: mysql2
   encoding: utf8
@@ -14,18 +9,29 @@ development:
   pool: 25
   timeout: 5000
 
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+
 production:
 <% if defined?(JRUBY_VERSION) %>
-  adapter: <%= java.lang.System.getProperty('kaui.db.adapter', 'jdbcmysql') %>
+<% adapter = java.lang.System.getProperty('kaui.db.adapter', 'sqlite3') %>
+  adapter: <%= adapter %>
   encoding: <%= java.lang.System.getProperty('kaui.db.encoding', 'utf8') %>
+<% if adapter == 'sqlite3' %>
+  database: <%= java.lang.System.getProperty('kaui.db.database', '/var/tmp/kaui.sqlite3') %>
+<% else %>
   url: <%= java.lang.System.getProperty('kaui.db.url', 'jdbc:mysql://localhost:3306/kaui') %>
   username: <%= java.lang.System.getProperty('kaui.db.username', 'root') %>
   password: <%= java.lang.System.getProperty('kaui.db.password', 'root') %>
-  database: <%= java.lang.System.getProperty('kaui.db.database') %>
   host: <%= java.lang.System.getProperty('kaui.db.host') %>
   port: <%= java.lang.System.getProperty('kaui.db.port') %>
   pool: <%= java.lang.System.getProperty('kaui.db.pool', '25') %>
   timeout: <%= java.lang.System.getProperty('kaui.db.timeout', '5000') %>
+<% end %>
 <% else %>
   adapter: mysql2
   encoding: utf8
@@ -37,10 +43,4 @@ production:
   pool: 25
   timeout: 5000
 <% end %>
-
-test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 25
-  timeout: 5000
 
