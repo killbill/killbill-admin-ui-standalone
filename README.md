@@ -1,19 +1,24 @@
 kaui-standalone
 ===============
 
-Self-contained Kaui application.
+Self-contained Kaui application. It mounts the following engines:
+
+* [Kaui](https://github.com/killbill/killbill-admin-ui): the core administrative UI
+* The [Analytics](https://github.com/killbill/killbill-analytics-ui) UI (available when the [Analytics plugin](https://github.com/killbill/killbill-analytics-plugin) is installed)
+* The [KPM](https://github.com/killbill/killbill-kpm-ui) UI (available when the [KPM plugin](https://github.com/killbill/killbill-kpm-plugin) is installed)
+* The [AvaTax](https://github.com/killbill/killbill-avatax-ui) administrative module (available when the [AvaTax plugin](https://github.com/killbill/killbill-avatax-plugin) is installed)
 
 Run
 ---
 
-This is a standard Rails project.
-
-To run it locally, make sure to install the DDL file from [Kaui](https://raw.github.com/killbill/killbill-admin-ui/master/db/ddl.sql), then run:
+This is a standard Rails project:
 
 ```
 bundle install
 rails s
 ```
+
+When using your own database, make sure to install the DDL file from [Kaui](https://raw.github.com/killbill/killbill-admin-ui/master/db/ddl.sql).
 
 * Kill Bill client configuration can be found in [config/initializers/killbill_client.rb](https://github.com/killbill/killbill-admin-ui-standalone/blob/master/config/initializers/killbill_client.rb)
 * Database configuration can be found in [config/database.yml](https://github.com/killbill/killbill-admin-ui-standalone/blob/master/config/database.yml)
@@ -48,7 +53,8 @@ bundle exec warble executable war
 You can then run it using:
 
 ```
-java -Dkaui.url=http://127.0.0.1:8080 \
+java -Dkaui.db.adapter=jdbcmysql \
+     -Dkaui.url=http://127.0.0.1:8080 \
      -Dkaui.db.url=jdbc:mysql://localhost/kaui \
      -Dkaui.db.username=killbill \
      -Dkaui.db.password=killbill \
