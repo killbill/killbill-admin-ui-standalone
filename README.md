@@ -8,6 +8,8 @@ Self-contained Kaui application. It mounts the following engines:
 * The [KPM](https://github.com/killbill/killbill-kpm-ui) UI (available when the [KPM plugin](https://github.com/killbill/killbill-kpm-plugin) is installed)
 * The [AvaTax](https://github.com/killbill/killbill-avatax-ui) administrative module (available when the [AvaTax plugin](https://github.com/killbill/killbill-avatax-plugin) is installed)
 
+Release builds are available on [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.kill-bill.billing.kaui%22%20AND%20a%3A%22kaui-standalone%22) with coordinates `org.kill-bill.billing.kaui:kaui-standalone`.
+
 Run
 ---
 
