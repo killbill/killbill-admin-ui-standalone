@@ -23,6 +23,8 @@ production:
   encoding: <%= java.lang.System.getProperty('kaui.db.encoding', 'utf8') %>
 <% if adapter == 'sqlite3' %>
   database: <%= java.lang.System.getProperty('kaui.db.database', '/var/tmp/kaui.sqlite3') %>
+  pool: 25
+  timeout: 5000
 <% else %>
   url: <%= java.lang.System.getProperty('kaui.db.url', 'jdbc:mysql://localhost:3306/kaui') %>
   username: <%= java.lang.System.getProperty('kaui.db.username', 'root') %>
