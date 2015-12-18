@@ -19,6 +19,7 @@ end
 
 gem 'rails', '~> 4.2.1'
 gem 'jquery-rails', '~> 3.0.4'
+gem 'sprockets-rails', '= 2.3.3'
 gem 'd3_rails', '~> 3.2.8'
 #gem 'twitter-bootstrap-rails', '~> 3.2.0'
 # Version 3.2.1
