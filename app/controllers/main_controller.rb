@@ -14,6 +14,7 @@ class MainController < ApplicationController
 
     plugins_info.each do |plugin_info|
       next unless plugin_info.state == 'RUNNING'
+      next unless Kaui.plugins_whitelist.nil? || Kaui.plugins_whitelist.include?(plugin_info.plugin_name)
 
       if plugin_info.plugin_name == 'analytics-plugin'
         plugins << {
