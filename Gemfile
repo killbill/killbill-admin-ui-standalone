@@ -18,6 +18,7 @@ group :assets do
 end
 
 gem 'rails', '~> 4.2.1'
+gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
 gem 'jquery-rails', '~> 3.0.4'
 gem 'sprockets-rails', '= 2.3.3'
 gem 'd3_rails', '~> 3.2.8'
