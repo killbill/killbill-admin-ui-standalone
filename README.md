@@ -10,6 +10,14 @@ Self-contained Kaui application. It mounts the following engines:
 
 Release builds are available on [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.kill-bill.billing.kaui%22%20AND%20a%3A%22kaui-standalone%22) with coordinates `org.kill-bill.billing.kaui:kaui-standalone`.
 
+Kill Bill compatibility
+-----------------------
+
+| Kaui version | Kill Bill version |
+| -----------: | ----------------: |
+| 0.7.y        | 0.16.z            |
+| 0.8.y        | 0.18.z            |
+
 Run
 ---
 
