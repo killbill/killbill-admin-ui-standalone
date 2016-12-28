@@ -55,6 +55,7 @@ if defined?(JRUBY_VERSION)
 
   gem 'activerecord-jdbc-adapter', '~> 1.3.9'
   gem 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
+  gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.9'
   gem 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
   gem 'jdbc-mysql', '~> 5.1.25'
 else
