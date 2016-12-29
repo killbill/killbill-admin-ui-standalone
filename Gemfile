@@ -63,6 +63,7 @@ else
 
   gem 'sqlite3'
   gem 'mysql2', '0.3.17'
+  gem 'pg'
 end
 
 
