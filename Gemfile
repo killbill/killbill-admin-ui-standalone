@@ -28,7 +28,7 @@ gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :r
 #gem "js-routes", "~> 1.1"
 gem 'js-routes', :github => 'railsware/js-routes', :ref => 'ad75635e85bdf78016d55f6b5ef02a7c9223be16'
 
-gem 'kaui', '~> 0.15.0'
+gem 'kaui', '~> 0.15.1'
 #gem 'kaui', :path => '../killbill-admin-ui'
 #gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
 
@@ -44,7 +44,7 @@ gem 'killbill-kpm', '~> 0.2.0'
 #gem 'killbill-kpm', :path => '../killbill-kpm-ui'
 #gem 'killbill-kpm', :github => 'killbill/killbill-kpm-ui', :ref => 'HEAD'
 
-gem 'killbill-client', '~> 1.0'
+gem 'killbill-client', '~> 1.3'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
 
