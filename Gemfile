@@ -28,7 +28,7 @@ gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :r
 #gem "js-routes", "~> 1.1"
 gem 'js-routes', :github => 'railsware/js-routes', :ref => 'ad75635e85bdf78016d55f6b5ef02a7c9223be16'
 
-gem 'kaui', '~> 0.15.1'
+gem 'kaui', '~> 0.15.2'
 #gem 'kaui', :path => '../killbill-admin-ui'
 #gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
 
