@@ -7,4 +7,6 @@ Warbler::Config.new do |config|
 
   # See https://github.com/jruby/warbler/issues/266
   config.includes = FileList["init.rb"]
+
+  config.webxml.jruby.runtime.arguments = '--2.0'
 end
