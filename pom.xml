@@ -25,7 +25,7 @@
     <groupId>org.kill-bill.billing.kaui</groupId>
     <artifactId>kaui-standalone</artifactId>
     <packaging>pom</packaging>
-    <version>0.8.2</version>
+    <version>0.8.3</version>
     <name>killbill-admin-ui-standalone</name>
     <url>http://github.com/killbill/killbill-admin-ui-standalone</url>
     <description>Standalone Kaui</description>
