@@ -1,5 +1,9 @@
 set -e
 
+# get the version from the pom and then store it on a file on the root
+VERSION=`grep -E '<version>([0-9]+\.[0-9]+\.[0-9]+)</version>' pom.xml | sed 's/[\t \n]*<version>\(.*\)<\/version>[\t \n]*/\1/'`
+echo 'version: '$VERSION > version.yml
+
 export RAILS_ENV=production
 
 BUNDLE="bundle exec"

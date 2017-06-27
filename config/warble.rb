@@ -6,7 +6,7 @@ Warbler::Config.new do |config|
   config.dirs = %w(app config db lib log public script vendor tmp)
 
   # See https://github.com/jruby/warbler/issues/266
-  config.includes = FileList["init.rb"]
+  config.includes = FileList["init.rb","version.yml"]
 
   config.webxml.jruby.runtime.arguments = '--2.0'
 end
