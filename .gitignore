@@ -22,3 +22,6 @@ killbill-admin-ui-standalone.war.asc
 pom.xml.asc
 Gemfile.lock
 .idea
+
+# Ignore the version file since is auto-generated.
+version.yml
