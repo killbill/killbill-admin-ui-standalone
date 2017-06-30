@@ -17,7 +17,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'rails', '~> 4.2.1'
+gem 'rails', '~> 4.2.1', '< 4.2.9'
 gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
 gem 'jquery-rails', '~> 3.0.4'
 gem 'sprockets-rails', '= 2.3.3'
