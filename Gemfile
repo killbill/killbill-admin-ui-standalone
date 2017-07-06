@@ -44,8 +44,8 @@ gem 'killbill-kpm', '~> 0.2.0'
 #gem 'killbill-kpm', :path => '../killbill-kpm-ui'
 #gem 'killbill-kpm', :github => 'killbill/killbill-kpm-ui', :ref => 'HEAD'
 
-gem 'killbill-payment-test', '~> 0.0.1'
-#gem 'killbill-payment-test', :path => '../killbill-payment-test-ui'
+gem 'killbill-payment-test-ui', '~> 0.0.2'
+#gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
 
 
 gem 'killbill-client', '~> 1.3'
