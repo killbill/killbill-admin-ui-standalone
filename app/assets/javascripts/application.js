@@ -30,6 +30,9 @@
 // KPM
 //= require kpm/kpm
 //
+// payment_test
+//= require payment_test/payment_test
+//
 // Kaui (needs to be loaded last for overrides)
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation

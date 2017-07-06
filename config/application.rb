@@ -4,6 +4,7 @@ require 'rails/all'
 
 require 'avatax'
 require 'kpm'
+require 'payment_test'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -80,6 +81,11 @@ module KauiStandalone
         Kaui.current_tenant_user_options(user, session)
       end
       KPM.layout = Kaui.config[:layout]
+
+      PaymentTest.current_tenant_user = lambda do |session, user|
+        Kaui.current_tenant_user_options(user, session)
+      end
+      PaymentTest.layout = Kaui.config[:layout]
     end
   end
 end

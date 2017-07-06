@@ -31,6 +31,11 @@ class MainController < ApplicationController
             :path => kpm_engine_path,
             :name => 'KPM'
         }
+      elsif plugin_info.plugin_name == 'killbill-payment-test' && current_user.root?
+        plugins << {
+            :path => payment_test_engine_path,
+            :name => 'Payment Test'
+        }
       elsif plugin_info.bundle_symbolic_name == 'org.apache.felix.webconsole' && current_user.root?
         plugins << {
             :path => "#{KillBillClient.url}/plugins/system/console/bundles",
