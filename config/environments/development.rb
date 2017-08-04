@@ -28,8 +28,16 @@ KauiStandalone::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
+  # Compile assets on the fly
+  config.assets.compile = true
+
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Generate digests for assets URLs (speeds up load time by leveraging browser cache)
+  config.assets.digest = true
+
+  config.serve_static_files = true
 
   config.eager_load = false
 end
