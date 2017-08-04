@@ -8,15 +8,20 @@ KauiStandalone::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  config.serve_static_files = true
-
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
-  config.assets.compile = true
+  # Don't fallback to assets pipeline if a precompiled asset is missed
+  # config.assets.debug must be set to false, config.assets.digest must be set to true, and rake assets:precompile must be run
+  config.assets.compile = false
+
+  # Don't expands the lines which load the assets
+  config.assets.debug = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
+
+  config.serve_static_files = true
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
