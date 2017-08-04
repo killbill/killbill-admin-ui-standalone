@@ -17,7 +17,8 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require d3
-//= require bootstrap-datepicker
+// Avoid loading all locales, just load the core
+//= require bootstrap-datepicker/core
 //
 // Kanaui
 //= require js-routes
