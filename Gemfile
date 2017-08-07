@@ -53,7 +53,7 @@ gem 'killbill-client', '~> 1.3'
 #gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
 
 if defined?(JRUBY_VERSION)
-  gem 'warbler', '~> 1.4.9'
+  gem 'warbler', '~> 2.0.0'
 
   gem 'therubyrhino', '~> 2.0.4'
 
