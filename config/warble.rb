@@ -11,5 +11,7 @@ Warbler::Config.new do |config|
   # See https://github.com/jruby/warbler/issues/266
   config.includes = FileList["init.rb","version.yml"]
 
-  config.webxml.jruby.runtime.arguments = '--2.0'
+  config.java_classes = FileList["logback.xml"]
+
+  config.webxml.jruby.rack.logging = 'slf4j'
 end
