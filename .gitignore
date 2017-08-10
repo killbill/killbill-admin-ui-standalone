@@ -23,5 +23,9 @@ pom.xml.asc
 Gemfile.lock
 .idea
 
+*.class
+
+db/schema.rb
+
 # Ignore the version file since is auto-generated.
 version.yml

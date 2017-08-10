@@ -23,7 +23,6 @@
 // Kanaui
 //= require js-routes
 //= require log4javascript
-//= require moment
 //= require spin
 //= require jquery.spin
 //= require kanaui/kanaui
