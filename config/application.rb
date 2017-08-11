@@ -2,6 +2,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require_relative '../lib/core_ext'
+
 require 'avatax'
 require 'kpm'
 require 'payment_test'

@@ -38,11 +38,14 @@ if defined?(JRUBY_VERSION)
 
   gem 'therubyrhino', '~> 2.0.4'
 
-  gem 'activerecord-jdbc-adapter', '~> 1.3.9'
-  gem 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
-  gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.9'
-  gem 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
-  gem 'jdbc-mysql', '~> 5.1.25'
+  # See https://github.com/jruby/activerecord-jdbc-adapter/issues/700
+  github 'jruby/activerecord-jdbc-adapter', branch: 'rails-5' do
+    gem 'activerecord-jdbc-adapter'
+    gem 'activerecord-jdbcmysql-adapter'
+    gem 'activerecord-jdbcpostgresql-adapter'
+    gem 'activerecord-jdbcsqlite3-adapter'
+    gem 'jdbc-mysql'
+  end
 else
   gem 'therubyracer', '~> 0.12.2'
 

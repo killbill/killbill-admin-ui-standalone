@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  * Common
+ *= require font-awesome
  *= require bootstrap_and_overrides
  *= require bootstrap-datepicker3
  *= require dataTables/jquery.dataTables

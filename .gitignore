@@ -26,6 +26,8 @@ Gemfile.lock
 *.class
 
 db/schema.rb
+yarn.lock
+node_modules
 
 # Ignore the version file since is auto-generated.
 version.yml
