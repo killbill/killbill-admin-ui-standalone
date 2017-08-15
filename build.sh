@@ -18,7 +18,10 @@ export RAILS_ENV=production
 BUNDLE="bundle exec"
 RAILS="./bin/rails"
 
-$RAILS assets:clobber log:clear tmp:clear assets:precompile
+$RAILS assets:clobber log:clear tmp:clear
+
+# We cannot pre-compile assets unfortunately as it breaks Tomcat deployments in sub-directories
+# $RAILS assets:precompile
 
 $BUNDLE warble
 

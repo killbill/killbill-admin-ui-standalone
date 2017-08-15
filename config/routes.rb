@@ -1,3 +1,6 @@
+# See https://github.com/rails/rails/blob/c0a1dc256144b91aee5241fad2121e85e6d8093f/actionpack/test/dispatch/prefix_generation_test.rb#L278
+KauiStandalone::Application.routes.default_url_options = {script_name: ActionController::Base.relative_url_root.to_s}
+
 Rails.application.routes.draw do
 
   # We mount KAUI as root, since this is the primary engine

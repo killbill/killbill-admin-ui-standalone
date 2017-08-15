@@ -27,7 +27,10 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   # config.assets.debug must be set to false, config.assets.digest must be set to true, and rake assets:precompile must be run
-  config.assets.compile = false
+  # See http://codingitwrong.com/2016/04/15/a-definitive-guide-to-asset-pipeline-settings.html
+  # Ideal config, but requires recompilation of the assets depending on the Tomcat subdirectory deployment
+  # config.assets.compile = false
+  config.assets.compile = true
   # Don't expands the lines which load the assets
   config.assets.debug = false
   # Generate digests for assets URLs
