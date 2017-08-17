@@ -67,4 +67,5 @@ end
 
 group :development do
   gem 'listen'
+  gem 'puma'
 end
