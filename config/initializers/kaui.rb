@@ -21,14 +21,20 @@ if defined?(JRUBY_VERSION)
   refund_reason_codes = java.lang.System.getProperty('kaui.refund_reason_codes').to_s.split(',')
   Kaui.refund_reason_codes = refund_reason_codes unless refund_reason_codes.empty?
 
+  securerandom_configured = false
   java.lang.System.getProperties.each do |k, v|
     if k =~ /kaui\.gateway\.([\w-]+).url/
       plugin_name = $1
       plugin_url = v
 
       Kaui.gateways_urls[plugin_name] = plugin_url
+    elsif k == 'java.security.egd'
+      securerandom_configured = true
     end
   end
+
+  # See https://github.com/killbill/killbill-admin-ui-standalone/issues/16
+  warn("System property java.security.egd has not been set, this may cause some requests to hang because of a lack of entropy. You should probably set it to 'file:/dev/./urandom'") unless securerandom_configured
 else
   Kaui.demo_mode = false
   Kaui.plugins_whitelist = nil
