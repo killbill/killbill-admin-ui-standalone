@@ -20,6 +20,15 @@ if defined?(JRUBY_VERSION)
   Kaui.payment_reason_codes = payment_reason_codes unless payment_reason_codes.empty?
   refund_reason_codes = java.lang.System.getProperty('kaui.refund_reason_codes').to_s.split(',')
   Kaui.refund_reason_codes = refund_reason_codes unless refund_reason_codes.empty?
+
+  java.lang.System.getProperties.each do |k, v|
+    if k =~ /kaui\.gateway\.([\w-]+).url/
+      plugin_name = $1
+      plugin_url = v
+
+      Kaui.gateways_urls[plugin_name] = plugin_url
+    end
+  end
 else
   Kaui.demo_mode = false
   Kaui.plugins_whitelist = nil
