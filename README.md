@@ -63,7 +63,7 @@ bundle exec warble executable war
 You can then run it using:
 
 ```
-java -Dkaui.db.adapter=jdbcmysql \
+java -Dkaui.db.adapter=mariadb \
      -Dkaui.url=http://127.0.0.1:8080 \
      -Dkaui.db.url=jdbc:mysql://localhost/kaui \
      -Dkaui.db.username=killbill \
