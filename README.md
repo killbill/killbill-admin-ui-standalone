@@ -78,3 +78,4 @@ The startup process will be done when the following message appears:
 2015-10-13 18:11:43.571:INFO:oejs.Server:main: Started @25244ms
 ```
 
+The logs directory can be set via System Properties (e.g. `-DLOGS_DIR=/var/log/tomcat7`) or via a custom logback.xml (e.g. `-Dlogback.configurationFile=/etc/killbill/logback.xml`).
