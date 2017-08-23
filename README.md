@@ -40,7 +40,7 @@ We also provide [Docker images](https://hub.docker.com/r/killbill/kaui/).
 Build
 -----
 
-You need at least jruby-1.7.6.
+You need at least jruby-9.1.12.0.
 
 To create a self-contained war:
 
@@ -63,7 +63,7 @@ bundle exec warble executable war
 You can then run it using:
 
 ```
-java -Dkaui.db.adapter=jdbcmysql \
+java -Dkaui.db.adapter=mariadb \
      -Dkaui.url=http://127.0.0.1:8080 \
      -Dkaui.db.url=jdbc:mysql://localhost/kaui \
      -Dkaui.db.username=killbill \
@@ -78,3 +78,4 @@ The startup process will be done when the following message appears:
 2015-10-13 18:11:43.571:INFO:oejs.Server:main: Started @25244ms
 ```
 
+The logs directory can be set via System Properties (e.g. `-DLOGS_DIR=/var/log/tomcat7`) or via a custom logback.xml (e.g. `-Dlogback.configurationFile=/etc/killbill/logback.xml`).

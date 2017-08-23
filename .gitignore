@@ -13,6 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+logs/
 
 public/assets
 
@@ -22,6 +23,12 @@ killbill-admin-ui-standalone.war.asc
 pom.xml.asc
 Gemfile.lock
 .idea
+
+*.class
+
+db/schema.rb
+yarn.lock
+node_modules
 
 # Ignore the version file since is auto-generated.
 version.yml

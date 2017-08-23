@@ -17,18 +17,23 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require d3
-//= require bootstrap-datepicker
+// Avoid loading all locales, just load the core
+//= require bootstrap-datepicker/core
 //
 // Kanaui
 //= require js-routes
+// Required by log4javascript
+//= require jquery-ui/widgets/autocomplete
 //= require log4javascript
-//= require moment
 //= require spin
 //= require jquery.spin
 //= require kanaui/kanaui
 //
 // KPM
 //= require kpm/kpm
+//
+// payment_test
+//= require payment_test/payment_test
 //
 // Kaui (needs to be loaded last for overrides)
 //= require kaui/bootstrap-tweaks

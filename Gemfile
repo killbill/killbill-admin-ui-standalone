@@ -1,10 +1,61 @@
 source 'https://rubygems.org'
 
-gem 'i18n', '~>0.7.0'
+gem 'rails', '~> 5.1'
+gem 'jquery-rails', '~> 4.3'
+# See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
+gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'c236286b7d6e73affa1597f62fd51e9dbd268f1c'
+gem 'sprockets-rails', '~> 3.2'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+#gem 'kaui', '~> 0.15'
+#gem 'kaui', :path => '../killbill-admin-ui'
+gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
 
+#gem 'kanaui', '~> 0.5'
+#gem 'kanaui', :path => '../killbill-analytics-ui'
+gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'HEAD'
+
+#gem 'killbill-avatax', '~> 0.1'
+#gem 'killbill-avatax', :path => '../killbill-avatax-ui'
+gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
+
+#gem 'killbill-kpm', '~> 0.2'
+#gem 'killbill-kpm', :path => '../killbill-kpm-ui'
+gem 'killbill-kpm', :github => 'killbill/killbill-kpm-ui', :ref => 'HEAD'
+
+#gem 'killbill-payment-test-ui', '~> 0.0'
+#gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
+gem 'killbill-payment-test-ui', :github => 'killbill/killbill-payment-test-ui', :ref => 'HEAD'
+
+gem 'killbill-client', '~> 1.3'
+#gem 'killbill-client', :path => '../killbill-client-ruby'
+#gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
+
+gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
+gem 'i18n', '~> 0.8.0'
+
+if defined?(JRUBY_VERSION)
+  gem 'warbler', '~> 2.0.0'
+
+  gem 'therubyrhino', '~> 2.0.4'
+
+  # See https://github.com/jruby/activerecord-jdbc-adapter/issues/700
+  github 'jruby/activerecord-jdbc-adapter', branch: 'rails-5' do
+    # Pulls activerecord-jdbc-adapter and jdbc-mysql
+    gem 'activerecord-jdbcmysql-adapter'
+    # Add MariaDB driver as well
+    gem 'jdbc-mariadb'
+    # Pulls activerecord-jdbc-adapter and jdbc-postgres
+    gem 'activerecord-jdbcpostgresql-adapter'
+    # Pulls activerecord-jdbc-adapter and jdbc-sqlite3
+    gem 'activerecord-jdbcsqlite3-adapter'
+  end
+else
+  gem 'therubyracer', '~> 0.12.2'
+
+  gem 'sqlite3'
+  gem 'mysql2'
+  gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -14,70 +65,10 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier', '~> 3.2'
 end
 
-gem 'rails', '~> 4.2.1'
-gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
-gem 'jquery-rails', '~> 3.0.4'
-gem 'sprockets-rails', '= 2.3.3'
-gem 'd3_rails', '~> 3.2.8'
-#gem 'twitter-bootstrap-rails', '~> 3.2.0'
-# Version 3.2.1
-gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'dafba608bf07df6826519adcc4f0c9510e8d93b4'
-#gem "js-routes", "~> 1.1"
-gem 'js-routes', :github => 'railsware/js-routes', :ref => 'ad75635e85bdf78016d55f6b5ef02a7c9223be16'
-
-gem 'kaui', '~> 0.15.2'
-#gem 'kaui', :path => '../killbill-admin-ui'
-#gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
-
-gem 'kanaui', '~> 0.5.0'
-#gem 'kanaui', :path => '../killbill-analytics-ui'
-#gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'HEAD'
-
-gem 'killbill-avatax', '~> 0.1.0'
-#gem 'killbill-avatax', :path => '../killbill-avatax-ui'
-#gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
-
-gem 'killbill-kpm', '~> 0.2.0'
-#gem 'killbill-kpm', :path => '../killbill-kpm-ui'
-#gem 'killbill-kpm', :github => 'killbill/killbill-kpm-ui', :ref => 'HEAD'
-
-gem 'killbill-client', '~> 1.3'
-#gem 'killbill-client', :path => '../killbill-client-ruby'
-#gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
-
-if defined?(JRUBY_VERSION)
-  gem 'warbler', '~> 1.4.9'
-
-  gem 'therubyrhino', '~> 2.0.4'
-
-  gem 'activerecord-jdbc-adapter', '~> 1.3.9'
-  gem 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
-  gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.9'
-  gem 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
-  gem 'jdbc-mysql', '~> 5.1.25'
-else
-  gem 'therubyracer', '~> 0.12.2'
-
-  gem 'sqlite3'
-  gem 'mysql2', '0.3.17'
-  gem 'pg'
+group :development do
+  gem 'listen'
+  gem 'puma'
 end
-
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

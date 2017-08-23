@@ -1,21 +1,34 @@
 language: ruby
 
+sudo: required
+cache: bundler
+
+services:
+ - mysql
+
+dist: trusty
+
+before_install:
+  - jdk_switcher use openjdk8
+  - ./.travis-install-dependencies.sh
+
+before_script:
+  - jdk_switcher use $JDK
+  - bundle exec rake db:migrate
+
+script: ./build.sh
+
 notifications:
   email:
     - kill-bill-commits@googlegroups.com
 
+env:
+  global:
+    - RAILS_ENV=test MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='-J-Xmx1024m'
+
 rvm:
-  - jruby-19mode
-  - jruby-20mode
+  - jruby-9.1.12.0
   - jruby-head
-
-jdk:
-  - openjdk6
-  - openjdk7
-  - oraclejdk7
-
-script:
-  - JRUBY_OPTS="-J-Xmx1G" RAILS_ENV=production bundle exec rake
 
 matrix:
   allow_failures:
