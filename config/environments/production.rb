@@ -56,8 +56,10 @@ Rails.application.configure do
   # See https://github.com/killbill/killbill-admin-ui/issues/85
   config.log_level = :info
 
-  # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  # Prepend all log lines with the following tags. With JRuby, this is done through Logback
+  unless KauiStandalone::WITH_LOGBACK
+    config.log_tags = [ :request_id ]
+  end
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store

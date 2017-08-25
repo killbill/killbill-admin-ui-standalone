@@ -46,6 +46,11 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # Prepend all log lines with the following tags. With JRuby, this is done through Logback
+  unless KauiStandalone::WITH_LOGBACK
+    config.log_tags = [ :request_id ]
+  end
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
