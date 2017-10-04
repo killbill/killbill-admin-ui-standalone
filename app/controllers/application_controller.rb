@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  before_action :authenticate_user!, :check_for_redirect_to_tenant_screen
+  before_action :populate_mdc_context, :authenticate_user!, :check_for_redirect_to_tenant_screen
+  after_action :clear_mdc_context
 
   def check_for_redirect_to_tenant_screen
     unless Kaui.is_user_assigned_valid_tenant?(current_user, session)
@@ -22,4 +23,21 @@ class ApplicationController < ActionController::Base
     user_tenant_options
   end
 
+  def populate_mdc_context
+    return unless KauiStandalone::WITH_LOGBACK
+
+    org.slf4j.MDC.put('rails.actionName', "#{controller_name}##{action_name}")
+    org.slf4j.MDC.put('req.xForwardedFor', request.headers['X-Forwarded-For'])
+    org.slf4j.MDC.put('req.requestId', request.request_id)
+    org.slf4j.MDC.put('kb.accountId', params[:account_id])
+    org.slf4j.MDC.put('kb.tenantId', session[:kb_tenant_id])
+  end
+
+  def clear_mdc_context
+    return unless KauiStandalone::WITH_LOGBACK
+
+    %w(rails.actionName req.xForwardedFor req.requestId kb.accountId kb.tenantId).each do |key|
+      org.slf4j.MDC.remove(key)
+    end
+  end
 end
