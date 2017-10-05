@@ -7,6 +7,7 @@ if defined?(JRUBY_VERSION)
   Kaui.demo_mode = ((java.lang.System.getProperty('kaui.demo', 'false') =~ /^true$/i) == 0)
   Kaui.plugins_whitelist = (Kaui.demo_mode ? ['analytics-plugin'] : nil)
   Kaui.root_username = java.lang.System.getProperty('kaui.root_username', 'admin')
+  Kaui.disable_sign_up_link = ((java.lang.System.getProperty('kaui.disable_sign_up_link', 'true') =~ /^true$/i) == 0)
 
   chargeback_reason_codes = java.lang.System.getProperty('kaui.chargeback_reason_codes').to_s.split(',')
   Kaui.chargeback_reason_codes = chargeback_reason_codes unless chargeback_reason_codes.empty?
@@ -39,4 +40,5 @@ else
   Kaui.demo_mode = false
   Kaui.plugins_whitelist = nil
   Kaui.root_username = 'admin'
+  Kaui.disable_sign_up_link = true
 end
