@@ -30,6 +30,9 @@ gem 'killbill-client', '~> 1.3'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
 
+#gem 'kenui', :path => '../killbill-email-notifications-ui'
+gem 'kenui', :git => 'https://github.com/wwjbatista/killbill-email-notifications-ui.git'
+
 gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
 gem 'i18n', '~> 0.8.0'
 

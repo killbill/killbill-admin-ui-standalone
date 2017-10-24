@@ -36,6 +36,12 @@ class MainController < ApplicationController
             :path => payment_test_engine_path,
             :name => 'Payment Test'
         }
+      elsif plugin_info.plugin_name == 'killbill-email-notifications-plugin' && current_user.root?
+        plugins << {
+            :path => kenui_engine_path,
+            :name => 'E-notifications'
+        }
+        Kaui.is_email_notifications_plugin_available = true
       elsif plugin_info.bundle_symbolic_name == 'org.apache.felix.webconsole' && current_user.root?
         plugins << {
             :path => "#{KillBillClient.url}/plugins/system/console/bundles",

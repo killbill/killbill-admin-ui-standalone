@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   mount Avatax::Engine => '/avatax', :as => 'avatax_engine'
   mount KPM::Engine => '/kpm', :as => 'kpm_engine'
   mount PaymentTest::Engine => '/payment_test', :as => 'payment_test_engine'
+  mount Kenui::Engine => '/kenui', :as => 'kenui_engine'
 
   scope '/main' do
     match '/available_engines' => 'main#available_engines', :via => :get, :as => 'available_engines'
