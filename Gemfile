@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.1'
 gem 'jquery-rails', '~> 4.3'
 # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
-gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'c236286b7d6e73affa1597f62fd51e9dbd268f1c'
+#gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'c236286b7d6e73affa1597f62fd51e9dbd268f1c'
+gem 'twitter-bootstrap-rails'
 gem 'sprockets-rails', '~> 3.2'
 
 #gem 'kaui', '~> 0.15'
