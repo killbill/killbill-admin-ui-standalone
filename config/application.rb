@@ -41,6 +41,12 @@ module KauiStandalone
         Kaui.current_tenant_user_options(user, session)
       end
       PaymentTest.layout = Kaui.config[:layout]
+
+      Kenui.current_tenant_user = lambda do |session, user|
+        Kaui.current_tenant_user_options(user, session)
+      end
+      Kenui.layout = Kaui.config[:layout]
+
     end
   end
 end

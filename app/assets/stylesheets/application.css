@@ -23,6 +23,9 @@
  *
  *= require payment_test/payment_test
  *
+ * Kenui
+ *= require kenui/email_notifications
+ *
  * Kaui (needs to be loaded last for overrides)
  *= require kaui/kaui
 */

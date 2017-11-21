@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.1'
 gem 'jquery-rails', '~> 4.3'
 # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
-gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'c236286b7d6e73affa1597f62fd51e9dbd268f1c'
+#gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'c236286b7d6e73affa1597f62fd51e9dbd268f1c'
+gem 'twitter-bootstrap-rails'
 gem 'sprockets-rails', '~> 3.2'
 
 #gem 'kaui', '~> 0.15'
@@ -29,6 +30,9 @@ gem 'killbill-payment-test-ui', :github => 'killbill/killbill-payment-test-ui', 
 gem 'killbill-client', '~> 1.3'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
+
+#gem 'kenui', :path => '../killbill-email-notifications-ui'
+gem 'kenui', :git => 'https://github.com/wwjbatista/killbill-email-notifications-ui.git'
 
 gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
 gem 'i18n', '~> 0.8.0'
