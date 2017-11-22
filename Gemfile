@@ -7,32 +7,33 @@ gem 'jquery-rails', '~> 4.3'
 gem 'twitter-bootstrap-rails'
 gem 'sprockets-rails', '~> 3.2'
 
-#gem 'kaui', '~> 0.15'
+gem 'kaui', '~> 0.16'
 #gem 'kaui', :path => '../killbill-admin-ui'
-gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
+#gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'HEAD'
 
-#gem 'kanaui', '~> 0.5'
+gem 'kanaui', '~> 0.6'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
-gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'HEAD'
+#gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'HEAD'
 
-#gem 'killbill-avatax', '~> 0.1'
+gem 'killbill-avatax', '~> 0.2'
 #gem 'killbill-avatax', :path => '../killbill-avatax-ui'
-gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
+#gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'HEAD'
 
-#gem 'killbill-kpm', '~> 0.2'
+gem 'killbill-kpm', '~> 0.3'
 #gem 'killbill-kpm', :path => '../killbill-kpm-ui'
-gem 'killbill-kpm', :github => 'killbill/killbill-kpm-ui', :ref => 'HEAD'
+#gem 'killbill-kpm', :github => 'killbill/killbill-kpm-ui', :ref => 'HEAD'
 
-#gem 'killbill-payment-test-ui', '~> 0.0'
+#gem 'killbill-payment-test-ui', '~> 0.1'
 #gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
 gem 'killbill-payment-test-ui', :github => 'killbill/killbill-payment-test-ui', :ref => 'HEAD'
 
-gem 'killbill-client', '~> 1.3'
+gem 'kenui', '~> 0.1'
+#gem 'kenui', :path => '../killbill-email-notifications-ui'
+#gem 'kenui', :github => 'killbill/killbill-email-notifications-ui', :ref => 'HEAD'
+
+gem 'killbill-client', '~> 1.11'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'HEAD'
-
-#gem 'kenui', :path => '../killbill-email-notifications-ui'
-gem 'kenui', :git => 'https://github.com/wwjbatista/killbill-email-notifications-ui.git'
 
 gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
 gem 'i18n', '~> 0.8.0'

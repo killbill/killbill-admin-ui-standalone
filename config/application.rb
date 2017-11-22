@@ -3,6 +3,8 @@ require_relative 'boot'
 require 'rails/all'
 
 require 'avatax'
+require 'kanaui'
+require 'kenui'
 require 'kpm'
 require 'payment_test'
 

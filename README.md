@@ -16,7 +16,8 @@ Kill Bill compatibility
 | Kaui version | Kill Bill version |
 | -----------: | ----------------: |
 | 0.7.y        | 0.16.z            |
-| 0.8.y        | 0.18.z            |
+| 0.8.y        | 0.18.z  (Rails 4) |
+| 0.9.y        | 0.18.z  (Rails 5) |
 
 Run
 ---
