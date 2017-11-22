@@ -27,7 +27,7 @@ env:
     - RAILS_ENV=test MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='-J-Xmx1024m'
 
 rvm:
-  - jruby-9.1.12.0
+  - jruby-9.1.14.0
   - jruby-head
 
 matrix:

@@ -41,7 +41,7 @@ We also provide [Docker images](https://hub.docker.com/r/killbill/kaui/).
 Build
 -----
 
-You need at least jruby-9.1.12.0.
+You need at least jruby-9.1.14.0.
 
 To create a self-contained war:
 
