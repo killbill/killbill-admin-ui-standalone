@@ -6,7 +6,7 @@ development:
   password: root
   host: 127.0.0.1
   port: 3306
-  pool: 25
+  pool: 50
   timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
@@ -23,7 +23,7 @@ production:
   encoding: <%= java.lang.System.getProperty('kaui.db.encoding', 'utf8') %>
 <% if adapter == 'sqlite3' %>
   database: <%= java.lang.System.getProperty('kaui.db.database', '/var/tmp/kaui.sqlite3') %>
-  pool: 25
+  pool: 50
   timeout: 5000
 <% else %>
   url: <%= java.lang.System.getProperty('kaui.db.url', 'jdbc:mysql://localhost:3306/kaui') %>
@@ -31,7 +31,7 @@ production:
   password: <%= java.lang.System.getProperty('kaui.db.password', 'root') %>
   host: <%= java.lang.System.getProperty('kaui.db.host') %>
   port: <%= java.lang.System.getProperty('kaui.db.port') %>
-  pool: <%= java.lang.System.getProperty('kaui.db.pool', '25') %>
+  pool: <%= java.lang.System.getProperty('kaui.db.pool', '50') %>
   timeout: <%= java.lang.System.getProperty('kaui.db.timeout', '5000') %>
 <% end %>
 <% else %>
@@ -42,7 +42,7 @@ production:
   password: root
   host: 127.0.0.1
   port: 3306
-  pool: 25
+  pool: 50
   timeout: 5000
 <% end %>
 
