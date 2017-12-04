@@ -44,11 +44,11 @@ if defined?(JRUBY_VERSION)
   gem 'therubyrhino', '~> 2.0.4'
 
   # Releases for Rails 5.1 aren't available yet
-  github 'jruby/activerecord-jdbc-adapter', ref: '37c67328e1d53ce4e33671b65a0f43fac777524c' do
+  github 'jruby/activerecord-jdbc-adapter', ref: '54c94fd4fe74648acc6590841a2f3e59652f85a8' do
     # Pulls activerecord-jdbc-adapter and jdbc-mysql
     gem 'activerecord-jdbcmysql-adapter'
-    # Add MariaDB driver as well
-    gem 'jdbc-mariadb'
+    # We pull in a newer version of the MariaDB driver
+    #gem 'jdbc-mariadb'
     # Pulls activerecord-jdbc-adapter and jdbc-postgres
     gem 'activerecord-jdbcpostgresql-adapter'
     # Pulls activerecord-jdbc-adapter and jdbc-sqlite3
