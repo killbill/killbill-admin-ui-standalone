@@ -6,6 +6,7 @@ gem 'jquery-rails', '~> 4.3'
 #gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'c236286b7d6e73affa1597f62fd51e9dbd268f1c'
 gem 'twitter-bootstrap-rails'
 gem 'sprockets-rails', '~> 3.2'
+gem 'mustache-js-rails'
 
 #gem 'kaui', '~> 0.16'
 #gem 'kaui', :path => '../killbill-admin-ui'
