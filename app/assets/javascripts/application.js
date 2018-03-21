@@ -19,6 +19,7 @@
 //= require d3
 // Avoid loading all locales, just load the core
 //= require bootstrap-datepicker/core
+//= require mustache
 //
 // Kanaui
 //= require js-routes
