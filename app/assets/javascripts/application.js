@@ -38,7 +38,6 @@
 //
 // Kaui (needs to be loaded last for overrides)
 //= require kaui/bootstrap-tweaks
-//= require kaui/validation
 //= require kaui/kaui
 //
 //= require_tree .
