@@ -16,6 +16,7 @@
 //= require twitter/bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require dataTables/extras/dataTables.colVis
 //= require d3
 // Avoid loading all locales, just load the core
 //= require bootstrap-datepicker/core
