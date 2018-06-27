@@ -8,6 +8,9 @@ gem 'twitter-bootstrap-rails'
 gem 'sprockets-rails', '~> 3.2'
 gem 'mustache-js-rails', '~> 0.0.7'
 
+# 1.16 won't work because of https://github.com/jruby/warbler/issues/430
+gem 'bundler', '~> 1.15.3'
+
 gem 'kaui', '~> 1.0'
 #gem 'kaui', :path => '../killbill-admin-ui'
 #gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'work-for-release-0.19.x'
