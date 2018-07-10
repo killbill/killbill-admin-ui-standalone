@@ -16,31 +16,31 @@ gem 'jruby-jars', '~> 9.1.14'
 
 gem 'kaui', '~> 1.0'
 #gem 'kaui', :path => '../killbill-admin-ui'
-#gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'work-for-release-0.19.x'
+#gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'master'
 
 gem 'kanaui', '~> 1.0'
-# gem 'kanaui', :path => '../killbill-analytics-ui'
-# gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'work-for-release-0.19.x'
+#gem 'kanaui', :path => '../killbill-analytics-ui'
+#gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'master'
 
 gem 'killbill-avatax', '~> 1.0'
 #gem 'killbill-avatax', :path => '../killbill-avatax-ui'
-#gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'work-for-release-0.19.x'
+#gem 'killbill-avatax', :github => 'killbill/killbill-avatax-ui', :ref => 'master'
 
 gem 'killbill-kpm-ui', '~> 1.0'
 #gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-#gem 'killbill-kpm-ui', :github => 'killbill/killbill-kpm-ui', :ref => 'work-for-release-0.19.x'
+#gem 'killbill-kpm-ui', :github => 'killbill/killbill-kpm-ui', :ref => 'master'
 
 gem 'killbill-payment-test-ui', '~> 1.0'
 #gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
-#gem 'killbill-payment-test-ui', :github => 'killbill/killbill-payment-test-ui', :ref => 'work-for-release-0.19.x'
+#gem 'killbill-payment-test-ui', :github => 'killbill/killbill-payment-test-ui', :ref => 'master'
 
 gem 'kenui', '~> 1.0'
 #gem 'kenui', :path => '../killbill-email-notifications-ui'
-#gem 'kenui', :github => 'killbill/killbill-email-notifications-ui', :ref => 'work-for-release-0.19.x'
+#gem 'kenui', :github => 'killbill/killbill-email-notifications-ui', :ref => 'master'
 
 gem 'killbill-client', '~> 2.2'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
-#gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'work-for-release-0.19.x'
+#gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'master'
 
 gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
 gem 'i18n', '~> 0.8.0'
