@@ -13,11 +13,12 @@ Release builds are available on [Maven Central](http://search.maven.org/#search%
 Kill Bill compatibility
 -----------------------
 
-| Kaui version | Kill Bill version                |
-| -----------: | -------------------------------: |
-| 0.7.y        | 0.16.z                           |
-| 0.8.y        | 0.18.z  (Rails 4)                |
+| Kaui version | Kill Bill version |
+| -----------: | ----------------: |
+| 0.7.y        | 0.16.z            |
+| 0.8.y        | 0.18.z  (Rails 4) |
 | 0.9.y        | 0.18.z  (Rails 5, where z >= 13) |
+| 1.x.y        | 0.19.z            |
 
 Run
 ---
