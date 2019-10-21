@@ -17,15 +17,11 @@
  *= require dataTables/extras/dataTables.colVis
  *
  * Kanaui
- *= require kanaui/kanaui
  *
  * KPM
- *= require kpm/kpm
  *
- *= require payment_test/payment_test
  *
  * Kenui
- *= require kenui/email_notifications
  *
  * Kaui (needs to be loaded last for overrides)
  *= require kaui/kaui
