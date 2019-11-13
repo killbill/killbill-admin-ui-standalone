@@ -24,10 +24,10 @@
     </appender>
 
     <appender name="MAIN" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGS_DIR:-./logs}/killbill.out</file>
+        <file>${LOGS_DIR:-./logs}/kaui.out</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily -->
-            <fileNamePattern>${LOGS_DIR:-./logs}/killbill-%d{yyyy-MM-dd}.%i.out.gz</fileNamePattern>
+            <fileNamePattern>${LOGS_DIR:-./logs}/kaui-%d{yyyy-MM-dd}.%i.out.gz</fileNamePattern>
             <maxHistory>3</maxHistory>
             <cleanHistoryOnStart>true</cleanHistoryOnStart>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

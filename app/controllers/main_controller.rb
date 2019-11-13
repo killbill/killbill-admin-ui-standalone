@@ -1,7 +1,4 @@
-class MainController < ActionController::Base
-
-  layout Kaui.config[:layout]
-
+class MainController < ApplicationController
 
   def available_engines
     render :json => find_available_plugins
@@ -11,10 +8,6 @@ class MainController < ActionController::Base
 
   def find_available_plugins
     plugins = []
-
-    if ! user_signed_in?
-      return plugins
-    end
 
     nodes_info = KillBillClient::Model::NodesInfo.nodes_info(options_for_klient) || []
     plugins_info = nodes_info.first.plugins_info || []
