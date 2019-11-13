@@ -16,7 +16,6 @@
   -->
 
 <configuration>
-    <property name="LOGS_DIR" value="/var/lib/tomcat/logs" />
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <!-- See http://jira.qos.ch/browse/LOGBACK-262 -->
