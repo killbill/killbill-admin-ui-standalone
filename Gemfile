@@ -38,7 +38,7 @@ gem 'killbill-payment-test-ui', :github => 'killbill/killbill-payment-test-ui', 
 #gem 'kenui', :path => '../killbill-email-notifications-ui'
 gem 'kenui', :github => 'killbill/killbill-email-notifications-ui', :ref => 'work-for-release-0.21.x'
 
-gem 'killbill-client', '~> 3.1.0'
+gem 'killbill-client', '~> 3.2.0'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'master'
 
