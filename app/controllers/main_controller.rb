@@ -26,7 +26,7 @@ class MainController < ApplicationController
             :path => avatax_engine_path,
             :name => 'Avatax'
         }
-      elsif plugin_info.plugin_name == 'killbill-kpm' && current_user.root?
+      elsif plugin_info.plugin_name == 'org.kill-bill.billing.killbill-platform-osgi-bundles-kpm' && current_user.root?
         plugins << {
             :path => kpm_engine_path,
             :name => 'KPM'
