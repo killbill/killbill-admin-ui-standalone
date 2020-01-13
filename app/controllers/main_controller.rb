@@ -41,11 +41,6 @@ class MainController < ApplicationController
             :path => kenui_engine_path,
             :name => 'E-notifications'
         }
-      elsif plugin_info.bundle_symbolic_name == 'org.apache.felix.webconsole' && current_user.root?
-        plugins << {
-            :path => "#{KillBillClient.url}/plugins/system/console/bundles",
-            :name => 'OSGI Web Console'
-        }
       end
     end
 
