@@ -26,7 +26,7 @@ class MainController < ApplicationController
             :path => avatax_engine_path,
             :name => 'Avatax'
         }
-      elsif plugin_info.plugin_name == 'killbill-kpm' && current_user.root?
+      elsif plugin_info.plugin_name == 'org.kill-bill.billing.killbill-platform-osgi-bundles-kpm' && current_user.root?
         plugins << {
             :path => kpm_engine_path,
             :name => 'KPM'
@@ -40,11 +40,6 @@ class MainController < ApplicationController
         plugins << {
             :path => kenui_engine_path,
             :name => 'E-notifications'
-        }
-      elsif plugin_info.bundle_symbolic_name == 'org.apache.felix.webconsole' && current_user.root?
-        plugins << {
-            :path => "#{KillBillClient.url}/plugins/system/console/bundles",
-            :name => 'OSGI Web Console'
         }
       end
     end
