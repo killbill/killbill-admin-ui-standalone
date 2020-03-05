@@ -12,6 +12,13 @@ class MainController < ApplicationController
     nodes_info = KillBillClient::Model::NodesInfo.nodes_info(options_for_klient) || []
     plugins_info = nodes_info.first.plugins_info || []
 
+
+    #
+    # Convention for the artifactId which is used for the filesystem install path and later reflected in the `plugin_name` is
+    # <plugin_key>-plugin (e.g plugin_key='avatax' => plugin_name = 'avatax-plugin')
+    #
+    # Note that convention is broken for 'email-notifications' : plugin_key = 'email-notifications' => artifact_id = 'killbill-email-notifications-plugin'
+    #
     plugins_info.each do |plugin_info|
       next unless plugin_info.state == 'RUNNING'
       next unless Kaui.plugins_whitelist.nil? || Kaui.plugins_whitelist.include?(plugin_info.plugin_name)
@@ -31,7 +38,7 @@ class MainController < ApplicationController
             :path => kpm_engine_path,
             :name => 'KPM'
         }
-      elsif plugin_info.plugin_name == 'killbill-payment-test' && current_user.root?
+      elsif plugin_info.plugin_name == 'payment-test-plugin' && current_user.root?
         plugins << {
             :path => payment_test_engine_path,
             :name => 'Payment Test'
