@@ -9,7 +9,7 @@ gem 'sprockets-rails', '~> 3.2'
 gem 'mustache-js-rails', '~> 0.0.7'
 
 # Workarounds for https://github.com/jruby/warbler/issues/430
-# bundler must be < 1.16
+# bundler must be < 1.16 (e.g. use bundle _1.15.3_ install)
 gem 'bundler', '~> 1.15.3'
 # jruby-jars must be < 9.2
 gem 'jruby-jars', '~> 9.1.14'
