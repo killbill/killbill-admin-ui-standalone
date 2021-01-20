@@ -15,7 +15,7 @@ echo 'version: '$VERSION > version.yml
 
 export RAILS_ENV=production
 
-BUNDLE="bundle exec"
+BUNDLE="bundle _1.15.3_ exec"
 RAILS="./bin/rails"
 
 $RAILS assets:clobber log:clear tmp:clear
