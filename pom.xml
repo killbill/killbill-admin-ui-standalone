@@ -17,12 +17,11 @@
   ~ License for the specific language governing permissions and limitations
   ~ under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kill-bill.billing.kaui</groupId>
     <artifactId>kaui-standalone</artifactId>
-    <version>2.0.6-SNAPSHOT</version>
+    <version>2.0.6</version>
     <packaging>pom</packaging>
     <name>killbill-admin-ui-standalone</name>
     <description>Standalone Kaui</description>
@@ -59,7 +58,8 @@
         <connection>scm:git:git://github.com/pierre/killbill-admin-ui-standalone.git</connection>
         <url>https://github.com/killbill/killbill-admin-ui-standalone/</url>
         <developerConnection>scm:git:git@github.com:killbill/killbill-admin-ui-standalone.git</developerConnection>
-    </scm>
+      <tag>kaui-standalone-2.0.6</tag>
+  </scm>
     <issueManagement>
         <system>Github</system>
         <url>https://github.com/killbill/killbill-admin-ui-standalone/issues</url>
