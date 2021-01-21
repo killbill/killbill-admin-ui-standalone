@@ -43,6 +43,7 @@ jobs:
           ruby-version: 'jruby-9.1.17.0'
       - name: Download Ruby dependencies
         run: |
+          gem uninstall bundler -a
           gem install bundler --version 1.15.3
           bundle _1.15.3_ install
       - name: Configure Sonatype mirror
