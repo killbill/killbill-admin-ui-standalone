@@ -15,4 +15,6 @@ Warbler::Config.new do |config|
   config.java_classes = FileList["logback.xml"]
 
   config.webxml.jruby.rack.logging = 'slf4j'
+
+  config.jar_name = 'killbill-admin-ui-standalone'
 end
