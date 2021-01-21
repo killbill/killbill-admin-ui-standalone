@@ -55,7 +55,7 @@
         </mailingList>
     </mailingLists>
     <scm>
-        <connection>scm:git:git://github.com/pierre/killbill-admin-ui-standalone.git</connection>
+        <connection>scm:git:git://github.com/killbill/killbill-admin-ui-standalone.git</connection>
         <url>https://github.com/killbill/killbill-admin-ui-standalone/</url>
         <developerConnection>scm:git:git@github.com:killbill/killbill-admin-ui-standalone.git</developerConnection>
       <tag>HEAD</tag>
