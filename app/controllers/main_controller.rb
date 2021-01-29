@@ -10,8 +10,7 @@ class MainController < ApplicationController
     plugins = []
 
     nodes_info = KillBillClient::Model::NodesInfo.nodes_info(options_for_klient) || []
-    plugins_info = nodes_info.first.plugins_info || []
-
+    plugins_info = nodes_info.empty? ? [] : (nodes_info.first.plugins_info || [])
 
     #
     # Convention for the artifactId which is used for the filesystem install path and later reflected in the `plugin_name` is
