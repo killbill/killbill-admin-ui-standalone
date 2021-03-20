@@ -9,6 +9,10 @@ require 'deposit'
 require 'kpm'
 require 'payment_test'
 
+if ENV["KAUI_ADDITIONAL_ENGINES"].present?
+  ENV["KAUI_ADDITIONAL_ENGINES"].split(',').each { |e| require e }
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
