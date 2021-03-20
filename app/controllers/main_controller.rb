@@ -47,6 +47,11 @@ class MainController < ApplicationController
             :path => kenui_engine_path,
             :name => 'E-notifications'
         }
+      elsif plugin_info.plugin_name == 'deposit-plugin'
+        plugins << {
+            :path => deposit_engine_path,
+            :name => 'Deposit'
+        }
       end
     end
 

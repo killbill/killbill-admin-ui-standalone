@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   mount KPM::Engine => '/kpm', :as => 'kpm_engine'
   mount PaymentTest::Engine => '/payment_test', :as => 'payment_test_engine'
   mount Kenui::Engine => '/kenui', :as => 'kenui_engine'
+  mount Deposit::Engine => '/deposit', :as => 'deposit_engine'
 
   scope '/main' do
     match '/available_engines' => 'main#available_engines', :via => :get, :as => 'available_engines'

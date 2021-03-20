@@ -5,6 +5,7 @@ require 'rails/all'
 require 'avatax'
 require 'kanaui'
 require 'kenui'
+require 'deposit'
 require 'kpm'
 require 'payment_test'
 
@@ -48,6 +49,11 @@ module KauiStandalone
         Kaui.current_tenant_user_options(user, session)
       end
       Kenui.layout = Kaui.config[:layout]
+
+      Deposit.current_tenant_user = lambda do |session, user|
+        Kaui.current_tenant_user_options(user, session)
+      end
+      Deposit.layout = Kaui.config[:layout]
 
     end
   end

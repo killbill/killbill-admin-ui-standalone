@@ -37,6 +37,9 @@
 // payment_test
 //= require payment_test/payment_test
 //
+// Deposit
+//= require deposit/deposit
+//
 // Kaui (needs to be loaded last for overrides)
 //= require kaui/bootstrap-tweaks
 //= require kaui/kaui
