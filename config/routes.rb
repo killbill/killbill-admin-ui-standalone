@@ -3,6 +3,8 @@ KauiStandalone::Application.routes.default_url_options = {script_name: ActionCon
 
 Rails.application.routes.draw do
 
+  root :to => (ENV["KAUI_ROOT"].present? ? ENV["KAUI_ROOT"] : 'home#index')
+
   # We mount KAUI as root, since this is the primary engine
   mount Kaui::Engine => '/', :as => 'kaui_engine'
 
@@ -16,6 +18,4 @@ Rails.application.routes.draw do
   scope '/main' do
     match '/available_engines' => 'main#available_engines', :via => :get, :as => 'available_engines'
   end
-
-  root :to => 'home#index'
 end
