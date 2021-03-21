@@ -5,8 +5,13 @@ require 'rails/all'
 require 'avatax'
 require 'kanaui'
 require 'kenui'
+require 'deposit'
 require 'kpm'
 require 'payment_test'
+
+if ENV["KAUI_ADDITIONAL_ENGINES"].present?
+  ENV["KAUI_ADDITIONAL_ENGINES"].split(',').each { |e| require e }
+end
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -48,6 +53,11 @@ module KauiStandalone
         Kaui.current_tenant_user_options(user, session)
       end
       Kenui.layout = Kaui.config[:layout]
+
+      Deposit.current_tenant_user = lambda do |session, user|
+        Kaui.current_tenant_user_options(user, session)
+      end
+      Deposit.layout = Kaui.config[:layout]
 
     end
   end

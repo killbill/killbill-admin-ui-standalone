@@ -27,6 +27,9 @@
  * Kenui
  *= require kenui/email_notifications
  *
+ * Deposit
+ *= require deposit/deposit
+ *
  * Kaui (needs to be loaded last for overrides)
  *= require kaui/kaui
 */
