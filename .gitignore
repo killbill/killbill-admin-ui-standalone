@@ -83,6 +83,7 @@ pom.xml.releaseBackup
 pom.xml.tag
 release.properties
 Gemfile.lock
+Gemfile.overlay
 .ruby-version
 .idea
 target

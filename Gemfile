@@ -85,3 +85,8 @@ group :development do
   gem 'listen'
   gem 'puma'
 end
+
+# Add additional gem dependencies if needed
+if File.exist?('Gemfile.overlay')
+  instance_eval File.read('Gemfile.overlay')
+end
