@@ -67,7 +67,8 @@ else
 
   gem 'sqlite3'
   gem 'mysql2', '~> 0.4.10'
-  gem 'pg'
+  # https://github.com/rails/rails/issues/31673
+  gem 'pg', '~> 0.21'
 end
 
 # Gems used only for assets and not required
