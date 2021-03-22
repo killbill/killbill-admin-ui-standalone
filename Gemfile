@@ -14,9 +14,9 @@ gem 'bundler', '~> 1.15.3'
 # jruby-jars must be < 9.2
 gem 'jruby-jars', '~> 9.1.14'
 
-gem 'kaui', '~> 2.0.2'
+#gem 'kaui', '~> 2.0.2'
 #gem 'kaui', :path => '../killbill-admin-ui'
-#gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'work-for-release-0.21.x'
+gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'customization'
 
 gem 'kanaui', '~> 2.0'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
