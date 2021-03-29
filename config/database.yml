@@ -19,11 +19,11 @@ development: &default
 <% else %>
   adapter: mysql2
   encoding: utf8
-  database: kaui
-  username: root
-  password: root
-  host: 127.0.0.1
-  port: 3306
+  database: <%= ENV['RAILS_DATABASE'] || 'kaui' %>
+  username: <%= ENV['RAILS_DATABASE_USERNAME'] || 'root' %>
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] || 'root' %>
+  host: <%= ENV['RAILS_DATABASE_HOST'] || '127.0.0.1' %>
+  port: <%= ENV['RAILS_DATABASE_PORT'] || 3306 %>
   pool: 50
   timeout: 5000
 <% end %>
