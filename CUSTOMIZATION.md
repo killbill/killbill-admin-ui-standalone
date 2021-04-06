@@ -39,6 +39,9 @@ module Kaui
 
   self.home_path = lambda { '/acme' }
 
+  # Custom partial to render bundle details
+  self.bundle_details_partial = 'acme/bundles/bundle_details'
+
   # Account identifier in the nav bar
   self.pretty_account_identifier = lambda { |account| account.name }
 
