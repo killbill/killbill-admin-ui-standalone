@@ -18,9 +18,9 @@ gem 'jruby-jars', '~> 9.1.14'
 #gem 'kaui', :path => '../killbill-admin-ui'
 gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'customization'
 
-gem 'kanaui', '~> 2.0'
+#gem 'kanaui', '~> 2.0'
 #gem 'kanaui', :path => '../killbill-analytics-ui'
-#gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'work-for-release-0.21.x'
+gem 'kanaui', :github => 'killbill/killbill-analytics-ui', :ref => 'trino-support'
 
 gem 'killbill-avatax', '~> 2.0'
 #gem 'killbill-avatax', :path => '../killbill-avatax-ui'
