@@ -21,6 +21,11 @@ module Acme
         Kaui.current_tenant_user_options(user, session)
       end
     end
+    initializer('local_helper.action_controller') do
+      ActiveSupport.on_load :action_controller do
+        helper Acme::ApplicationHelper
+      end
+    end
   end
 end
 ```
