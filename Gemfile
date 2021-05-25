@@ -54,6 +54,8 @@ if defined?(JRUBY_VERSION)
 
   gem 'therubyrhino', '~> 2.0.4'
 
+  gem 'nio4r', '2.5.2', :platforms => :jruby
+
   # Pulls activerecord-jdbc-adapter and jdbc-mysql
   gem 'activerecord-jdbcmysql-adapter', '~> 51.1', :platforms => :jruby
   # We pull in a newer version of the MariaDB driver
@@ -85,6 +87,11 @@ end
 group :development do
   gem 'listen'
   gem 'puma'
+end
+
+group :test do
+  # https://github.com/seattlerb/minitest/issues/689
+  gem 'minitest', '5.10.1'
 end
 
 # Add additional gem dependencies if needed
