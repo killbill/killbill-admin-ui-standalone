@@ -42,7 +42,7 @@ gem 'killbill-deposit', '~> 0.0'
 #gem 'killbill-deposit', :path => '../killbill-deposit-ui'
 #gem 'killbill-deposit', :github => 'killbill/killbill-deposit-ui', :ref => 'main'
 
-gem 'killbill-client', '~> 3.2'
+gem 'killbill-client', '~> 3.3'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'master'
 
