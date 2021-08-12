@@ -37,8 +37,8 @@ if defined?(JRUBY_VERSION)
   # See https://github.com/killbill/killbill-admin-ui-standalone/issues/16
   warn("System property java.security.egd has not been set, this may cause some requests to hang because of a lack of entropy. You should probably set it to 'file:/dev/./urandom'") unless securerandom_configured
 else
-  Kaui.demo_mode = false
-  Kaui.plugins_whitelist = nil
-  Kaui.root_username = 'admin'
-  Kaui.disable_sign_up_link = true
+  Kaui.demo_mode = ENV['KAUI_DEMO_MODE'] || false
+  Kaui.plugins_whitelist = ENV['KAUI_PLUGINS_WHITELIST']
+  Kaui.root_username = ENV['KAUI_ROOT_USERNAME'] || 'admin'
+  Kaui.disable_sign_up_link = ENV['KAUI_DISABLE_SIGN_UP_LINK'] || true
 end
