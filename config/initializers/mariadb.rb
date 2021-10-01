@@ -16,7 +16,7 @@ module Jdbc
       'org.mariadb.jdbc.Driver'
     end
 
-    if defined?(JRUBY_VERSION) && java.lang.System.getProperty('kaui.db.adapter') == 'mariadb'
+    if defined?(JRUBY_VERSION) && java.lang.System.getProperty('kaui.db.adapter', ENV['KAUI_DB_ADAPTER']) == 'mariadb'
       warn "autoloading JDBC driver on require 'jdbc/mariadb'" if $VERBOSE
       load_driver :require
     end
