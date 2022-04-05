@@ -37,7 +37,7 @@ jobs:
             database-password: 'postgres'
             database-port: '5432'
             docker-compose-file: 'docker-compose.ci.postgresql.yml'
-          - ruby-version: 'jruby-9.1.17.0'
+          - ruby-version: 'jruby-9.3.4.0'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'
@@ -45,7 +45,15 @@ jobs:
             docker-compose-file: 'docker-compose.ci.postgresql.yml'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
+        with:
+          persist-credentials: false
+      - name: Set up JDK
+        uses: actions/setup-java@v2.5.0
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          #cache: 'maven'
       - name: Configure Ruby
         uses: ruby/setup-ruby@v1
         with:
