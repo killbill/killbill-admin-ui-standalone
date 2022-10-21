@@ -4,7 +4,7 @@ gem 'rails', '5.2'
 gem 'jquery-rails', '~> 4.3'
 # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
 #gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'c236286b7d6e73affa1597f62fd51e9dbd268f1c'
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap', '~> 5.2.2'
 gem 'sprockets-rails', '~> 3.2'
 gem 'mustache-js-rails', '~> 0.0.7'
 
@@ -14,8 +14,8 @@ gem 'bundler', '~> 1.15.3'
 # jruby-jars must be < 9.2
 gem 'jruby-jars', '~> 9.1.14'
 
-gem 'kaui', '~> 2.1'
-#gem 'kaui', :path => '../killbill-admin-ui'
+#gem 'kaui', '~> 2.1'
+gem 'kaui', :path => '/Users/mark/github/killbill-admin-ui'
 #gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'work-for-release-0.21.x'
 
 gem 'kanaui', '~> 2.1'
