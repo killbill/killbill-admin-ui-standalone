@@ -18,6 +18,7 @@ class MainController < ApplicationController
     #
     # Note that convention is broken for 'email-notifications' : plugin_key = 'email-notifications' => artifact_id = 'killbill-email-notifications-plugin'
     #
+
     plugins_info.each do |plugin_info|
       next unless plugin_info.state == 'RUNNING'
       next unless Kaui.plugins_whitelist.nil? || Kaui.plugins_whitelist.include?(plugin_info.plugin_name)

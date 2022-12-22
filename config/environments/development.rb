@@ -27,6 +27,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -44,7 +45,7 @@ Rails.application.configure do
   config.assets.debug = true
 
   # Suppress logger output for asset requests.
-  config.assets.quiet = true
+  config.assets.quiet = false
 
   # Prepend all log lines with the following tags. With JRuby, this is done through Logback
   unless KauiStandalone::WITH_LOGBACK

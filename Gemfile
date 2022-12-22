@@ -1,14 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.8.1'
-gem 'jquery-rails'
+gem 'rails', '~> 6.0.6'
+gem 'js-routes'
 
 # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
 # gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails', :ref => 'c236286b7d6e73affa1597f62fd51e9dbd268f1c'
 
-gem 'bootstrap'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
+gem 'sprockets'
 gem 'sprockets-rails'
 gem 'mustache-js-rails'
+gem 'popper_js', '~> 2.11.5'
+gem 'bootstrap-datepicker-rails'
+gem 'font-awesome-sass'
 
 # Workarounds for https://github.com/jruby/warbler/issues/430
 # bundler must be < 1.16 (e.g. use bundle _1.15.3_ install)
@@ -19,7 +25,7 @@ gem 'bundler'
 gem 'jruby-jars'
 
 # gem 'kaui', '~> 2.1'
-gem 'kaui', :path => '../killbill-admin-ui-two'
+gem 'kaui', :path => '../killbill-admin-ui'
 # gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'work-for-release-0.21.x'
 
 # gem 'kanaui', '2.1'
@@ -30,13 +36,13 @@ gem 'kanaui', :github => 'kpbacode/killbill-analytics-ui', :ref => 'master'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
 gem 'killbill-avatax', :github => 'kpbacode/killbill-avatax-ui', :ref => 'master'
 
-gem 'killbill-kpm-ui', '~> 2.0'
+# gem 'killbill-kpm-ui', '~> 2.0'
 # gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-# gem 'killbill-kpm-ui', :github => 'killbill/killbill-kpm-ui', :ref => 'work-for-release-0.21.x'
+gem 'killbill-kpm-ui', :github => 'kpbacode/killbill-kpm-ui', :ref => 'master'
 
-gem 'killbill-payment-test-ui', '~> 2.0'
+#gem 'killbill-payment-test-ui', '~> 2.0'
 # gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
-# gem 'killbill-payment-test-ui', :github => 'killbill/killbill-payment-test-ui', :ref => 'work-for-release-0.21.x'
+gem 'killbill-payment-test-ui', :github => 'kpbacode/killbill-payment-test-ui', :ref => 'master'
 
 # gem 'kenui', '~> 2.0'
 gem 'kenui', :path => '../killbill-email-notifications-ui'
@@ -99,3 +105,5 @@ end
 if File.exist?('Gemfile.overlay')
   instance_eval File.read('Gemfile.overlay')
 end
+
+gem "importmap-rails", "~> 1.1"
