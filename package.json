@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jquery": "^3.6.3",
+    "spin.js": "^4.1.1"
+  }
+}

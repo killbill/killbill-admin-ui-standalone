@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 6.0.6'
+gem 'rails', '~> 6.1.7'
 gem 'js-routes'
 
 # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
@@ -57,7 +57,7 @@ gem 'killbill-client', '~> 3.3'
 # gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'master'
 
 gem 'tzinfo-data', '~> 1.2016', '>= 1.2016.3'
-gem 'i18n', '~> 0.8.0'
+gem 'i18n'
 
 if defined?(JRUBY_VERSION)
   gem 'warbler', '~> 2.0.0'
@@ -106,4 +106,3 @@ if File.exist?('Gemfile.overlay')
   instance_eval File.read('Gemfile.overlay')
 end
 
-gem "importmap-rails", "~> 1.1"

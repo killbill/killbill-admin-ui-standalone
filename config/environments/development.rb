@@ -5,6 +5,7 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  config.active_record.migration_error = false
 
   # Eager load code on boot. This is required to work-around an obscure bug
   # where Kaui::AccountEmail isn't loading (hangs) in the lambda of AccountsController#show

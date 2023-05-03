@@ -12,7 +12,10 @@
 //
 // Common (order matters)
 //= require jquery
-//= require jquery_ujs
+//= require popper
+//= require jquery-ui
+//= require spin
+//= require jquery.spin
 //= require bootstrap-sprockets
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
@@ -21,16 +24,15 @@
 // Avoid loading all locales, just load the core
 //= require bootstrap-datepicker/core
 //= require mustache
-//
+
+
 // Kanaui
 //= require js-routes
 // Required by log4javascript
 //= require jquery-ui/widgets/autocomplete
 //= require log4javascript
-//= require spin
-//= require jquery.spin
 //= require kanaui/kanaui
-//
+
 // KPM
 //= require kpm/kpm
 //
@@ -41,7 +43,5 @@
 //= require deposit/deposit
 //
 // Kaui (needs to be loaded last for overrides)
-//= require kaui/bootstrap-tweaks
 //= require kaui/kaui
-//
 //= require_tree .
