@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 6.1'
 gem 'js-routes'
 
 # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
