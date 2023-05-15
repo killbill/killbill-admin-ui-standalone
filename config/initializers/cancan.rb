@@ -1,2 +1,2 @@
-class Ability < Kaui::Ability
-end
+# class Ability < Kaui::Ability
+# end

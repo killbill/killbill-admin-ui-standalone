@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 7.0'
 gem 'js-routes'
 
 # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
@@ -15,6 +15,7 @@ gem 'mustache-js-rails'
 gem 'popper_js', '~> 2.11.5'
 gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass'
+gem 'cancancan'
 
 # Workarounds for https://github.com/jruby/warbler/issues/430
 # bundler must be < 1.16 (e.g. use bundle _1.15.3_ install)
@@ -25,7 +26,7 @@ gem 'bundler'
 gem 'jruby-jars'
 
 # gem 'kaui', '~> 2.1'
-gem 'kaui', :path => '../killbill-admin-ui'
+gem 'kaui', :path => '../killbill-admin-ui', :ref => 'master'
 # gem 'kaui', :github => 'killbill/killbill-admin-ui', :ref => 'work-for-release-0.21.x'
 
 # gem 'kanaui', '2.1'
