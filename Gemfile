@@ -45,7 +45,8 @@ gem 'i18n'
 gem 'tzinfo-data'
 
 if defined?(JRUBY_VERSION)
-  gem 'warbler'
+  # See https://github.com/jruby/warbler/issues/508
+  gem 'warbler', github: 'jruby/warbler', branch: 'master'
 
   gem 'therubyrhino'
 

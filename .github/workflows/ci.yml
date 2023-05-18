@@ -144,3 +144,25 @@ jobs:
           docker logs -t --details it_killbill_1 || true
           echo "[DEBUG] db logs"
           docker logs -t --details it_db_1 || true
+
+  build-war:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      - name: Set up JDK
+        uses: actions/setup-java@v2.5.0
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          #cache: 'maven'
+      - name: Configure Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 'jruby-9.4.2.0'
+          bundler-cache: true
+      - name: Build war
+        run: |
+          ./build.sh
