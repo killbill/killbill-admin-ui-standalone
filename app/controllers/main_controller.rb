@@ -1,7 +1,8 @@
-class MainController < ApplicationController
+# frozen_string_literal: true
 
+class MainController < ApplicationController
   def available_engines
-    render :json => find_available_plugins
+    render json: find_available_plugins
   end
 
   private
@@ -24,38 +25,37 @@ class MainController < ApplicationController
 
       if plugin_info.plugin_name == 'analytics-plugin'
         plugins << {
-            :path => kanaui_engine_path,
-            :name => 'Analytics'
+          path: kanaui_engine_path,
+          name: 'Analytics'
         }
       elsif plugin_info.plugin_name == 'avatax-plugin'
         plugins << {
-            :path => avatax_engine_path,
-            :name => 'Avatax'
+          path: avatax_engine_path,
+          name: 'Avatax'
         }
       elsif plugin_info.plugin_name == 'org.kill-bill.billing.killbill-platform-osgi-bundles-kpm' && current_user.root?
         plugins << {
-            :path => kpm_engine_path,
-            :name => 'KPM'
+          path: kpm_engine_path,
+          name: 'KPM'
         }
       elsif plugin_info.plugin_name == 'payment-test-plugin' && current_user.root?
         plugins << {
-            :path => payment_test_engine_path,
-            :name => 'Payment Test'
+          path: payment_test_engine_path,
+          name: 'Payment Test'
         }
       elsif plugin_info.plugin_name.include?('killbill-email-notifications') && current_user.root?
         plugins << {
-            :path => kenui_engine_path,
-            :name => 'E-notifications'
+          path: kenui_engine_path,
+          name: 'E-notifications'
         }
       elsif plugin_info.plugin_name == 'deposit-plugin'
         plugins << {
-            :path => deposit_engine_path,
-            :name => 'Deposit'
+          path: deposit_engine_path,
+          name: 'Deposit'
         }
       end
     end
 
     plugins
   end
-
 end

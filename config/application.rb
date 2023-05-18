@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -9,17 +11,22 @@ require 'deposit'
 require 'kpm'
 require 'payment_test'
 
-if ENV["KAUI_ADDITIONAL_ENGINES"].present?
-  ENV["KAUI_ADDITIONAL_ENGINES"].split(',').each { |e| require e }
-end
+ENV['KAUI_ADDITIONAL_ENGINES'].split(',').each { |e| require e } if ENV['KAUI_ADDITIONAL_ENGINES'].present?
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module KauiStandalone
-
-  WITH_LOGBACK = defined?(JRUBY_VERSION) && (org.slf4j.MDC rescue false) ? true : false
+  WITH_LOGBACK = if defined?(JRUBY_VERSION) && begin
+    org.slf4j.MDC
+  rescue StandardError
+    false
+  end
+                   true
+                 else
+                   false
+                 end
 
   class Application < Rails::Application
     config.load_defaults 7.0
@@ -65,7 +72,6 @@ module KauiStandalone
         Kaui.current_tenant_user_options(user, session)
       end
       Deposit.layout = Kaui.config[:layout]
-
     end
   end
 end

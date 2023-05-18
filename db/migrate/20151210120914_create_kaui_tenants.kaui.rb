@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from kaui (originally 20150109214021)
 class CreateKauiTenants < ActiveRecord::Migration[5.0]
   def change

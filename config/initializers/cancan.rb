@@ -1,7 +1,4 @@
-module Kaui
-  class Ability
-  end
-end
+# frozen_string_literal: true
 
 class Ability < Kaui::Ability
 end
