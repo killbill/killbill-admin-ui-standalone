@@ -13,7 +13,6 @@
 // Common (order matters)
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require dataTables/extras/dataTables.colVis
@@ -41,7 +40,6 @@
 //= require deposit/deposit
 //
 // Kaui (needs to be loaded last for overrides)
-//= require kaui/bootstrap-tweaks
 //= require kaui/kaui
 //
 //= require_tree .
