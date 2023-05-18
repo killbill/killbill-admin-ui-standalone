@@ -10,7 +10,6 @@
  *
  * Common
  *= require font-awesome
- *= require bootstrap_and_overrides
  *= require bootstrap-datepicker3
  *= require dataTables/jquery.dataTables
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap

@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Checkout code
         if: github.event.inputs.perform_version == ''
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Checkout full repository
         # Required when performing an existing release.
         if: github.event.inputs.perform_version != ''
@@ -34,18 +34,15 @@ jobs:
           git config --global user.name "Kill Bill core team"
           git config --global url."https://${BUILD_USER}:${BUILD_TOKEN}@github.com/".insteadOf "git@github.com:"
       - name: Configure Java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2.5.0
         with:
-          java-version: 8
+          java-version: '11'
+          distribution: 'temurin'
       - name: Configure Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 'jruby-9.1.17.0'
-      - name: Download Ruby dependencies
-        run: |
-          gem uninstall bundler -a
-          gem install bundler --version 1.15.3
-          bundle _1.15.3_ install
+          ruby-version: 'jruby-9.4.2.0'
+          bundler-cache: true
       - name: Configure Sonatype mirror
         uses: s4u/maven-settings-action@v2.3.0
         # Go to Sonatype directly to avoid delay syncs (could get rid of this if actions/setup-java were to support mirrors).
@@ -58,7 +55,7 @@ jobs:
       - name: Configure settings.xml for release
         uses: actions/setup-java@v1
         with:
-          java-version: 8
+          java-version: 11
           server-id: ossrh-releases
           server-username: OSSRH_USER
           server-password: OSSRH_PASS

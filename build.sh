@@ -14,8 +14,10 @@ VERSION=`grep -E '<version>([0-9]+\.[0-9]+\.[0-9]+)</version>' pom.xml | sed 's/
 echo 'version: '$VERSION > version.yml
 
 export RAILS_ENV=production
+export SECRET_KEY_BASE=$(head -c 1024 /dev/urandom | base64 | tr -cd "[:upper:][:digit:]" | head -c 129)
+chmod 600 config/keys/dummy_production.key
 
-BUNDLE="bundle _1.15.3_ exec"
+BUNDLE="bundle exec"
 RAILS="./bin/rails"
 
 $RAILS assets:clobber log:clear tmp:clear

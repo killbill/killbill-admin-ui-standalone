@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Configure Kaui Preferences
 module Kaui
   mattr_accessor :plugins_whitelist
@@ -25,7 +27,7 @@ if defined?(JRUBY_VERSION)
   securerandom_configured = false
   java.lang.System.getProperties.each do |k, v|
     if k =~ /kaui\.gateway\.([\w-]+).url/
-      plugin_name = $1
+      plugin_name = Regexp.last_match(1)
       plugin_url = v
 
       Kaui.gateways_urls[plugin_name] = plugin_url
@@ -39,16 +41,16 @@ if defined?(JRUBY_VERSION)
 end
 
 Kaui.demo_mode ||= (ENV['KAUI_DEMO_MODE'] || 'false') == 'true'
-Kaui.plugins_whitelist ||= ENV['KAUI_PLUGINS_WHITELIST']
+Kaui.plugins_whitelist ||= ENV.fetch('KAUI_PLUGINS_WHITELIST', nil)
 Kaui.root_username ||= (ENV['KAUI_ROOT_USERNAME'] || 'admin')
 Kaui.disable_sign_up_link ||= (ENV['KAUI_DISABLE_SIGN_UP_LINK'] || 'true') == 'true'
 
-chargeback_reason_codes ||= ENV['KAUI_CHARGEBACK_REASON_CODES']
-credit_reason_codes ||= ENV['KAUI_CREDIT_REASON_CODES']
-invoice_item_reason_codes ||= ENV['KAUI_INVOICE_ITEM_REASON_CODES']
-invoice_payment_reason_codes ||= ENV['KAUI_INVOICE_PAYMENT_REASON_CODES']
-payment_reason_codes ||= ENV['KAUI_PAYMENT_REASON_CODES']
-refund_reason_codes ||= ENV['KAUI_REFUND_REASON_CODES']
+chargeback_reason_codes ||= ENV.fetch('KAUI_CHARGEBACK_REASON_CODES', nil)
+credit_reason_codes ||= ENV.fetch('KAUI_CREDIT_REASON_CODES', nil)
+invoice_item_reason_codes ||= ENV.fetch('KAUI_INVOICE_ITEM_REASON_CODES', nil)
+invoice_payment_reason_codes ||= ENV.fetch('KAUI_INVOICE_PAYMENT_REASON_CODES', nil)
+payment_reason_codes ||= ENV.fetch('KAUI_PAYMENT_REASON_CODES', nil)
+refund_reason_codes ||= ENV.fetch('KAUI_REFUND_REASON_CODES', nil)
 
 Kaui.chargeback_reason_codes = chargeback_reason_codes.to_s.split(',') unless chargeback_reason_codes.blank?
 Kaui.credit_reason_codes = credit_reason_codes.to_s.split(',') unless credit_reason_codes.blank?

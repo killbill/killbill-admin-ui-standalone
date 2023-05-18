@@ -87,3 +87,6 @@ Gemfile.overlay
 .ruby-version
 .idea
 target
+
+app/assets/javascripts/routes.js
+app/assets/javascripts/routes.d.ts
