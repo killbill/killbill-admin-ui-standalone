@@ -36,7 +36,7 @@ test:
 <% adapter = java.lang.System.getProperty('kaui.db.adapter', ENV['DB_ADAPTER'] || 'mariadb') %>
   adapter: <%= adapter %>
 <% if adapter == 'mariadb' %>
-  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['DB_URL'] || 'jdbc:mariadb://localhost:3306/kaui?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
+  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['DB_URL'] || 'jdbc:mariadb://localhost:3306/kaui_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
 <% end %>
 <% else %>
   adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
