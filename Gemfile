@@ -37,9 +37,9 @@ gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'master'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
 gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
 
-gem 'killbill-client', '~> 3.3'
+# gem 'killbill-client', '~> 3.3'
 # gem 'killbill-client', :path => '../killbill-client-ruby'
-# gem 'killbill-client', :github => 'killbill/killbill-client-ruby', :ref => 'master'
+gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
 
 gem 'i18n'
 gem 'tzinfo-data'
@@ -53,14 +53,11 @@ if defined?(JRUBY_VERSION)
   gem 'nio4r', '2.5.2', platforms: :jruby
 
   git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'master' do
-    # Pulls activerecord-jdbc-adapter and jdbc-mysql
-    gem 'activerecord-jdbcmysql-adapter'
-    # Add MariaDB driver as well
+    gem 'activerecord-jdbc-adapter'
+    # Add the drivers
     gem 'jdbc-mariadb'
-    # Pulls activerecord-jdbc-adapter and jdbc-postgres
-    gem 'activerecord-jdbcpostgresql-adapter'
-    # Pulls activerecord-jdbc-adapter and jdbc-sqlite3
-    gem 'activerecord-jdbcsqlite3-adapter'
+    gem 'jdbc-postgres'
+    gem 'jdbc-sqlite3'
   end
 else
   gem 'mysql2'
