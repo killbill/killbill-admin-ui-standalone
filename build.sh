@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -e
 
 if $(ruby -e'require "java"'); then
@@ -17,6 +17,8 @@ export RAILS_ENV=production
 export SECRET_KEY_BASE=$(head -c 1024 /dev/urandom | base64 | tr -cd "[:upper:][:digit:]" | head -c 129)
 chmod 600 config/keys/dummy_production.key
 
+# 2.3.25 shipped with JRuby won't work
+gem update bundler
 bundle install
 
 BUNDLE="bundle exec"
@@ -31,3 +33,8 @@ $BUNDLE warble
 
 # For quick testing:
 #$BUNDLE warble executable war
+
+if [[ ! -f killbill-admin-ui-standalone.war ]]; then
+    printf 'war was not created!\n'
+    exit 99
+fi
