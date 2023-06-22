@@ -42,7 +42,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 'jruby-9.4.2.0'
-          bundler-cache: true
+          bundler-cache: false
       - name: Configure Sonatype mirror
         uses: s4u/maven-settings-action@v2.3.0
         # Go to Sonatype directly to avoid delay syncs (could get rid of this if actions/setup-java were to support mirrors).
