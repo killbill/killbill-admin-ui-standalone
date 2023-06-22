@@ -6,7 +6,7 @@ on:
 
 env:
   COMPOSE_DOCKER_CLI_BUILD: 1
-  DB_NAME: kaui
+  DB_NAME: kaui_test
   DOCKER_BUILDKIT: 1
   JRUBY_OPTS: -J-Xmx1024M --debug
   KB_ADDRESS: 127.0.0.1
@@ -119,8 +119,9 @@ jobs:
           DB_PASSWORD: ${{ matrix.database-password }}
           DB_PORT: ${{ matrix.database-port }}
         run: |
-          # Tables are already in the image
-          #bundle exec rails db:migrate
+          # DB_URL is for MariaDB (or we get kaui_test database not found)
+          DB_URL="jdbc:mariadb://localhost:3306" bundle exec rails db:create
+          bundle exec rails db:migrate
           # Some flakiness unfortunately
           ./bin/retry bundle exec rails t -w -f
       - name: Debugging after failure
