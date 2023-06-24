@@ -41,7 +41,7 @@ jobs:
       - name: Configure Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 'jruby-9.4.2.0'
+          ruby-version: 'jruby-9.3.10.0'
           bundler-cache: false
       - name: Configure Sonatype mirror
         uses: s4u/maven-settings-action@v2.3.0

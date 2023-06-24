@@ -11,9 +11,6 @@ Warbler::Config.new do |config|
   config.gem_excludes = [%r{^(tests?|spec)/}, # Careful not to ignore things like rack-test (required by actionpack)
                          %r{^(examples?|doc-api|guides?)/}]
 
-  # See https://github.com/jruby/warbler/issues/266
-  config.includes = FileList['init.rb', 'version.yml']
-
   config.java_classes = FileList['logback.xml']
 
   config.webxml.jruby.rack.logging = 'slf4j'

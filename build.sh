@@ -9,27 +9,21 @@ else
   exit 1
 fi
 
-# Get the version from the pom and then store it on a file on the root
-VERSION=`grep -E '<version>([0-9]+\.[0-9]+\.[0-9]+)</version>' pom.xml | sed 's/[\t \n]*<version>\(.*\)<\/version>[\t \n]*/\1/'`
-echo 'version: '$VERSION > version.yml
-
 export RAILS_ENV=production
-export SECRET_KEY_BASE=$(head -c 1024 /dev/urandom | base64 | tr -cd "[:upper:][:digit:]" | head -c 129)
-chmod 600 config/keys/dummy_production.key
 
-# 2.3.25 shipped with JRuby won't work
-gem update bundler
-bundle install
+# 2.3.25 shipped with JRuby won't work (see https://github.com/jruby/warbler/issues/536)
+gem install bundler --version=2.4.14
 
-BUNDLE="bundle exec"
+BUNDLE="bundle _2.4.14_"
 RAILS="./bin/rails"
 
+$BUNDLE install
 $RAILS assets:clobber log:clear tmp:clear
 
 # We cannot pre-compile assets unfortunately as it breaks Tomcat deployments in sub-directories
 # $RAILS assets:precompile
 
-$BUNDLE warble
+$BUNDLE exec warble
 
 # For quick testing:
 #$BUNDLE warble executable war
