@@ -14,7 +14,8 @@ env:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    # Match killbill/kaui (same libc)
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
         if: github.event.inputs.perform_version == ''
@@ -41,6 +42,7 @@ jobs:
       - name: Configure Ruby
         uses: ruby/setup-ruby@v1
         with:
+          # JRuby 9.4 not yet supported by warbler
           ruby-version: 'jruby-9.3.10.0'
           bundler-cache: false
       - name: Configure Sonatype mirror
