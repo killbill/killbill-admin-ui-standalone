@@ -1,20 +1,20 @@
 development: &default
 <% if defined?(JRUBY_VERSION) %>
-<% adapter = java.lang.System.getProperty('kaui.db.adapter', ENV['KAUI_DB_ADAPTER'] || 'mariadb') %>
+<% adapter = ENV['KAUI_DB_ADAPTER'] || java.lang.System.getProperty('kaui.db.adapter', 'mariadb') %>
   adapter: <%= adapter %>
-  encoding: <%= java.lang.System.getProperty('kaui.db.encoding', ENV['KAUI_DB_ENCODING'] || 'utf8') %>
+  encoding: <%= ENV['KAUI_DB_ENCODING'] || java.lang.System.getProperty('kaui.db.encoding', 'utf8') %>
 <% if adapter == 'sqlite3' %>
-  database: <%= java.lang.System.getProperty('kaui.db.database', ENV['KAUI_DB_DATABASE'] || '/var/tmp/kaui.sqlite3') %>
+  database: <%= ENV['KAUI_DB_DATABASE'] || java.lang.System.getProperty('kaui.db.database', '/var/tmp/kaui.sqlite3') %>
   pool: 50
   timeout: 5000
 <% else %>
-  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['KAUI_DB_URL'] || 'jdbc:mariadb://localhost:3306/kaui?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
-  username: <%= java.lang.System.getProperty('kaui.db.username', ENV['KAUI_DB_USERNAME'] || 'root') %>
-  password: <%= java.lang.System.getProperty('kaui.db.password', ENV['KAUI_DB_PASSWORD'] || 'root') %>
-  host: <%= java.lang.System.getProperty('kaui.db.host', ENV['KAUI_DB_HOST']) %>
-  port: <%= java.lang.System.getProperty('kaui.db.port', ENV['KAUI_DB_PORT']) %>
-  pool: <%= java.lang.System.getProperty('kaui.db.pool', ENV['KAUI_DB_POOL'] || '50') %>
-  timeout: <%= java.lang.System.getProperty('kaui.db.timeout', ENV['KAUI_DB_TIMEOUT'] || '5000') %>
+  url: <%= ENV['KAUI_DB_URL'] || java.lang.System.getProperty('kaui.db.url', 'jdbc:mariadb://localhost:3306/kaui?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
+  username: <%= ENV['KAUI_DB_USERNAME'] || java.lang.System.getProperty('kaui.db.username', 'root') %>
+  password: <%= ENV['KAUI_DB_PASSWORD'] || java.lang.System.getProperty('kaui.db.password', 'root') %>
+  host: <%= ENV['KAUI_DB_HOST'] || java.lang.System.getProperty('kaui.db.host') %>
+  port: <%= ENV['KAUI_DB_PORT'] || java.lang.System.getProperty('kaui.db.port') %>
+  pool: <%= ENV['KAUI_DB_POOL'] || java.lang.System.getProperty('kaui.db.pool', '50') %>
+  timeout: <%= ENV['KAUI_DB_TIMEOUT'] || java.lang.System.getProperty('kaui.db.timeout', '5000') %>
 <% end %>
 <% else %>
   adapter: mysql2
@@ -33,10 +33,10 @@ development: &default
 # Do not set this db to the same as development or production.
 test:
 <% if defined?(JRUBY_VERSION) %>
-<% adapter = java.lang.System.getProperty('kaui.db.adapter', ENV['DB_ADAPTER'] || 'mariadb') %>
+<% adapter = ENV['DB_ADAPTER'] || java.lang.System.getProperty('kaui.db.adapter', 'mariadb') %>
   adapter: <%= adapter %>
 <% if adapter == 'mariadb' %>
-  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['DB_URL'] || 'jdbc:mariadb://localhost:3306/kaui_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
+  url: <%= ENV['DB_URL'] || java.lang.System.getProperty('kaui.db.url', 'jdbc:mariadb://localhost:3306/kaui_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
 <% end %>
 <% else %>
   adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
