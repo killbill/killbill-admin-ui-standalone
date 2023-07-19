@@ -3,6 +3,12 @@
 # Configure Kaui Preferences
 module Kaui
   mattr_accessor :plugins_whitelist
+
+  def self.config
+    {
+      layout: layout || 'layouts/application'
+    }
+  end
 end
 
 chargeback_reason_codes = nil
