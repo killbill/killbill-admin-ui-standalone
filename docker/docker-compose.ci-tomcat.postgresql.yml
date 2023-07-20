@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  kaui:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "9090:8080"
+    environment:
+      - KAUI_CONFIG_DAO_URL=jdbc:postgresql://db:5432/kaui
+      - KAUI_CONFIG_DAO_USER=postgres
+      - KAUI_CONFIG_DAO_PASSWORD=postgres
+      - KAUI_KILLBILL_URL=http://killbill:8080
+  killbill:
+    network_mode: host
+    image: killbill/killbill:0.24.3
+    environment:
+      - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
+      - KILLBILL_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill
+      - KILLBILL_DAO_USER=postgres
+      - KILLBILL_DAO_PASSWORD=postgres
+      - KILLBILL_SERVER_TEST_MODE=true
+      - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
+      - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
+    depends_on:
+      - db
+  db:
+    network_mode: host
+    image: killbill/postgresql:0.24
+    environment:
+      - POSTGRES_PASSWORD=postgres

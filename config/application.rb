@@ -2,6 +2,9 @@
 
 require_relative 'boot'
 
+# Ensure 600 permission (not maintained in the war)
+File.chmod(0o600, './config/keys/dummy_production.key')
+
 require 'rails/all'
 
 require 'avatax'
@@ -29,7 +32,7 @@ module KauiStandalone
                  end
 
   class Application < Rails::Application
-    config.load_defaults 7.0
+    config.load_defaults 6.1
 
     # Configuration for the application, engines, and railties goes here.
     #
