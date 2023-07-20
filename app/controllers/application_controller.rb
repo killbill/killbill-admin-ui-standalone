@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   after_action :clear_mdc_context
 
   def check_for_redirect_to_tenant_screen
-    unless Kaui.is_user_assigned_valid_tenant?(current_user, session)
+
+    unless Kaui.user_assigned_valid_tenant?(current_user, session)
       if params[:format] == 'json'
         # While technically true, the :bad_request status would display a flash error, which can be confusing for the user
         # render :json => { :error => 'No tenant selected' }, :status => :bad_request
