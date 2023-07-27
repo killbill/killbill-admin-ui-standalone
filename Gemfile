@@ -9,9 +9,9 @@ gem 'sprockets-rails'
 
 gem 'jruby-jars', '~> 9.4.2'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
 
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
