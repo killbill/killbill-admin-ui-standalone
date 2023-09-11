@@ -51,8 +51,7 @@ module Kaui
   self.pretty_account_identifier = lambda { |account| account.name }
 
   # Refund Process invoice item's instance name & subscription id
-  self.refund_invoice_description = ->(index, ii, bundle_result) { ii.pretty_plan_name+' SUBSCRIPTION ID: '+ii.subscription_id }
-
+  self.refund_invoice_description = lambda {(index, ii, bundle_result) { ii.pretty_plan_name+' SUBSCRIPTION ID: '+ii.subscription_id }}
 
   # Columns to display in the account search page
   self.account_search_columns = lambda do |account=nil, view_context=nil|
