@@ -50,6 +50,9 @@ module Kaui
   # Account identifier in the nav bar
   self.pretty_account_identifier = lambda { |account| account.name }
 
+  # Display pretty plan name & subscription id associated with the invoice item on the refund screen
+  self.refund_invoice_description = lambda {(index, ii, bundle_result) { ii.pretty_plan_name+' SUBSCRIPTION ID: '+ii.subscription_id }}
+
   # Columns to display in the account search page
   self.account_search_columns = lambda do |account=nil, view_context=nil|
     [
