@@ -65,13 +65,13 @@ module Kaui
   end
 
   # Columns to display in the invoices listing page
-  self.invoice_search_columns = lambda do |invoice=nil, view_context=nil|
+  self.invoice_search_columns = lambda do |invoice = nil, view_context = nil, _cached_options_for_klient = nil|
     default_label = 'label-info'
     default_label = 'label-default' if invoice&.status == 'DRAFT'
     default_label = 'label-success' if invoice&.status == 'COMMITTED'
     default_label = 'label-danger' if invoice&.status == 'VOID'
     [
-      ['Date', 'Status'],
+      %w[Date Status],
       [
         invoice&.invoice_date,
         invoice.nil? || view_context.nil? ? nil : view_context.content_tag(:span, invoice.status, class: ['label', default_label])
