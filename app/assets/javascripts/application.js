@@ -11,8 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 // Common (order matters)
-//= require jquery
-//= require jquery_ujs
+//= require assets/common
 //= require d3
 // Avoid loading all locales, just load the core
 //= require bootstrap-datepicker/core
