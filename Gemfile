@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'jquery-rails', '~> 4.5.1'
 gem 'mustache-js-rails', '~> 0.0.7'
-gem 'rails', '~> 7.0'
+gem 'rails', '~> 7.0.1'
 gem 'sprockets-rails'
 
 gem 'jruby-jars', '~> 9.4.2'
@@ -53,15 +53,13 @@ if defined?(JRUBY_VERSION)
 
   gem 'therubyrhino'
 
-  gem 'nio4r', '2.5.2', platforms: :jruby
+  gem 'nio4r', '2.7.0', platforms: :jruby
 
-  git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'master' do
-    gem 'activerecord-jdbc-adapter'
-    # Add the drivers
-    gem 'jdbc-mariadb'
-    gem 'jdbc-postgres'
-    gem 'jdbc-sqlite3'
-  end
+  gem 'activerecord-jdbc-adapter', '~> 70.0', platforms: :jruby
+  # Add the drivers
+  gem 'jdbc-mariadb'
+  gem 'jdbc-postgres'
+  gem 'jdbc-sqlite3'
 else
   gem 'mysql2'
   gem 'pg'
