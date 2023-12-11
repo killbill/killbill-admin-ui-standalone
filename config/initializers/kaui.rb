@@ -42,7 +42,7 @@ end
 
 Kaui.demo_mode ||= (ENV['KAUI_DEMO_MODE'] || 'false') == 'true'
 Kaui.plugins_whitelist ||= ENV.fetch('KAUI_PLUGINS_WHITELIST', nil)
-Kaui.root_username ||= (ENV['KAUI_ROOT_USERNAME'] || 'admin')
+Kaui.root_username ||= ENV['KAUI_ROOT_USERNAME'] || 'admin'
 Kaui.disable_sign_up_link ||= (ENV['KAUI_DISABLE_SIGN_UP_LINK'] || 'true') == 'true'
 Kaui.additional_headers_partial = 'layouts/additional_header'
 
