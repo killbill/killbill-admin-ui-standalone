@@ -99,6 +99,9 @@ module Kaui
   # Link to the customer invoice (HTML, PDF, etc.)
   self.customer_invoice_link = lambda { |invoice, ctx| ctx.link_to 'View customer invoice html', ctx.kaui_engine.show_html_invoice_path(invoice.invoice_id), :class => 'btn', :target => '_blank' }
 
+  # Additinal Link to the customer invoice
+  self.additional_invoice_links = lambda { |invoice, ctx| ctx) { ctx.link_to 'Addtinal invoice link', ctx.metal_engine.bulk_invoice_adjustment_path(invoice.account_id, invoice.invoice_id), class: 'btn', target: '_self' }
+
   # How bundle keys are displayed in the account timeline
   self.bundle_key_display_string = ->(bundle_key) { bundle_key }
 
