@@ -20,3 +20,21 @@ Warbler::Config.new do |config|
 
   config.jar_name = 'killbill-admin-ui-standalone'
 end
+
+module FixInit
+  def add_init_file(config)
+    super
+    return unless @files[config.init_filename]
+
+    contents = @files[config.init_filename].read
+    add_before = "require 'bundler/shared_helpers'"
+    line_to_add = "Gem.paths = ENV\n"
+    @files[config.init_filename] = StringIO.new(contents.gsub(add_before, "#{line_to_add}\\0"))
+  end
+end
+
+module Warbler
+  class Jar
+    prepend FixInit
+  end
+end
