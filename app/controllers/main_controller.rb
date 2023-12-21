@@ -43,7 +43,7 @@ class MainController < ApplicationController
           path: payment_test_engine_path,
           name: 'Payment Test'
         }
-      elsif plugin_info.plugin_name.include?('killbill-email-notifications') && current_user.root?
+      elsif plugin_info.plugin_name == 'email-notifications-plugin' && current_user.root?
         plugins << {
           path: kenui_engine_path,
           name: 'E-notifications'
