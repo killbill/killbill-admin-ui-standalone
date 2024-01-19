@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
+# We need to require it here because the function will be called in config.before_configuration
+# The original function requires permission [100600 100400] which did not work with the Windows system
+# See this PR: https://github.com/killbill/killbill-admin-ui-standalone/pull/72
+require_relative 'initializers/permission_override'
 
 require 'rails/all'
 
