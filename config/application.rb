@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
-require_relative 'initializers/permission_override'
+require_relative 'initializers/symmetric_file_permission_override'
 
 require 'rails/all'
 
