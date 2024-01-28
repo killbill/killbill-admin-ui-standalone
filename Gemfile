@@ -37,9 +37,9 @@ gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'master'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
 gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
 
-gem 'killbill-client'
+# gem 'killbill-client'
 # gem 'killbill-client', :path => '../killbill-client-ruby'
-# gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
+gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
 
 # gem 'killbill-assets-ui', :path => '../killbill-assets-ui'
 gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
@@ -58,6 +58,7 @@ if defined?(JRUBY_VERSION)
   gem 'activerecord-jdbc-adapter', '~> 70.0', platforms: :jruby
   # Add the drivers
   gem 'jdbc-mariadb'
+  gem 'jdbc-mysql'
   gem 'jdbc-postgres'
   gem 'jdbc-sqlite3'
 else
