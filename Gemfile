@@ -9,40 +9,41 @@ gem 'sprockets-rails'
 
 gem 'jruby-jars', '~> 9.4.2'
 
-# gem 'kaui'
+gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
 
-# gem 'kanaui'
+gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
-gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
+# gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
 
-# gem 'killbill-avatax'
+gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
-gem 'killbill-avatax', github: 'killbill/killbill-avatax-ui', ref: 'master'
+# gem 'killbill-avatax', github: 'killbill/killbill-avatax-ui', ref: 'master'
 
-# gem 'killbill-kpm-ui'
+gem 'killbill-kpm-ui'
 # gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
+# gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
 
-# gem 'killbill-payment-test-ui'
+gem 'killbill-payment-test-ui'
 # gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
-gem 'killbill-payment-test-ui', github: 'killbill/killbill-payment-test-ui', ref: 'master'
+# gem 'killbill-payment-test-ui', github: 'killbill/killbill-payment-test-ui', ref: 'master'
 
-# gem 'kenui'
+gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
-gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'master'
+# gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'master'
 
-# gem 'killbill-deposit'
+gem 'killbill-deposit'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
-gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
+# gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
 
-# gem 'killbill-client'
+gem 'killbill-client'
 # gem 'killbill-client', :path => '../killbill-client-ruby'
-gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
+# gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
 
 # gem 'killbill-assets-ui', :path => '../killbill-assets-ui'
-gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
+# gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
+gem 'killbill-assets-ui'
 
 gem 'i18n'
 gem 'tzinfo-data'
