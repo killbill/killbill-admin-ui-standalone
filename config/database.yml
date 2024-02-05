@@ -1,6 +1,6 @@
 development: &default
 <% if defined?(JRUBY_VERSION) %>
-<% adapter = java.lang.System.getProperty('kaui.db.adapter', ENV['KAUI_DB_ADAPTER'] || 'mariadb') %>
+<% adapter = java.lang.System.getProperty('kaui.db.adapter', ENV['KAUI_DB_ADAPTER'] || 'mysql2') %>
   adapter: <%= adapter %>
   encoding: <%= java.lang.System.getProperty('kaui.db.encoding', ENV['KAUI_DB_ENCODING'] || 'utf8') %>
 <% if adapter == 'sqlite3' %>
