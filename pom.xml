@@ -21,7 +21,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kill-bill.billing.kaui</groupId>
     <artifactId>kaui-standalone</artifactId>
-    <version>3.0.6</version>
+    <version>3.0.7-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>killbill-admin-ui-standalone</name>
     <description>Standalone Kaui</description>
@@ -58,7 +58,7 @@
         <connection>scm:git:git://github.com/killbill/killbill-admin-ui-standalone.git</connection>
         <url>https://github.com/killbill/killbill-admin-ui-standalone/</url>
         <developerConnection>scm:git:git@github.com:killbill/killbill-admin-ui-standalone.git</developerConnection>
-      <tag>kaui-standalone-3.0.6</tag>
+      <tag>HEAD</tag>
   </scm>
     <issueManagement>
         <system>Github</system>
