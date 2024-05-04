@@ -6,6 +6,7 @@ require_relative 'boot'
 # The original function requires permission [100600 100400] which did not work with the Windows system
 # See this PR: https://github.com/killbill/killbill-admin-ui-standalone/pull/72
 require_relative 'initializers/symmetric_file_permission_override'
+require_relative '../lib/kaui_standalone/version'
 require 'rails/all'
 require 'avatax'
 require 'kanaui'
