@@ -67,7 +67,7 @@ jobs:
           gpg-passphrase: GPG_PASSPHRASE
       - name: Tag repository
         run: |
-          bundle exec gem bump -c -p -t -v ${{ github.event.inputs.target_version }} -f lib/kaui_standalone/version.rb
+          bundle exec gem bump -c -p -v ${{ github.event.inputs.target_version }} -f lib/kaui_standalone/version.rb
       - name: Release artifacts
         if: github.event.inputs.perform_version == ''
         env:
