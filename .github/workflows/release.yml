@@ -7,6 +7,10 @@ on:
         description: 'tag to (re-)perform (in case of release:perform failure)'
         required: false
         default: ''
+      target_version:
+        description: 'Target version: next [major|minor|patch|pre|release] or a given version number [x.x.x]'
+        required: true
+        default: 'patch'
 
 env:
   MAVEN_FLAGS: "-B --no-transfer-progress"
@@ -45,7 +49,7 @@ jobs:
           bundler-cache: false
       - name: Tag repository
         run: |
-          bundle exec gem bump -c -p -t -v ${{ github.event.inputs.perform_version }}
+          bundle exec gem bump -c -p -t -v ${{ github.event.inputs.target_version }}
       - name: Configure Sonatype mirror
         uses: s4u/maven-settings-action@v2.3.0
         # Go to Sonatype directly to avoid delay syncs (could get rid of this if actions/setup-java were to support mirrors).
