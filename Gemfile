@@ -74,6 +74,7 @@ group :assets do
 end
 
 group :development do
+  gem 'gem-release'
   gem 'listen'
   gem 'puma'
   gem 'rubocop'

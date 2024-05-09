@@ -23,4 +23,11 @@ class HomepageTest < ActionDispatch::IntegrationTest
     assert_redirected_to SIGN_IN_PATH
     assert_equal 'You need to sign in before continuing.', flash[:alert]
   end
+
+  test 'Healthcheck' do
+    get "#{BASE_PATH}/health"
+    json_response = JSON.parse(response.body)
+    assert_equal 'UP', json_response['status']
+    assert_response :success
+  end
 end
