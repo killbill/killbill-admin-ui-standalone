@@ -47,9 +47,6 @@ jobs:
         with:
           ruby-version: 'jruby-9.4.2.0'
           bundler-cache: false
-      - name: Tag repository
-        run: |
-          bundle exec gem bump -c -p -t -v ${{ github.event.inputs.target_version }}
       - name: Configure Sonatype mirror
         uses: s4u/maven-settings-action@v2.3.0
         # Go to Sonatype directly to avoid delay syncs (could get rid of this if actions/setup-java were to support mirrors).
@@ -68,6 +65,9 @@ jobs:
           server-password: OSSRH_PASS
           gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
+      - name: Tag repository
+        run: |
+          bundle exec gem bump -c -p -t -v ${{ github.event.inputs.target_version }}
       - name: Release artifacts
         if: github.event.inputs.perform_version == ''
         env:
