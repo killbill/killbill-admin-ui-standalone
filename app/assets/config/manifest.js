@@ -15,7 +15,7 @@
 //= link d3.js
 //= link jquery-ui/autocomplete.css
 //= link kaui/kaui.css
-//= link kaui/logo.png
+//= link kaui/logo.svg
 //= link kanaui/kanaui.css
 // Kaui (needs to be loaded last for overrides)
 //= link kaui/kaui.js
