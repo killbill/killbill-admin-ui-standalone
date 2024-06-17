@@ -1,6 +1,8 @@
+require 'kaui/error_handler'
+
 # All engines will inherit from this controller (naming convention)
 class ApplicationController < ActionController::Base
-
+  include Kaui::ErrorHandler
   layout Kaui.config[:layout]
 
   protect_from_forgery
