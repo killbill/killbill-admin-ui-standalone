@@ -13,7 +13,9 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  # rubocop:disable Style/FetchEnvVar
+  config.consider_all_requests_local       = defined?(JRUBY_VERSION) ? (java.lang.System.getProperty('kaui.enable_debug_mode', ENV['ENABLE_DEBUG_MODE']) == 'true') : (ENV.fetch('ENABLE_DEBUG_MODE') == 'true')
+  # rubocop:enable Style/FetchEnvVar
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
