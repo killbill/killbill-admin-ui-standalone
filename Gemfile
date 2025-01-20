@@ -48,6 +48,10 @@ gem 'killbill-assets-ui'
 gem 'i18n'
 gem 'tzinfo-data'
 
+# This fix is temporary until the next release of the gem
+# See https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
+gem 'concurrent-ruby', '1.3.4'
+
 if defined?(JRUBY_VERSION)
   # See https://github.com/jruby/warbler/issues/508
   gem 'warbler', github: 'jruby/warbler', branch: 'master'
