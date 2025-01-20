@@ -76,8 +76,6 @@ module KauiStandalone
         Kaui.current_tenant_user_options(user, session)
       end
       Deposit.layout = Kaui.config[:layout]
-
-      require Rails.root.join('lib/custom_rack.rb')
     end
   end
 end
