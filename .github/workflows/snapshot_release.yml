@@ -1,0 +1,17 @@
+name: snapshot_release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  snapshot_release:
+    uses: killbill/gh-actions-shared/.github/workflows/cloudsmith_release.yml@private_kaui_release
+    with:
+      group_id: org.kill-bill.billing.kaui
+      artifact_id: kaui-standalone
+      artifact_extension: war
+      maven_args: '-DskipTests=true -Dgpg.skip=true -Dcheck.skip-rat=true -Dcheck.skip-spotbugs=true'
+    secrets:
+      CLOUDSMITH_REPO: ${{ secrets.CLOUDSMITH_REPO }}
+      CLOUDSMITH_USER: ${{ secrets.CLOUDSMITH_USER }}
+      CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
