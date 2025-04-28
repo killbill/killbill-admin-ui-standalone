@@ -53,19 +53,20 @@ gem 'tzinfo-data'
 gem 'concurrent-ruby', '1.3.4'
 
 if defined?(JRUBY_VERSION)
-  # See https://github.com/jruby/warbler/issues/508
-  gem 'warbler', github: 'jruby/warbler', branch: 'master'
-
-  gem 'therubyrhino'
-
-  gem 'nio4r', '2.7.0', platforms: :jruby
-
   gem 'activerecord-jdbc-adapter', '~> 70.0', platforms: :jruby
-  # Add the drivers
   gem 'jdbc-mariadb'
   gem 'jdbc-mysql'
   gem 'jdbc-postgres'
   gem 'jdbc-sqlite3'
+
+  # See https://github.com/killbill/technical-support/issues/209
+  gem 'net-imap', '0.5.6'
+
+  gem 'nio4r', '2.7.0', platforms: :jruby
+  gem 'therubyrhino'
+
+  # See https://github.com/jruby/warbler/issues/508
+  gem 'warbler', github: 'jruby/warbler', branch: 'master'
 else
   gem 'mysql2'
   gem 'pg'
