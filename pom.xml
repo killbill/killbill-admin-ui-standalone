@@ -21,7 +21,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kill-bill.billing.kaui</groupId>
     <artifactId>kaui-standalone</artifactId>
-    <version>3.0.15-SNAPSHOT</version>
+    <version>3.0.17-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>killbill-admin-ui-standalone</name>
     <description>Standalone Kaui</description>
