@@ -18,5 +18,9 @@ Warbler::Config.new do |config|
 
   config.webxml.jruby.rack.logging = 'slf4j'
 
+  # Remove this when the latest version of jruby-rack is released
+  # See this PR: https://github.com/killbill/killbill-admin-ui-standalone/pull/85
+  config.java_libs.reject! { |f| File.basename(f) =~ /^jruby-rack.*\.jar$/ }
+
   config.jar_name = 'killbill-admin-ui-standalone'
 end
