@@ -10,6 +10,7 @@ jobs:
       group_id: org.kill-bill.billing.kaui
       artifact_id: kaui-standalone
       maven_args: '-DskipTests=true -Dgpg.skip=true -Dcheck.skip-rat=true -Dcheck.skip-spotbugs=true'
+      with_ruby: 'true'
     secrets:
       CLOUDSMITH_REPO: ${{ secrets.CLOUDSMITH_REPO }}
       CLOUDSMITH_USER: ${{ secrets.CLOUDSMITH_USER }}
