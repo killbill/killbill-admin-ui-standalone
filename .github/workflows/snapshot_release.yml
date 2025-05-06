@@ -5,12 +5,13 @@ on:
 
 jobs:
   snapshot_release:
-    uses: killbill/gh-actions-shared/.github/workflows/cloudsmith_release.yml@private_kaui_release
+    uses: killbill/gh-actions-shared/.github/workflows/cloudsmith_release.yml@main
     with:
       group_id: org.kill-bill.billing.kaui
       artifact_id: kaui-standalone
-      artifact_extension: war
       maven_args: '-DskipTests=true -Dgpg.skip=true -Dcheck.skip-rat=true -Dcheck.skip-spotbugs=true'
+      with_ruby: 'true'
+      target_file: 'killbill-admin-ui-standalone.war'
     secrets:
       CLOUDSMITH_REPO: ${{ secrets.CLOUDSMITH_REPO }}
       CLOUDSMITH_USER: ${{ secrets.CLOUDSMITH_USER }}
