@@ -5,7 +5,7 @@ on:
 
 jobs:
   snapshot_release:
-    uses: killbill/gh-actions-shared/.github/workflows/cloudsmith_release.yml@kaui-private-release
+    uses: killbill/gh-actions-shared/.github/workflows/cloudsmith_release.yml@main
     with:
       group_id: org.kill-bill.billing.kaui
       artifact_id: kaui-standalone
