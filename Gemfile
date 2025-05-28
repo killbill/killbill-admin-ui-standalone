@@ -9,9 +9,9 @@ gem 'sprockets-rails'
 
 gem 'jruby-jars', '~> 9.4.2'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'tungleduyxyz/killbill-admin-ui', ref: 'technical-support-198'
 
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
@@ -37,13 +37,17 @@ gem 'killbill-deposit'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
 # gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
 
-gem 'killbill-client'
+# gem 'killbill-client'
 # gem 'killbill-client', :path => '../killbill-client-ruby'
-# gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
+gem 'killbill-client', github: 'tungleduyxyz/killbill-client-ruby', ref: 'fix_url_encoding_error'
 
 # gem 'killbill-assets-ui', :path => '../killbill-assets-ui'
 # gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
 gem 'killbill-assets-ui'
+
+# gem 'killbill-aviate', :path => '../killbill-aviate-ui'
+gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'technical-support-198'
+# gem 'killbill-aviate'
 
 gem 'i18n'
 gem 'tzinfo-data'
