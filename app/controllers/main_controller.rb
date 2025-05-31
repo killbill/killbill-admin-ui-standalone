@@ -53,6 +53,11 @@ class MainController < ApplicationController
           path: deposit_engine_path,
           name: 'Deposit'
         }
+      elsif plugin_info.plugin_name == 'aviate-plugin'
+        plugins << {
+          path: aviate_engine_path,
+          name: 'Aviate'
+        }
       end
     end
 
