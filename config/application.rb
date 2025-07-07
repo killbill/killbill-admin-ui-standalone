@@ -14,6 +14,7 @@ require 'kenui'
 require 'deposit'
 require 'kpm'
 require 'payment_test'
+require 'aviate'
 
 ENV['KAUI_ADDITIONAL_ENGINES'].split(',').each { |e| require e } if ENV['KAUI_ADDITIONAL_ENGINES'].present?
 
@@ -76,6 +77,11 @@ module KauiStandalone
         Kaui.current_tenant_user_options(user, session)
       end
       Deposit.layout = Kaui.config[:layout]
+
+      Aviate.current_tenant_user = lambda do |session, user|
+        Kaui.current_tenant_user_options(user, session)
+      end
+      Aviate.layout = Kaui.config[:layout]
     end
   end
 end
