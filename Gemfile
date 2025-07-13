@@ -7,8 +7,6 @@ gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.0.1'
 gem 'sprockets-rails'
 
-gem 'jruby-jars', '~> 9.4.2'
-
 gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
 # gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
@@ -62,6 +60,7 @@ if defined?(JRUBY_VERSION)
   gem 'jdbc-mysql'
   gem 'jdbc-postgres'
   gem 'jdbc-sqlite3'
+  gem 'jruby-jars', '9.4.12.0'
 
   # See https://github.com/killbill/technical-support/issues/209
   gem 'net-imap', '0.5.6'
