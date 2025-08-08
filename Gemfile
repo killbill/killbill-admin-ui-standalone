@@ -7,7 +7,7 @@ gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.0.1'
 gem 'sprockets-rails'
 
-gem 'kaui', '3.0.8'
+gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
 # gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
 
