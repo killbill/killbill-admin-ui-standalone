@@ -2,6 +2,9 @@
 
 source 'https://rubygems.org'
 
+# Lock bundler to a version compatible with JRuby 9.4.2.0 (Ruby 3.1.0)
+# gem 'bundler', '2.6.9'
+
 gem 'jquery-rails', '~> 4.5.1'
 gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.0.1'
@@ -49,6 +52,8 @@ gem 'killbill-aviate'
 
 gem 'i18n'
 gem 'tzinfo-data'
+
+gem 'sorbet-runtime', '0.5.12378'
 
 # This fix is temporary until the next release of the gem
 # See https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
