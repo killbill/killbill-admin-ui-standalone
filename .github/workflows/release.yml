@@ -47,6 +47,8 @@ jobs:
         with:
           ruby-version: 'jruby-9.4.2.0'
           bundler-cache: false
+      - name: Install Bundler 2.6.9
+        run: gem install bundler -v 2.6.9
       - name: Download Java dependencies
         # We do as much as we can, but it may not be enough (https://issues.apache.org/jira/browse/MDEP-82)
         run: |
