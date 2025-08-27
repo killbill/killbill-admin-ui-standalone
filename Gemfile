@@ -7,29 +7,29 @@ gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.0.1'
 gem 'sprockets-rails'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'killbill-admin-new-ui'
 
-gem 'kanaui'
+# gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
-# gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
+gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'killbill-admin-new-ui'
 
 gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
 # gem 'killbill-avatax', github: 'killbill/killbill-avatax-ui', ref: 'master'
 
-gem 'killbill-kpm-ui'
+# gem 'killbill-kpm-ui'
 # gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-# gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
+gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'killbill-admin-new-ui'
 
 gem 'killbill-payment-test-ui'
 # gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
 # gem 'killbill-payment-test-ui', github: 'killbill/killbill-payment-test-ui', ref: 'master'
 
-gem 'kenui'
+# gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
-# gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'master'
+gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'killbill-admin-new-ui'
 
 gem 'killbill-deposit'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
@@ -40,8 +40,8 @@ gem 'killbill-client'
 # gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
 
 # gem 'killbill-assets-ui', :path => '../killbill-assets-ui'
-# gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
-gem 'killbill-assets-ui'
+gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'killbill-admin-new-ui'
+# gem 'killbill-assets-ui'
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
