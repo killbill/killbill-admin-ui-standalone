@@ -45,7 +45,7 @@ gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'killbill-
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'killbill-admin-new-ui'
-gem 'killbill-aviate', '1.1.0.pre.2'
+gem 'killbill-aviate', '1.1.0.pre.8'
 
 gem 'i18n'
 gem 'tzinfo-data'
@@ -69,7 +69,7 @@ if defined?(JRUBY_VERSION)
   gem 'therubyrhino'
 
   # See https://github.com/jruby/warbler/issues/508
-  gem 'warbler', github: 'jruby/warbler', branch: 'master'
+  gem 'warbler', '2.1.0'
 else
   gem 'mysql2'
   gem 'pg'
@@ -95,5 +95,4 @@ end
 # Add additional gem dependencies if needed
 instance_eval File.read('Gemfile.overlay') if File.exist?('Gemfile.overlay')
 
-# This is temporary text
-# This is temporary text
+# Temp text to trigger release
