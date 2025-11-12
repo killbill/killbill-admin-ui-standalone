@@ -69,7 +69,7 @@ if defined?(JRUBY_VERSION)
   gem 'therubyrhino'
 
   # See https://github.com/jruby/warbler/issues/508
-  gem 'warbler', github: 'jruby/warbler', branch: 'master'
+  gem 'warbler', '2.1.0'
 else
   gem 'mysql2'
   gem 'pg'

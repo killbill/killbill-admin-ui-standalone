@@ -16,6 +16,8 @@
 //= link jquery-ui/autocomplete.css
 //= link kaui/kaui.css
 //= link kaui/logo.svg
+//= link avatax/sort-down.svg
+//= link avatax/sort-up.svg
 //= link kanaui/kanaui.css
 // Kaui (needs to be loaded last for overrides)
 //= link kaui/kaui.js
