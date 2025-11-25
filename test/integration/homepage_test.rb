@@ -17,7 +17,7 @@ class HomepageTest < ActionDispatch::IntegrationTest
 
     # Verify log-out
     delete SIGN_OUT_PATH
-    assert_redirected_to "#{BASE_PATH}/"
+    assert_redirected_to SIGN_IN_PATH
 
     get BASE_PATH
     assert_redirected_to SIGN_IN_PATH
