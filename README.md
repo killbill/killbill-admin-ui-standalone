@@ -22,6 +22,7 @@ Kill Bill compatibility
 |        2.0.y |                           0.22.z (Rails 5) |
 |        2.1.y |                           0.24.z (Rails 6) |
 |        3.x.y |                           0.24.z (Rails 7) |
+|        4.x.y |                           0.24.z (Rails 7) |
 
 Run
 ---
