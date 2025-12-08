@@ -7,9 +7,9 @@ gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.0.1'
 gem 'sprockets-rails'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_12.08'
 
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
@@ -94,3 +94,5 @@ end
 
 # Add additional gem dependencies if needed
 instance_eval File.read('Gemfile.overlay') if File.exist?('Gemfile.overlay')
+
+# dummy
