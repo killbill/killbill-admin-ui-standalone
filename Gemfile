@@ -7,9 +7,9 @@ gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.0.1'
 gem 'sprockets-rails'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_12.17'
 
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
@@ -45,7 +45,7 @@ gem 'killbill-assets-ui'
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
-gem 'killbill-aviate'
+gem 'killbill-aviate', '2.1.0.pre.1'
 
 gem 'i18n'
 gem 'tzinfo-data'
