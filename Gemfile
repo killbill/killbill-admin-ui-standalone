@@ -45,7 +45,7 @@ gem 'killbill-assets-ui'
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
-gem 'killbill-aviate'
+gem 'killbill-aviate', '2.2.0.pre.1'
 
 gem 'i18n'
 gem 'tzinfo-data'
