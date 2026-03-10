@@ -9,7 +9,7 @@ gem 'sprockets-rails'
 
 # gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_3.11'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_3.11'
 
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
