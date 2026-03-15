@@ -29,6 +29,9 @@
 // Deposit
 //= require deposit/deposit
 //
+// Avatax
+//= require avatax/avatax
+//
 // Kaui (needs to be loaded last for overrides)
 //= require kaui/kaui
 //
