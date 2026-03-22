@@ -66,19 +66,12 @@ if defined?(JRUBY_VERSION)
   gem 'net-imap', '0.5.6'
 
   gem 'nio4r', '2.7.0', platforms: :jruby
-  gem 'therubyrhino'
 
   # See https://github.com/jruby/warbler/issues/508
   gem 'warbler', '2.1.0'
 else
   gem 'mysql2'
   gem 'pg'
-end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'uglifier'
 end
 
 group :development do
