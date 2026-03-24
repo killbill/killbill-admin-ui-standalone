@@ -19,9 +19,9 @@ gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
 # gem 'killbill-avatax', github: 'killbill/killbill-avatax-ui', ref: 'master'
 
-gem 'killbill-kpm-ui'
+# gem 'killbill-kpm-ui'
 # gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-# gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
+gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
 
 gem 'killbill-payment-test-ui'
 # gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
