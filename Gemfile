@@ -49,10 +49,7 @@ gem 'killbill-aviate'
 
 gem 'i18n'
 gem 'tzinfo-data'
-
-# This fix is temporary until the next release of the gem
-# See https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
-gem 'concurrent-ruby', '1.3.4'
+gem 'concurrent-ruby', '1.3.6'
 
 if defined?(JRUBY_VERSION)
   gem 'activerecord-jdbc-adapter', '~> 70.0', platforms: :jruby
