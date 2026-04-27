@@ -7,9 +7,9 @@ gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.0.1'
 gem 'sprockets-rails'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_4.29'
 
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
@@ -48,8 +48,8 @@ gem 'killbill-assets-ui'
 gem 'killbill-aviate'
 
 gem 'i18n'
-gem 'tzinfo-data'
 gem 'concurrent-ruby', '1.3.6'
+gem 'tzinfo-data'
 
 if defined?(JRUBY_VERSION)
   gem 'activerecord-jdbc-adapter', '~> 70.0', platforms: :jruby
