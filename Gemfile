@@ -2,42 +2,21 @@
 
 source 'https://rubygems.org'
 
+gem 'concurrent-ruby', '1.3.6'
+gem 'i18n'
 gem 'jquery-rails', '~> 4.5.1'
-gem 'mustache-js-rails', '~> 0.0.7'
-gem 'rails', '~> 7.0.1'
-gem 'sprockets-rails'
-
-# gem 'kaui'
-# gem 'kaui', path: '../killbill-admin-ui'
-gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_4.29'
 
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
 
-gem 'killbill-avatax'
-# gem 'killbill-avatax', :path => '../killbill-avatax-ui'
-# gem 'killbill-avatax', github: 'killbill/killbill-avatax-ui', ref: 'master'
-
-gem 'killbill-kpm-ui'
-# gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-# gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
-
-gem 'killbill-payment-test-ui'
-# gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
-# gem 'killbill-payment-test-ui', github: 'killbill/killbill-payment-test-ui', ref: 'master'
+gem 'kaui'
+# gem 'kaui', path: '../killbill-admin-ui'
+# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
 # gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'master'
-
-gem 'killbill-deposit'
-# gem 'killbill-deposit', :path => '../killbill-deposit-ui'
-# gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
-
-gem 'killbill-client'
-# gem 'killbill-client', :path => '../killbill-client-ruby'
-# gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
 
 # gem 'killbill-assets-ui', :path => '../killbill-assets-ui'
 # gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
@@ -47,8 +26,29 @@ gem 'killbill-assets-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
 gem 'killbill-aviate'
 
-gem 'i18n'
-gem 'concurrent-ruby', '1.3.6'
+gem 'killbill-avatax'
+# gem 'killbill-avatax', :path => '../killbill-avatax-ui'
+# gem 'killbill-avatax', github: 'killbill/killbill-avatax-ui', ref: 'master'
+
+gem 'killbill-client'
+# gem 'killbill-client', :path => '../killbill-client-ruby'
+# gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
+
+gem 'killbill-deposit'
+# gem 'killbill-deposit', :path => '../killbill-deposit-ui'
+# gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
+
+gem 'killbill-kpm-ui'
+# gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
+# gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
+
+gem 'killbill-payment-test-ui'
+# gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
+# gem 'killbill-payment-test-ui', github: 'killbill/killbill-payment-test-ui', ref: 'master'
+
+gem 'mustache-js-rails', '~> 0.0.7'
+gem 'rails', '~> 7.0.1'
+gem 'sprockets-rails'
 gem 'tzinfo-data'
 
 if defined?(JRUBY_VERSION)
