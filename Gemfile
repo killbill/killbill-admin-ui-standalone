@@ -6,13 +6,13 @@ gem 'concurrent-ruby', '1.3.6'
 gem 'i18n'
 gem 'jquery-rails', '~> 4.5.1'
 
-gem 'kanaui'
+# gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
-# gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
+gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'kaui_5.20'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_5.20'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
