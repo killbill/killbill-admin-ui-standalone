@@ -2,17 +2,16 @@
 
 source 'https://rubygems.org'
 
-gem 'concurrent-ruby', '1.3.6'
 gem 'i18n'
 gem 'jquery-rails', '~> 4.5.1'
 
-gem 'kanaui'
+# gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
-# gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
+gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'kaui_5.27'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_5.27'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
@@ -38,9 +37,9 @@ gem 'killbill-deposit'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
 # gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
 
-gem 'killbill-kpm-ui'
+# gem 'killbill-kpm-ui'
 # gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-# gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
+gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'kaui_5.27'
 
 gem 'killbill-payment-test-ui'
 # gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
@@ -84,3 +83,4 @@ end
 
 # Add additional gem dependencies if needed
 instance_eval File.read('Gemfile.overlay') if File.exist?('Gemfile.overlay')
+# Dummy
