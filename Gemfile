@@ -10,9 +10,9 @@ gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_6.17'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
@@ -30,9 +30,9 @@ gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
 # gem 'killbill-avatax', github: 'killbill/killbill-avatax-ui', ref: 'master'
 
-gem 'killbill-client'
+# gem 'killbill-client'
 # gem 'killbill-client', :path => '../killbill-client-ruby'
-# gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'master'
+gem 'killbill-client', github: 'killbill/killbill-client-ruby', ref: 'kaui_6.17'
 
 gem 'killbill-deposit'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
