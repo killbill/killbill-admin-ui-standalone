@@ -17,8 +17,8 @@ export RAILS_ENV=production
 export SECRET_KEY_BASE=$(head -c 1024 /dev/urandom | base64 | tr -cd "[:upper:][:digit:]" | head -c 129)
 chmod 600 config/keys/dummy_production.key
 
-# 2.3.25 shipped with JRuby won't work
-gem update bundler
+# 2.3.25 shipped with JRuby won't work; bundler >= 4.0 requires Ruby >= 3.2.0
+gem install bundler -v 2.6.9
 bundle install
 
 BUNDLE="bundle exec"
