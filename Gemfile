@@ -3,7 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'concurrent-ruby', '1.3.6'
-gem 'i18n'
+# Lock i18n to 1.14.x for: https://github.com/ruby-i18n/i18n/issues/735
+gem 'i18n', '~> 1.14.0'
 gem 'jquery-rails', '~> 4.5.1'
 
 gem 'kanaui'
