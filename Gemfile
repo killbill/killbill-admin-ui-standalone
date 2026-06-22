@@ -11,9 +11,9 @@ gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_6.24'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
