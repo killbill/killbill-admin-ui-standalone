@@ -24,8 +24,8 @@ gem 'kenui'
 gem 'killbill-assets-ui'
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
-# gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
-gem 'killbill-aviate'
+gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'kaui_6.24'
+# gem 'killbill-aviate'
 
 gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
@@ -39,9 +39,9 @@ gem 'killbill-deposit'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
 # gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
 
-gem 'killbill-kpm-ui'
+# gem 'killbill-kpm-ui'
 # gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-# gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
+gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'kaui_6.24'
 
 gem 'killbill-payment-test-ui'
 # gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
