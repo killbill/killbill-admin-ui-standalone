@@ -17,6 +17,7 @@
 //= link kaui/kaui.css
 //= link kaui/logo.svg
 //= link avatax_manifest.js
+//= link aviate_manifest.js
 //= link kanaui/kanaui.css
 // Kaui (needs to be loaded last for overrides)
 //= link kaui/kaui.js
