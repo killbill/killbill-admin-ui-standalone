@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     org.slf4j.MDC.put('rails.actionName', "#{controller_name}##{action_name}")
     org.slf4j.MDC.put('req.xForwardedFor', request.headers['X-Forwarded-For'])
     org.slf4j.MDC.put('req.requestId', request.request_id)
-    org.slf4j.MDC.put('kb.accountId', params[:account_id])
+    org.slf4j.MDC.put('kb.accountId', params[:account_id]) if params[:account_id].is_a?(String)
     org.slf4j.MDC.put('kb.tenantId', session[:kb_tenant_id])
   end
 
