@@ -53,20 +53,19 @@ gem 'sprockets-rails'
 gem 'tzinfo-data'
 
 if defined?(JRUBY_VERSION)
+  gem 'bundler', '~> 2.6.3' # match JRuby 9.4 system version, in lieu of using BUNDLE_VERSION=system
+
   gem 'activerecord-jdbc-adapter', '~> 70.0', platforms: :jruby
   gem 'jdbc-mariadb'
   gem 'jdbc-mysql'
   gem 'jdbc-postgres'
   gem 'jdbc-sqlite3'
-  gem 'jruby-jars', '9.4.12.0'
+  gem 'jruby-jars', '9.4.15.0'
 
   # See https://github.com/killbill/technical-support/issues/209
   gem 'net-imap', '0.5.6'
 
   gem 'nio4r', '2.7.0', platforms: :jruby
-
-  # See https://github.com/jruby/warbler/issues/508
-  gem 'warbler', '2.1.0'
 else
   gem 'mysql2'
   gem 'pg'
@@ -77,6 +76,7 @@ group :development do
   gem 'listen'
   gem 'puma'
   gem 'rubocop'
+  gem 'warbler', '~> 2.1.1', platforms: :jruby
 end
 
 group :test do
