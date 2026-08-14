@@ -26,7 +26,7 @@ gem 'killbill-assets-ui'
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
-gem 'killbill-aviate', '2.4.0.pre.2'
+gem 'killbill-aviate', '2.4.1.pre.1'
 
 gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
