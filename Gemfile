@@ -48,12 +48,12 @@ gem 'killbill-payment-test-ui'
 # gem 'killbill-payment-test-ui', github: 'killbill/killbill-payment-test-ui', ref: 'master'
 
 gem 'mustache-js-rails', '~> 0.0.7'
-gem 'rails', '~> 7.0.1'
+gem 'rails', '~> 7.2.0'
 gem 'sprockets-rails'
 gem 'tzinfo-data'
 
 if defined?(JRUBY_VERSION)
-  gem 'activerecord-jdbc-adapter', '~> 70.0', platforms: :jruby
+  gem 'activerecord-jdbc-adapter', '~> 72.0', platforms: :jruby
   gem 'jdbc-mariadb'
   gem 'jdbc-mysql'
   gem 'jdbc-postgres'
