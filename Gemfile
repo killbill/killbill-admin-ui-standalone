@@ -64,9 +64,6 @@ if defined?(JRUBY_VERSION)
   gem 'net-imap', '0.5.6'
 
   gem 'nio4r', '2.7.0', platforms: :jruby
-
-  # See https://github.com/jruby/warbler/issues/508
-  gem 'warbler', '2.1.0'
 else
   gem 'mysql2'
   gem 'pg'
@@ -77,6 +74,7 @@ group :development do
   gem 'listen'
   gem 'puma'
   gem 'rubocop'
+  gem 'warbler', '~> 2.1.1', platforms: :jruby
 end
 
 group :test do

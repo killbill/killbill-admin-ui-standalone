@@ -3,9 +3,8 @@
 
 require 'pathname'
 require 'fileutils'
-# rubocop:disable Style/MixinUsage
+# rubocop:disable-next Style/MixinUsage
 include FileUtils
-# rubocop:enable Style/MixinUsage
 
 # path to your application root.
 APP_ROOT = Pathname.new File.expand_path('..', __dir__)

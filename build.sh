@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
-if $(ruby -e'require "java"'); then
+ruby_version="$(ruby -v 2>/dev/null || echo 'Ruby not found')"
+if ruby -e 'exit RUBY_ENGINE == "jruby" && Gem::Version.new(JRUBY_VERSION) >= Gem::Version.new("9.4.11.0")' 2>/dev/null; then
   # Good
-  echo 'Detected JRuby'
+  echo "Detected JRuby: ${ruby_version}"
 else
-  echo 'Unable to build: make sure to use JRuby'
+  echo "Unable to build: make sure to use JRuby >= 9.4.11.0 (found ${ruby_version})"
   exit 1
 fi
 
@@ -17,8 +18,6 @@ export RAILS_ENV=production
 export SECRET_KEY_BASE=$(head -c 1024 /dev/urandom | base64 | tr -cd "[:upper:][:digit:]" | head -c 129)
 chmod 600 config/keys/dummy_production.key
 
-# 2.3.25 shipped with JRuby won't work; bundler >= 4.0 requires Ruby >= 3.2.0
-gem install bundler -v 2.6.9
 bundle install
 
 BUNDLE="bundle exec"
