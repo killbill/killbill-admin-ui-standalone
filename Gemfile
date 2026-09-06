@@ -53,14 +53,16 @@ gem 'sprockets-rails'
 gem 'tzinfo-data'
 
 if defined?(JRUBY_VERSION)
-  gem 'bundler', '~> 2.6.3' # match JRuby 9.4 system version, in lieu of using BUNDLE_VERSION=system
+  gem 'bundler', '~> 4.0.3' # match JRuby 10 system version, in lieu of using BUNDLE_VERSION=system
 
   gem 'activerecord-jdbc-adapter', '~> 72.0', platforms: :jruby
   gem 'jdbc-mariadb'
   gem 'jdbc-mysql'
   gem 'jdbc-postgres'
   gem 'jdbc-sqlite3'
-  gem 'jruby-jars', '9.4.15.0'
+  gem 'jruby-jars', '10.1.1.0'
+  # jruby-rack 2.0 requires JRuby 10.0+ and a Jakarta Servlet 5+ container (Tomcat 10/11)
+  gem 'jruby-rack', '~> 2.0'
 
   # See https://github.com/killbill/technical-support/issues/209
   gem 'net-imap', '0.5.6'
