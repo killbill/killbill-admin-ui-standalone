@@ -17,5 +17,9 @@ Warbler::Config.new do |config|
 
   config.webxml.jruby.rack.logging = 'slf4j'
 
+  # Rack::Chunked was removed in Rack 3 (Rails 7.2), so disable jruby-rack's
+  # dechunking boot hook, which otherwise fails to `require 'rack/chunked'`.
+  config.webxml.jruby.rack.response.dechunk = 'false'
+
   config.jar_name = 'killbill-admin-ui-standalone'
 end
