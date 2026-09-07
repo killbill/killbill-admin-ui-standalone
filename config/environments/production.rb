@@ -20,6 +20,13 @@ Rails.application.configure do
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
 
+  # config/secrets.yml is no longer read by Rails since 7.1+, so wire secret_key_base up explicitly.
+  # Falls back to the standard SECRET_KEY_BASE env var (used by build.sh) if the KAUI-specific
+  # env var / Java system property isn't set.
+  config.secret_key_base = (defined?(JRUBY_VERSION) && java.lang.System.getProperty('kaui.secret_key_base')) ||
+                           ENV.fetch('KAUI_SECRET_KEY_BASE', nil) ||
+                           ENV.fetch('SECRET_KEY_BASE', nil)
+
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
