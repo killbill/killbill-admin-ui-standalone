@@ -46,7 +46,7 @@ We also provide [Docker images](https://hub.docker.com/r/killbill/kaui/).
 Build
 -----
 
-You need at least jruby-9.4.11.0.
+You need at least jruby-10.0.6.0 and JDK 21+ (required by jruby-rack 2.0+/Tomcat 10+).
 
 To create a self-contained war:
 

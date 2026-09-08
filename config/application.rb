@@ -18,6 +18,16 @@ require 'aviate'
 
 ENV['KAUI_ADDITIONAL_ENGINES'].split(',').each { |e| require e } if ENV['KAUI_ADDITIONAL_ENGINES'].present?
 
+# Work around a sorbet-runtime/js-routes crash under JRuby 10 (Ruby 4.0 compat):
+# js-routes' sig-decorated methods trigger a sorbet-runtime signature-validation
+# NoMethodError at load time. Disabling runtime checks avoids building the
+# crashing validation wrapper. See killbill-admin-ui's test/dummy/config/application.rb
+# for the same workaround.
+if defined?(JRUBY_VERSION)
+  require 'sorbet-runtime'
+  T::Configuration.default_checked_level = :never
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
