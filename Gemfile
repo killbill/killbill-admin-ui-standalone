@@ -7,6 +7,12 @@ gem 'concurrent-ruby', '1.3.6'
 gem 'i18n', '~> 1.14.0'
 gem 'jquery-rails', '~> 4.5.1'
 
+# json 3.0 dropped the quirks_mode keyword that ActiveSupport::JSON.encode
+# still passes to JSON.generate; this raises ArgumentError instead of being
+# silently ignored, crashing js-routes' eager route JSON generation at boot.
+# Pin to the 2.x line until Rails drops that keyword (fixed in Rails 8.1.0).
+gem 'json', '~> 2.21'
+
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
