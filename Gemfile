@@ -15,10 +15,14 @@ gem 'csv'
 gem 'i18n', '~> 1.14.0'
 gem 'jquery-rails', '~> 4.5.1'
 
-# json 3.0 dropped the (still Rails 7.2-relied-upon) quirks_mode keyword from
-# JSON.generate; on JRuby's Java ext this raises ArgumentError (js-routes'
-# eager route JSON generation crashes at boot) instead of being silently
-# ignored. Pin below 3.0 until Rails drops quirks_mode usage.
+# json 3.0 dropped the quirks_mode keyword that ActiveSupport::JSON.encode
+# still passes to JSON.generate; on JRuby's Java ext this raises ArgumentError
+# (js-routes' eager route JSON generation crashes at boot) instead of being
+# silently ignored on CRuby. Confirmed fixed in Rails 8.1.0 (quirks_mode/
+# max_nesting args were dropped from ActiveSupport::JSON::Encoding#stringify),
+# but NOT in Rails 8.0.x (still present through at least 8.0.5.1) - so this
+# pin is still needed after the planned Rails 7.2 -> 8.0 upgrade, and can only
+# be dropped once we're on Rails 8.1+.
 gem 'json', '~> 2.21'
 
 # jruby-rack does not yet correctly implement the Rack 3 spec (see
@@ -74,6 +78,19 @@ gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.2.0'
 gem 'sprockets-rails'
 gem 'tzinfo-data'
+
+# Pin some Rails "console-only" dependencies to avoid pulling in so many
+# transitives at runtime. railties (a runtime dependency, via Bundler.require)
+# requires irb, which from 1.17.0+ depends on prism, and rdoc, which from
+# 8.0+ depends on both prism and rbs - none of which are actually needed
+# outside of an interactive console, but all of which get packaged into the
+# WAR regardless (confirmed ~18MB of raw gem source out of ~118MB total,
+# since warbler only excludes the :development/:test groups and this chain is
+# in the default group). Pinning below those versions avoids the transitives.
+# Trade-off: this excludes some irb/rdoc patches (security or otherwise) -
+# revisit if that becomes a concern for this distribution.
+gem 'irb', '< 1.17.0'
+gem 'rdoc', '< 8'
 
 if defined?(JRUBY_VERSION)
   gem 'bundler', '>= 2.7.2' # avoid the Bundler-version-mismatch prompt across JRuby 10.0.x (bundler 2.7.x) and 10.1.x (bundler 4.0.x)
