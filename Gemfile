@@ -3,34 +3,16 @@
 source 'https://rubygems.org'
 
 gem 'concurrent-ruby', '1.3.6'
-# csv is a "bundled gem" as of Ruby 3.4 (no longer a default gem), so it must
-# be an explicit dependency for it to be available via Bundler.require.
-# kaui's CSV-export controllers (accounts, invoices, payments, audit logs,
-# account timelines) require 'csv' directly; without this, eager loading
-# (production/WAR boot) crashes with LoadError: cannot load such file -- csv.
-# Also declared in kaui.gemspec, but pinned here too since this app can't
-# control kaui's release cadence.
+# csv is a bundled (non-default) gem as of Ruby 3.4; kaui's CSV-export controllers need it explicitly.
 gem 'csv'
 # Lock i18n to 1.14.x for: https://github.com/ruby-i18n/i18n/issues/735
 gem 'i18n', '~> 1.14.0'
 gem 'jquery-rails', '~> 4.5.1'
 
-# json 3.0 dropped the quirks_mode keyword that ActiveSupport::JSON.encode
-# still passes to JSON.generate; on JRuby's Java ext this raises ArgumentError
-# (js-routes' eager route JSON generation crashes at boot) instead of being
-# silently ignored on CRuby. Confirmed fixed in Rails 8.1.0 (quirks_mode/
-# max_nesting args were dropped from ActiveSupport::JSON::Encoding#stringify),
-# but NOT in Rails 8.0.x (still present through at least 8.0.5.1) - so this
-# pin is still needed after the planned Rails 7.2 -> 8.0 upgrade, and can only
-# be dropped once we're on Rails 8.1+.
+# json 3.0 dropped quirks_mode, which ActiveSupport::JSON still needs until Rails 8.1.
 gem 'json', '~> 2.21'
 
-# jruby-rack does not yet correctly implement the Rack 3 spec (see
-# https://github.com/jruby/jruby-rack/pull/325, still pending). Rails 7.2/8.0
-# both still support Rack 2.2, so pin it explicitly rather than risk silently
-# running Rack 3 under an incompletely-supported jruby-rack. jruby-rack 2.0+
-# declares a direct (non-vendored) dependency on rack ~> 2.2 and is the line
-# that targets JRuby 10/JDK21, so pin it too to make sure warbler picks it up.
+# jruby-rack doesn't fully support Rack 3 yet (jruby/jruby-rack#325); pin Rack 2.2 + jruby-rack 2.0.
 gem 'jruby-rack', '~> 2.0.0', platforms: :jruby
 gem 'rack', '~> 2.2.0'
 
@@ -38,9 +20,9 @@ gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'jruby10-upgrade'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
@@ -79,16 +61,7 @@ gem 'rails', '~> 7.2.0'
 gem 'sprockets-rails'
 gem 'tzinfo-data'
 
-# Pin some Rails "console-only" dependencies to avoid pulling in so many
-# transitives at runtime. railties (a runtime dependency, via Bundler.require)
-# requires irb, which from 1.17.0+ depends on prism, and rdoc, which from
-# 8.0+ depends on both prism and rbs - none of which are actually needed
-# outside of an interactive console, but all of which get packaged into the
-# WAR regardless (confirmed ~18MB of raw gem source out of ~118MB total,
-# since warbler only excludes the :development/:test groups and this chain is
-# in the default group). Pinning below those versions avoids the transitives.
-# Trade-off: this excludes some irb/rdoc patches (security or otherwise) -
-# revisit if that becomes a concern for this distribution.
+# Pin below irb 1.17/rdoc 8 to avoid pulling in prism/rbs transitives (console-only, not needed at runtime).
 gem 'irb', '< 1.17.0'
 gem 'rdoc', '< 8'
 

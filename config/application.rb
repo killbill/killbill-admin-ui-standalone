@@ -18,19 +18,9 @@ require 'aviate'
 
 ENV['KAUI_ADDITIONAL_ENGINES'].split(',').each { |e| require e } if ENV['KAUI_ADDITIONAL_ENGINES'].present?
 
-# Work around a JRuby 10 bug (jruby/jruby#9651): assigning to an outer local
-# variable named `it` inside a block silently creates a block-local shadow
-# instead of updating the outer one, so op-assignments raise NoMethodError.
-# sorbet-runtime 0.6.x's signature-validation code uses `it` as a loop counter
-# (T::Private::Methods::Signature#each_args_value_type), so any call to a
-# sig'd method (e.g. js-routes' sig-decorated methods) crashes at load time.
-# Disabling runtime checks avoids building the crashing validation wrapper.
-# Alternative fix (no code change): set SORBET_RUNTIME_DEFAULT_CHECKED_LEVEL=
-# never as a real process env var (sorbet-runtime reads this at require time)
-# - not used here since this code-level fix applies uniformly across every
-# entry point (build.sh, CI, Tomcat boot) without relying on every deployment
-# path remembering to set it. See killbill-admin-ui's
-# test/dummy/config/application.rb for the same workaround.
+# Work around a JRuby 10 bug (jruby/jruby#9651) that crashes sorbet-runtime's
+# signature validation (used by js-routes) at load time. Alternative: env var
+# SORBET_RUNTIME_DEFAULT_CHECKED_LEVEL=never instead of this code-level fix.
 if defined?(JRUBY_VERSION)
   require 'sorbet-runtime'
   T::Configuration.default_checked_level = :never
