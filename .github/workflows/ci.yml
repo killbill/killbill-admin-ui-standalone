@@ -25,7 +25,7 @@ jobs:
             database-password: 'root'
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
-          - ruby-version: 'jruby-9.4.15.0'
+          - ruby-version: 'jruby-10.0.6.0'
             database-adapter: 'mysql2'
             database-user: 'root'
             database-password: 'root'
@@ -37,7 +37,7 @@ jobs:
             database-password: 'postgres'
             database-port: '5432'
             docker-compose-file: 'docker-compose.ci.postgresql.yml'
-          - ruby-version: 'jruby-9.4.15.0'
+          - ruby-version: 'jruby-10.0.6.0'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'
@@ -51,7 +51,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2.5.0
         with:
-          java-version: '11'
+          java-version: '21'
           distribution: 'temurin'
           #cache: 'maven'
       - name: Configure Ruby
@@ -156,13 +156,13 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2.5.0
         with:
-          java-version: '11'
+          java-version: '21'
           distribution: 'temurin'
           #cache: 'maven'
       - name: Configure Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 'jruby-9.4.15.0'
+          ruby-version: 'jruby-10.0.6.0'
           bundler-cache: false
       - name: Build war
         run: |
