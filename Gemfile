@@ -13,6 +13,9 @@ gem 'jquery-rails', '~> 4.5.1'
 # Pin to the 2.x line until Rails drops that keyword (fixed in Rails 8.1.0).
 gem 'json', '~> 2.21'
 
+gem 'jruby-rack', '~> 2.0.0', platforms: :jruby
+gem 'rack', '~> 2.2.0'
+
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
