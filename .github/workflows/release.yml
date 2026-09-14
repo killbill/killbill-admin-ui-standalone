@@ -11,6 +11,10 @@ on:
         description: 'Target version: next [major|minor|patch|pre|release] or a given version number [x.x.x]'
         required: true
         default: 'patch'
+      dry_run:
+        description: 'Set to true to validate the release build without tagging or publishing anything'
+        required: false
+        default: 'false'
 
 env:
   MAVEN_FLAGS: "-B --no-transfer-progress"
@@ -64,10 +68,11 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
       - name: Tag repository
+        if: github.event.inputs.dry_run != 'true'
         run: |
           bundle exec gem bump -c -p -v ${{ github.event.inputs.target_version }} -f lib/kaui_standalone/version.rb
       - name: Release artifacts
-        if: github.event.inputs.perform_version == ''
+        if: github.event.inputs.perform_version == '' && github.event.inputs.dry_run != 'true'
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
@@ -76,7 +81,7 @@ jobs:
         run: |
           mvn ${MAVEN_FLAGS} release:clean release:prepare release:perform
       - name: Perform release
-        if: github.event.inputs.perform_version != ''
+        if: github.event.inputs.perform_version != '' && github.event.inputs.dry_run != 'true'
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
