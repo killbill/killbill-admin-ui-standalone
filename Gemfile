@@ -13,6 +13,14 @@ gem 'jquery-rails', '~> 4.5.1'
 # Pin to the 2.x line until Rails drops that keyword (fixed in Rails 8.1.0).
 gem 'json', '~> 2.21'
 
+# prism is a C-extension gem that cannot work on JRuby: it installs with a
+# dummy native build but its spec fails to materialize at boot
+# ("Could not find prism-x.y.z in locally installed gems").
+# irb >= 1.17 (pulled in by railties for the console) and rdoc >= 8.0
+# (pulled in by irb) both depend on it, so pin below those versions.
+gem 'irb', '< 1.17'
+gem 'rdoc', '< 8.0'
+
 # Pin to the 1.2.x line: jruby-rack >= 1.3.0 requires Ruby >= 3.4 (JRuby 10),
 # while this build runs on JRuby 9.4 (Ruby 3.1).
 gem 'jruby-rack', '~> 1.2.0', platforms: :jruby
