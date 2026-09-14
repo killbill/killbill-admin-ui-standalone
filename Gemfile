@@ -64,7 +64,9 @@ gem 'sprockets-rails'
 gem 'tzinfo-data'
 
 if defined?(JRUBY_VERSION)
-  gem 'bundler', '~> 2.6.3' # match JRuby 9.4 system version, in lieu of using BUNDLE_VERSION=system
+  # >= 2.6.3 to match the JRuby 9.4 system version, while allowing the 2.7.x
+  # used by the release build, in lieu of using BUNDLE_VERSION=system
+  gem 'bundler', '~> 2.6', '>= 2.6.3'
 
   gem 'activerecord-jdbc-adapter', '~> 72.0', platforms: :jruby
   gem 'jdbc-mariadb'
