@@ -43,12 +43,13 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - name: Configure Ruby
+        # JRuby 9.4 (not 10): sorbet-runtime (via js-routes) hits a JRuby 10 parser
+        # bug with Ruby 3.4's implicit block parameter `it`, breaking Rails boot.
+        # The JDK (21) is what determines the universal-java platform in the lockfile.
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 'jruby-10.0.6.0'
+          ruby-version: 'jruby-9.4.15.0'
           bundler-cache: false
-      - name: Install Bundler 2.7.2
-        run: gem install bundler -v 2.7.2
       - name: Download Java dependencies
         # We do as much as we can, but it may not be enough (https://issues.apache.org/jira/browse/MDEP-82)
         run: |
