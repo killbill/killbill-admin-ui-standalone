@@ -40,9 +40,12 @@ jobs:
       - name: Configure Java
         uses: actions/setup-java@v2.5.0
         with:
-          java-version: '11'
+          java-version: '21'
           distribution: 'temurin'
       - name: Configure Ruby
+        # JRuby 9.4 (not 10): sorbet-runtime (via js-routes) hits a JRuby 10 parser
+        # bug with Ruby 3.4's implicit block parameter `it`, breaking Rails boot.
+        # The JDK (21) is what determines the universal-java platform in the lockfile.
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 'jruby-9.4.15.0'
@@ -54,7 +57,7 @@ jobs:
       - name: Configure settings.xml for release
         uses: actions/setup-java@v3
         with:
-          java-version: 11
+          java-version: 21
           distribution: temurin
           server-id: central
           server-username: MAVEN_USERNAME
