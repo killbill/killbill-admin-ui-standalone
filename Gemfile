@@ -77,7 +77,8 @@ if defined?(JRUBY_VERSION)
   gem 'bundler', '~> 2.6', '>= 2.6.3'
 
   gem 'activerecord-jdbc-adapter', '~> 72.0', platforms: :jruby
-  gem 'jdbc-mariadb'
+  # MySQL Connector/J (not jdbc-mariadb, abandoned upstream since 2019 at 2.4.2
+  # with no caching_sha2_password support - see config/database.yml).
   gem 'jdbc-mysql'
   gem 'jdbc-postgres'
   gem 'jdbc-sqlite3'
