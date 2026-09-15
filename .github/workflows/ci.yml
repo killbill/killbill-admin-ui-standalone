@@ -119,8 +119,10 @@ jobs:
           DB_PASSWORD: ${{ matrix.database-password }}
           DB_PORT: ${{ matrix.database-port }}
         run: |
-          # DB_URL is for MariaDB (or we get kaui_test database not found)
-          DB_URL="jdbc:mariadb://localhost:3306" bundle exec rails db:create
+          # DB_URL (without the db name) is needed here or we get kaui_test database not found.
+          # Must use the mysql: scheme: MySQL Connector/J (see Gemfile/config/database.yml) only
+          # accepts jdbc:mysql://, not jdbc:mariadb://.
+          DB_URL="jdbc:mysql://localhost:3306" bundle exec rails db:create
           bundle exec rails db:migrate
           # Some flakiness unfortunately
           ./bin/retry bundle exec rails t -w -f

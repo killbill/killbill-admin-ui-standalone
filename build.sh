@@ -18,6 +18,9 @@ export RAILS_ENV=production
 export SECRET_KEY_BASE=$(head -c 1024 /dev/urandom | base64 | tr -cd "[:upper:][:digit:]" | head -c 129)
 chmod 600 config/keys/dummy_production.key
 
+# Lock both JVM platforms so the war boots on Java 11 and Java 21 Tomcats,
+# regardless of the JDK used to build it
+bundle lock --add-platform universal-java-11 universal-java-21
 bundle install
 
 BUNDLE="bundle exec"
