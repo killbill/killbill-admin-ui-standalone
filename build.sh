@@ -2,11 +2,11 @@
 set -e
 
 ruby_version="$(ruby -v 2>/dev/null || echo 'Ruby not found')"
-if ruby -e 'exit RUBY_ENGINE == "jruby" && Gem::Version.new(JRUBY_VERSION) >= Gem::Version.new("9.4.11.0")' 2>/dev/null; then
+if ruby -e 'exit RUBY_ENGINE == "jruby" && Gem::Version.new(JRUBY_VERSION) >= Gem::Version.new("10.0.0.0")' 2>/dev/null; then
   # Good
   echo "Detected JRuby: ${ruby_version}"
 else
-  echo "Unable to build: make sure to use JRuby >= 9.4.11.0 (found ${ruby_version})"
+  echo "Unable to build: make sure to use JRuby >= 10.0.0.0 (found ${ruby_version})"
   exit 1
 fi
 

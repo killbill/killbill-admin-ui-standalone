@@ -3,36 +3,26 @@
 source 'https://rubygems.org'
 
 gem 'concurrent-ruby', '1.3.6'
+# csv is a bundled (non-default) gem as of Ruby 3.4; kaui's CSV-export controllers need it explicitly.
+gem 'csv'
 # Lock i18n to 1.14.x for: https://github.com/ruby-i18n/i18n/issues/735
 gem 'i18n', '~> 1.14.0'
 gem 'jquery-rails', '~> 4.5.1'
 
-# json 3.0 dropped the quirks_mode keyword that ActiveSupport::JSON.encode
-# still passes to JSON.generate; this raises ArgumentError instead of being
-# silently ignored, crashing js-routes' eager route JSON generation at boot.
-# Pin to the 2.x line until Rails drops that keyword (fixed in Rails 8.1.0).
+# json 3.0 dropped quirks_mode, which ActiveSupport::JSON still needs until Rails 8.1.
 gem 'json', '~> 2.21'
 
-# prism is a C-extension gem that cannot work on JRuby: it installs with a
-# dummy native build but its spec fails to materialize at boot
-# ("Could not find prism-x.y.z in locally installed gems").
-# irb >= 1.17 (pulled in by railties for the console) and rdoc >= 8.0
-# (pulled in by irb) both depend on it, so pin below those versions.
-gem 'irb', '< 1.17'
-gem 'rdoc', '< 8.0'
-
-# Pin to the 1.2.x line: jruby-rack >= 1.3.0 requires Ruby >= 3.4 (JRuby 10),
-# while this build runs on JRuby 9.4 (Ruby 3.1).
-gem 'jruby-rack', '~> 1.2.0', platforms: :jruby
+# jruby-rack doesn't fully support Rack 3 yet (jruby/jruby-rack#325); pin Rack 2.2 + jruby-rack 2.0.
+gem 'jruby-rack', '~> 2.0.0', platforms: :jruby
 gem 'rack', '~> 2.2.0'
 
 gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'jruby10-upgrade'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
@@ -71,10 +61,12 @@ gem 'rails', '~> 7.2.0'
 gem 'sprockets-rails'
 gem 'tzinfo-data'
 
+# Pin below irb 1.17/rdoc 8 to avoid pulling in prism/rbs transitives (console-only, not needed at runtime).
+gem 'irb', '< 1.17.0'
+gem 'rdoc', '< 8'
+
 if defined?(JRUBY_VERSION)
-  # >= 2.6.3 to match the JRuby 9.4 system version, while allowing the 2.7.x
-  # used by the release build, in lieu of using BUNDLE_VERSION=system
-  gem 'bundler', '~> 2.6', '>= 2.6.3'
+  gem 'bundler', '>= 2.7.2' # avoid the Bundler-version-mismatch prompt across JRuby 10.0.x (bundler 2.7.x) and 10.1.x (bundler 4.0.x)
 
   gem 'activerecord-jdbc-adapter', '~> 72.0', platforms: :jruby
   # MySQL Connector/J (not jdbc-mariadb, abandoned upstream since 2019 at 2.4.2
@@ -82,7 +74,7 @@ if defined?(JRUBY_VERSION)
   gem 'jdbc-mysql'
   gem 'jdbc-postgres'
   gem 'jdbc-sqlite3'
-  gem 'jruby-jars', '9.4.15.0'
+  gem 'jruby-jars', '10.0.6.0'
 
   # See https://github.com/killbill/technical-support/issues/209
   gem 'net-imap', '0.5.6'
@@ -98,7 +90,7 @@ group :development do
   gem 'listen'
   gem 'puma'
   gem 'rubocop'
-  gem 'warbler', '~> 2.1.1', platforms: :jruby
+  gem 'warbler', '~> 2.1.2', platforms: :jruby
 end
 
 group :test do
