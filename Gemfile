@@ -20,9 +20,9 @@ gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
 
-# gem 'kaui'
+gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'jruby10-upgrade'
+# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
@@ -34,7 +34,7 @@ gem 'killbill-assets-ui'
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
-gem 'killbill-aviate'
+gem 'killbill-aviate', '2.6.0.pre.1'
 
 gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
