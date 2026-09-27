@@ -22,21 +22,21 @@ gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
 # gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
 
-gem 'kaui'
+# gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
-# gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'master'
+gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_9.23'
 
 gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
 # gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'master'
 
 # gem 'killbill-assets-ui', :path => '../killbill-assets-ui'
-# gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
-gem 'killbill-assets-ui'
+gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'kaui_9.23'
+# gem 'killbill-assets-ui'
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
-gem 'killbill-aviate'
+gem 'killbill-aviate', '2.6.0.pre.1'
 
 gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
