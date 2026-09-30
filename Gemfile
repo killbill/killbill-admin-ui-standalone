@@ -36,7 +36,7 @@ gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'kaui_9.23
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
-gem 'killbill-aviate', '2.6.0.pre.2'
+gem 'killbill-aviate', '2.6.0.pre.3'
 
 gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
