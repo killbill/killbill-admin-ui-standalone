@@ -67,6 +67,22 @@ jobs:
       - name: Tag repository
         run: |
           bundle exec gem bump -c -p -v ${{ github.event.inputs.target_version }} -f lib/kaui_standalone/version.rb
+      - name: Align Maven version with target
+        # The Maven release version comes from pom.xml, not from target_version.
+        # When an explicit x.x.x target is given, move the pom to <target>-SNAPSHOT
+        # first so release:prepare releases the intended version.
+        if: github.event.inputs.perform_version == ''
+        run: |
+          TARGET="${{ github.event.inputs.target_version }}"
+          if [[ "$TARGET" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            CURRENT=$(mvn ${MAVEN_FLAGS} help:evaluate -Dexpression=project.version -q -DforceStdout)
+            if [[ "$CURRENT" != "$TARGET-SNAPSHOT" ]]; then
+              mvn ${MAVEN_FLAGS} versions:set -DnewVersion="${TARGET}-SNAPSHOT" -DgenerateBackupPoms=false
+              git add pom.xml
+              git commit -m "Bump Maven version to ${TARGET}-SNAPSHOT"
+              git push
+            fi
+          fi
       - name: Release artifacts
         if: github.event.inputs.perform_version == ''
         env:
