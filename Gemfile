@@ -18,17 +18,18 @@ gem 'json', '~> 2.21'
 gem 'jruby-rack', '~> 1.2.0', platforms: :jruby
 gem 'rack', '~> 2.2.0'
 
-gem 'kanaui'
+# gem 'kanaui'
 # gem 'kanaui', :path => '../killbill-analytics-ui'
-# gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'master'
+gem 'kanaui', github: 'killbill/killbill-analytics-ui', ref: 'kaui_9.23'
 
 # gem 'kaui'
 # gem 'kaui', path: '../killbill-admin-ui'
 gem 'kaui', github: 'killbill/killbill-admin-ui', ref: 'kaui_9.23'
+# gem 'kaui', path: '../killbill-admin-ui'
 
-gem 'kenui'
+# gem 'kenui'
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
-# gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'master'
+gem 'kenui', github: 'killbill/killbill-email-notifications-ui', ref: 'kaui_9.23'
 
 # gem 'killbill-assets-ui', :path => '../killbill-assets-ui'
 gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'kaui_9.23'
@@ -36,7 +37,7 @@ gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'kaui_9.23
 
 # gem 'killbill-aviate', :path => '../killbill-aviate-ui'
 # gem 'killbill-aviate', github: 'killbill/killbill-aviate-ui', ref: 'main'
-gem 'killbill-aviate', '2.6.0.pre.3'
+gem 'killbill-aviate', '2.6.0.pre.4'
 
 gem 'killbill-avatax'
 # gem 'killbill-avatax', :path => '../killbill-avatax-ui'
@@ -50,13 +51,13 @@ gem 'killbill-deposit'
 # gem 'killbill-deposit', :path => '../killbill-deposit-ui'
 # gem 'killbill-deposit', github: 'killbill/killbill-deposit-ui', ref: 'main'
 
-gem 'killbill-kpm-ui'
+# gem 'killbill-kpm-ui'
 # gem 'killbill-kpm-ui', :path => '../killbill-kpm-ui'
-# gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'master'
+gem 'killbill-kpm-ui', github: 'killbill/killbill-kpm-ui', ref: 'kaui_9.23'
 
-gem 'killbill-payment-test-ui'
+# gem 'killbill-payment-test-ui'
 # gem 'killbill-payment-test-ui', :path => '../killbill-payment-test-ui'
-# gem 'killbill-payment-test-ui', github: 'killbill/killbill-payment-test-ui', ref: 'master'
+gem 'killbill-payment-test-ui', github: 'killbill/killbill-payment-test-ui', ref: 'kaui_9.23'
 
 gem 'mustache-js-rails', '~> 0.0.7'
 gem 'rails', '~> 7.2.0'
@@ -96,3 +97,4 @@ end
 
 # Add additional gem dependencies if needed
 instance_eval File.read('Gemfile.overlay') if File.exist?('Gemfile.overlay')
+# Dummy
