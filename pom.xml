@@ -58,7 +58,7 @@
         <connection>scm:git:git://github.com/killbill/killbill-admin-ui-standalone.git</connection>
         <url>https://github.com/killbill/killbill-admin-ui-standalone/</url>
         <developerConnection>scm:git:git@github.com:killbill/killbill-admin-ui-standalone.git</developerConnection>
-      <tag>kaui-standalone-4.0.31</tag>
+      <tag>HEAD</tag>
   </scm>
     <issueManagement>
         <system>Github</system>
