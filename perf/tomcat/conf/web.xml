@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
+  version="6.1">
+  <!-- ================== Built In Servlet Definitions ==================== -->
+  <servlet>
+      <servlet-name>default</servlet-name>
+      <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+      <init-param>
+          <param-name>debug</param-name>
+          <param-value>0</param-value>
+      </init-param>
+      <init-param>
+          <param-name>listings</param-name>
+          <param-value>false</param-value>
+      </init-param>
+      <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <!-- ================ Built In Servlet Mappings ========================= -->
+  <servlet-mapping>
+      <servlet-name>default</servlet-name>
+      <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <!-- ===================== Default MIME Type Mappings =================== -->
+  <mime-mapping>
+      <extension>css</extension>
+      <mime-type>text/css</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+      <extension>html</extension>
+      <mime-type>text/html</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+      <extension>js</extension>
+      <mime-type>application/javascript</mime-type>
+  </mime-mapping>
+</web-app>
