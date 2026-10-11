@@ -117,6 +117,44 @@ account, timeline, invoices and payments pages heavy), registers the tenant in K
 `perf/gatling/src/test/resources/data/accounts.csv`. 200 + 5 accounts take ~2 minutes. Re-running it completes
 partially seeded accounts and adds nothing to complete ones.
 
+### Realistic data with a year of history (performance server)
+
+`seed.py` dates everything today. For a server that should *look* like production, use `seed_history.py`: it rewinds
+Kill Bill's test clock, then replays the period day by day, so Kill Bill itself bills each customer on their real dates.
+
+```bash
+python3 perf/seed/seed_history.py \
+  --killbill-url http://kb-host:8080 --kaui-url http://kaui-host:9090 \
+  --username admin --password password \
+  --accounts 500 --months 12
+```
+
+What you get (fixed `--random-seed`, so re-creating the server gives the same data):
+
+* Customers signing up over the year (30% at the start, then steady growth) with varied names, companies (35% are
+  businesses), addresses and time zones in the US (USD), Germany/France/Netherlands/Spain (EUR) and the UK (GBP)
+* Monthly and annual plans, the discount price list, add-ons, 10% with a second product line; trials converting
+* Kill Bill-generated invoices and payments on their real dates, plus over time: upgrades/downgrades, add-ons,
+  cancellations, one-off charges, goodwill credits and partial refunds
+* 8% of customers on `AUTO_PAY_OFF` (unpaid balances, paid now and then), `vip`/`partner` tags, `segment`/`crm_id`
+  custom fields
+* `--large-accounts` customers (default 5) with ~`--large-charges` extra invoices over the year, for the heavy pages
+
+Requirements, because the clock is **global to the Kill Bill instance**:
+
+1. A **dedicated Kill Bill with a fresh, empty database**. Never run it against a shared or production Kill Bill.
+2. Kill Bill in **test mode** while seeding: `-Dorg.killbill.server.test.mode=true` (`KILLBILL_SERVER_TEST_MODE=true`).
+3. Strongly recommended while seeding (about 6x faster): make Kill Bill's internal queues poll every 100 ms instead of
+   every few seconds,
+   `-Dorg.killbill.notificationq.main.sleep=100 -Dorg.killbill.persistent.bus.main.sleep=100`
+   (in the `killbill/killbill` Docker image: `KB_org_killbill_notificationq_main_sleep=100` and
+   `KB_org_killbill_persistent_bus_main_sleep=100`).
+4. Afterwards, restart Kill Bill **without** these settings so it matches production. The script ends with the clock
+   at the real current time, so nothing jumps.
+
+The script refuses to run if test mode is off or if the tenant already has accounts, and asks for confirmation before
+moving the clock (`--yes` to skip). It writes the same Gatling feeder as `seed.py`.
+
 ## 4. Run Gatling
 
 ```bash
