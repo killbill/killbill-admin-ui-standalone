@@ -18,7 +18,7 @@ REQUIREMENTS (read before running):
 
 Only needs Python 3.8+ (standard library). Re-uses seed.py's helpers (same directory).
 
-Example (500 accounts, 12 months, ~20-40 minutes depending on the server):
+Example (500 accounts, 12 months: ~25 minutes with the queue settings in perf/README.md):
   python3 perf/seed/seed_history.py --killbill-url http://kb:8080 --kaui-url http://kaui:9090 \\
       --username admin --password password --accounts 500 --months 12
 """
