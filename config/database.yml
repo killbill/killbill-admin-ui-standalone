@@ -1,7 +1,8 @@
 development: &default
 <% if defined?(JRUBY_VERSION) %>
 <% adapter = java.lang.System.getProperty('kaui.db.adapter', ENV['KAUI_DB_ADAPTER'] || 'mysql2') %>
-<% if adapter == 'mysql2'
+<% driver = java.lang.System.getProperty('kaui.db.driver', ENV['KAUI_DB_DRIVER'] || 'com.mysql.cj.jdbc.Driver') %>
+<% if adapter == 'mysql2' && driver == 'org.mariadb.jdbc.Driver'
   # arjdbc's mysql2 adapter doesn't auto-load the MariaDB JDBC driver the way the
   # (now removed in arjdbc 72.x) 'mariadb' adapter used to; without this, connecting
   # raises Java::JavaLang::ClassNotFoundException: org.mariadb.jdbc.Driver
@@ -17,7 +18,7 @@ end %>
   pool: 50
   timeout: 5000
 <% else %>
-  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['KAUI_DB_URL'] || 'jdbc:mariadb://localhost:3306/kaui?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
+  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['KAUI_DB_URL'] || (driver == 'org.mariadb.jdbc.Driver' ? 'jdbc:mariadb://localhost:3306/kaui?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC' : 'jdbc:mysql://localhost:3306/kaui?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC')) %>
   username: <%= java.lang.System.getProperty('kaui.db.username', ENV['KAUI_DB_USERNAME'] || 'root') %>
   password: <%= java.lang.System.getProperty('kaui.db.password', ENV['KAUI_DB_PASSWORD'] || 'root') %>
   host: <%= java.lang.System.getProperty('kaui.db.host', ENV['KAUI_DB_HOST']) %>
@@ -25,7 +26,7 @@ end %>
   pool: <%= java.lang.System.getProperty('kaui.db.pool', ENV['KAUI_DB_POOL'] || '50') %>
   timeout: <%= java.lang.System.getProperty('kaui.db.timeout', ENV['KAUI_DB_TIMEOUT'] || '5000') %>
 <% if adapter == 'mysql2' %>
-  driver: org.mariadb.jdbc.Driver
+  driver: <%= driver %>
 <% end %>
 <% end %>
 <% else %>
