@@ -2,7 +2,16 @@ name: ci
 
 on:
   push:
+    branches:
+      - master
+  pull_request:
   workflow_dispatch:
+    inputs:
+      purge-cache:
+        description: Purge the existing Maven dependency cache (for this branch/ref) before restoring it
+        required: false
+        default: false
+        type: boolean
 
 env:
   COMPOSE_DOCKER_CLI_BUILD: 1
@@ -45,11 +54,11 @@ jobs:
             docker-compose-file: 'docker-compose.ci.postgresql.yml'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
       - name: Set up JDK
-        uses: actions/setup-java@v2.5.0
+        uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'temurin'
@@ -150,22 +159,75 @@ jobs:
 
   build-war:
     runs-on: ubuntu-22.04
+    env:
+      MAVEN_ARGS: -ntp
+    permissions:
+      contents: read
+      actions: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
       - name: Set up JDK
-        uses: actions/setup-java@v2.5.0
+        uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'temurin'
-          #cache: 'maven'
       - name: Configure Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 'jruby-10.0.6.0'
           bundler-cache: false
+      - name: Purge Maven dependency cache
+        if: inputs.purge-cache
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh cache list --key maven- --ref "${{ github.ref }}" --limit 100 --json id --jq '.[].id' \
+            | xargs -r -n1 gh cache delete
+      - name: Cache Maven repository
+        uses: actions/cache@v5
+        with:
+          path: ~/.m2/repository
+          key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml', '**/.mvn/extensions.xml', '**/.mvn/wrapper/maven-wrapper.properties') }}
+          restore-keys: |
+            maven-${{ runner.os }}-
+      - name: Configure Cloudsmith credentials
+        uses: s4u/maven-settings-action@v4.1.0
+        with:
+          # Build only: "cloudsmith" (deploy-only server id) isn't needed. This project has no Kill Bill
+          # dependencies, so "killbill-maven-repository" isn't needed either.
+          githubServer: false
+          servers: |
+            [
+              {"id": "central", "username": "token", "password": "${{ secrets.CLOUDSMITH_CENTRAL_PASSWORD }}", "repositoryOrigins": ["https://dl.cloudsmith.io"]}
+            ]
+          repositories: |
+            [
+              {
+                "id": "central",
+                "name": "Proxied Maven Central OSS repository at Cloudsmith",
+                "url": "https://dl.cloudsmith.io/basic/killbill/oss/maven/",
+                "releases": { "enabled": "true", "updatePolicy": "always" },
+                "snapshots": { "enabled": "true", "updatePolicy": "always" }
+              }
+            ]
+          pluginRepositories: |
+            [
+              {
+                "id": "central",
+                "name": "Proxied Maven Central OSS repository at Cloudsmith",
+                "url": "https://dl.cloudsmith.io/basic/killbill/oss/maven/",
+                "releases": { "enabled": "true", "updatePolicy": "always" },
+                "snapshots": { "enabled": "true", "updatePolicy": "always" }
+              }
+            ]
+      - name: Set up Maven
+        # Pinned version needed. Otherwise, we will get surprised because GitHub Actions
+        # updates the runner's pre-installed Maven version periodically.
+        run: mvn --errors --batch-mode --show-version wrapper:wrapper "-Dmaven=3.10.0"
       - name: Build war
         run: |
-          mvn package
+          ./mvnw package
