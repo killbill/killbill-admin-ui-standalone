@@ -227,7 +227,8 @@ jobs:
       - name: Set up Maven
         # Pinned version needed. Otherwise, we will get surprised because GitHub Actions
         # updates the runner's pre-installed Maven version periodically.
-        run: mvn --errors --batch-mode --show-version wrapper:wrapper "-Dmaven=3.10.0"
+        # distributionSha256Sum is the SHA-256 of apache-maven-3.10.0-bin.zip (the wrapper's default download).
+        run: mvn --errors --batch-mode --show-version wrapper:wrapper "-Dmaven=3.10.0" "-DdistributionSha256Sum=1f6d9909266510f039f59aa0e13dcd2c66da85f043e56276e41f2918f8bddaff"
       - name: Build war
         run: |
           ./mvnw package

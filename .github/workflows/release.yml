@@ -58,7 +58,9 @@ jobs:
         # Maven version periodically.
         run: |
           MAVEN_VERSION="3.10.0"
+          MAVEN_SHA512="908b1501bfb420bf7c8affb855534a9c407fd6099367bfb9f2f2dcb8e9799102bffb84518cde74c679bd76870247c6528683abdd620581bffa90f95d92d175aa"
           curl -fsSL "https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" -o "$RUNNER_TEMP/maven.tar.gz"
+          echo "${MAVEN_SHA512}  $RUNNER_TEMP/maven.tar.gz" | sha512sum -c -
           tar -xzf "$RUNNER_TEMP/maven.tar.gz" -C "$RUNNER_TEMP"
           echo "$RUNNER_TEMP/apache-maven-${MAVEN_VERSION}/bin" >> "$GITHUB_PATH"
       - name: Configure Maven settings.xml profiles, repositories and pluginRepositories
