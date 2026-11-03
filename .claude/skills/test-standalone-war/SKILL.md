@@ -15,9 +15,8 @@ The WAR is released for two runtime lines (build images mirror each branch's `re
 | `java11` | `jruby:9.4.15.0-jdk11`            | `tomcat:8.5-jdk11` | `jruby9_old_branch`  | 18091 / 18081                 |
 | `java21` | `jruby:10.0.6.0-jdk21`            | `tomcat:11.0-jdk21`| `master`             | 18092 / 18082                 |
 
-> `java21` runs the Kaui container with `-Djruby.jit.exclude=Rails::Engine#call` by default (same workaround as
-> production, see Known issues #1). `run.sh --no-jit-workaround java21` runs the bare WAR and is **expected to fail**.
-> Remove the workaround from `profiles/java21.env` once the WAR is on JRuby >= 10.1.1 (#133).
+> `java21` always runs the Kaui container with `-Djruby.jit.exclude=Rails::Engine#call` (set in `profiles/java21.env`, same
+> as production), which avoids a JRuby 10.0.x bug (see Known issues #1). Remove it after the JRuby upgrade (#133).
 
 > The legacy build uses JRuby 9.4.**15**.0, not 9.4.10.0: that is what `release.yml` on `jruby9_old_branch` uses, and
 > its `build.sh` refuses JRuby < 9.4.11.0. The JRuby that actually runs inside the WAR is the `jruby-jars` version pinned
@@ -46,7 +45,7 @@ exist on the branch you run it from, e.g. `master` can test `jruby9_old_branch`)
 | An unreleased Kaui engine change (killbill-admin-ui checkout) on both runtimes | `run.sh --kaui-dir ../killbill-admin-ui all` |
 | An already built WAR                                                 | `run.sh --war /path/app.war java11`           |
 
-Other options: `--no-jit-workaround` (see above), `--skip-build` (reuse the WAR from the previous run), `--keep` (leave
+Other options: `--skip-build` (reuse the WAR from the previous run), `--keep` (leave
 the stack up, print the URLs, login `admin` / `password`; stop it with `run.sh down <profile|all>`), `--clean-cache`,
 `--work-dir DIR` (or `KAUI_WAR_TEST_DIR`; default `$TMPDIR/kaui-war-test`). Env: `KILLBILL_IMAGE` (default
 `killbill/killbill:0.24.3`, as in this repo's CI), `DB_IMAGE`, `BOOT_TIMEOUT`, `JRUBY_IMAGE`, `TOMCAT_IMAGE`.
@@ -99,11 +98,12 @@ Console: one `PASS`/`FAIL` line per check (with the reason), then a per-profile 
    Minimal Rails-free repro: a class with `method_missing(name, ...)` -> `public_send(name, ...)` to a method that checks
    `env.equal?(sent)`. Affected: JRuby 10.0.6.0, 10.0.7.0, 10.1.0.0. Not affected: 9.4.15.0, **10.1.1.0, 10.1.2.0**.
    JRuby tracks the forwarding problem as jruby/jruby#9472.
-   **Workaround (enabled by default for `java21`):** `-Djruby.jit.exclude=Rails::Engine#call` (excluding only that
-   method is enough; also in killbill/managed#175 and killbill-cloud#346). Alternative without a JVM flag: define
-   `Rails::Engine.call(env)` as `instance.call(env)` in an initializer (tested). The last check of `smoke.sh` is the
-   regression test: with the workaround it passes; `--no-jit-workaround` must fail on 10.0.x. After the move to
-   JRuby >= 10.1.1, remove `KAUI_EXTRA_JAVA_OPTS` from `profiles/java21.env` and confirm it passes without it.
+   **Workaround (always applied on `java21`):** `-Djruby.jit.exclude=Rails::Engine#call` (excluding only that
+   method is enough; also in killbill/managed#175 and killbill-cloud#346). We do not care about the bug itself for now.
+   Alternative without a JVM flag: define `Rails::Engine.call(env)` as `instance.call(env)` in an initializer (tested).
+   The last check of `smoke.sh` ("new visitor can still log in") guards against it coming back. **After the move to
+   JRuby >= 10.1.1 (#133):** delete `KAUI_EXTRA_JAVA_OPTS` from `profiles/java21.env` and confirm the run still passes;
+   without the flag the check fails on JRuby 10.0.x.
 2. **Cold-start race on Java 11 / JRuby 9.4 / Tomcat 8.5.** Several *concurrent first requests* right after deployment
    can leave the app answering HTTP 500 `Asset 'kaui/...svg' was not declared to be precompiled in production` (2 of 3
    fresh boots with a local-engine WAR, 2 of 4 with the released-gem WAR; once it never recovered without a restart).

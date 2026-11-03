@@ -29,7 +29,6 @@ STANDALONE_REF=""
 WAR_OVERRIDE=""
 SKIP_BUILD=0
 KEEP=0
-NO_JIT_WORKAROUND=0
 CLEAN_CACHE=0
 PROFILES=()
 
@@ -54,8 +53,6 @@ What gets built (default: the profile's branch of THIS repo as pushed to origin,
   --clean-cache         Drop the cached gem volume (kaui-war-gems-*) before building.
 
 Running
-  --no-jit-workaround   Do NOT add the profile's JVM workaround flags (java21: -Djruby.jit.exclude=Rails::Engine#call).
-                        Reproduces the JRuby 10.0.x session-cookie bug; the smoke test is expected to FAIL.
   --keep                Leave the Docker stack running afterwards (URLs are printed). Stop it with:  run.sh down <profile|all>
   --work-dir DIR        Where sources, WARs and logs go (default: $WORK_ROOT).
 
@@ -85,7 +82,6 @@ while [[ $# -gt 0 ]]; do
     --skip-build) SKIP_BUILD=1 ;;
     --clean-cache) CLEAN_CACHE=1 ;;
     --keep) KEEP=1 ;;
-    --no-jit-workaround) NO_JIT_WORKAROUND=1 ;;
     --work-dir) mkdir -p "${2:?--work-dir needs a value}"; WORK_ROOT="$(cd "$2" && pwd)"; shift ;;
     java11|java21) PROFILES+=("$1") ;;
     all) PROFILES+=(java11 java21) ;;
@@ -118,10 +114,8 @@ compose() { # compose <profile> <args...>   (env must already be exported by exp
 export_stack_env() { # export_stack_env <war>
   export COMPOSE_PROJECT_NAME="kauiwar-$PROFILE_NAME" KILLBILL_IMAGE DB_IMAGE TOMCAT_IMAGE KB_PORT KAUI_PORT
   export WAR_PATH="$1"
-  # Profile workaround flags (see profiles/*.env), unless --no-jit-workaround; plus anything the caller put in EXTRA_JAVA_OPTS
-  local extra="$KAUI_EXTRA_JAVA_OPTS"
-  [[ $NO_JIT_WORKAROUND -eq 1 ]] && extra=""
-  export EXTRA_JAVA_OPTS="$extra $USER_EXTRA_JAVA_OPTS"
+  # Always-on JVM flags of the profile (see profiles/*.env), plus anything the caller put in EXTRA_JAVA_OPTS
+  export EXTRA_JAVA_OPTS="$KAUI_EXTRA_JAVA_OPTS $USER_EXTRA_JAVA_OPTS"
   export KAUI_SECRET_KEY_BASE="${KAUI_SECRET_KEY_BASE:-$(LC_ALL=C tr -dc 'a-f0-9' </dev/urandom | head -c 128)}"
 }
 
@@ -253,8 +247,7 @@ for p in "${PROFILES[@]}"; do
   fi
 
   log "PROFILE $PROFILE_NAME  |  build: $JRUBY_IMAGE  |  runtime: $TOMCAT_IMAGE  |  work dir: $PDIR"
-  if [[ -n "$KAUI_EXTRA_JAVA_OPTS" && $NO_JIT_WORKAROUND -eq 0 ]]; then echo "JVM workaround ENABLED: $KAUI_EXTRA_JAVA_OPTS (production parity; --no-jit-workaround to disable)"
-  elif [[ -n "$KAUI_EXTRA_JAVA_OPTS" ]]; then echo "JVM workaround DISABLED (--no-jit-workaround): expect the new-visitor login check to fail on JRuby 10.0.x"; fi
+  [[ -n "$KAUI_EXTRA_JAVA_OPTS" ]] && echo "Extra JVM options for Kaui: $KAUI_EXTRA_JAVA_OPTS"
   RESULT="PASS"; DETAIL=""; LOG_ERRORS=""; LOG_ERROR_COUNT=0; STANDALONE_COMMIT=""
 
   if [[ -n "$WAR_OVERRIDE" ]]; then
