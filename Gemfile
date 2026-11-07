@@ -74,7 +74,7 @@ if defined?(JRUBY_VERSION)
   gem 'jdbc-mysql'
   gem 'jdbc-postgres'
   gem 'jdbc-sqlite3'
-  gem 'jruby-jars', '10.0.6.0'
+  gem 'jruby-jars', '10.0.8.0'
 
   # See https://github.com/killbill/technical-support/issues/209
   gem 'net-imap', '0.5.6'
