@@ -9,8 +9,9 @@ gem 'csv'
 gem 'i18n', '~> 1.14.0'
 gem 'jquery-rails', '~> 4.5.1'
 
-# json 3.0 dropped quirks_mode, which ActiveSupport::JSON still needs until Rails 8.1.
-gem 'json', '~> 2.21'
+# json 3.x works with Rails 7.2.4 / ActiveSupport 7.2.4 (nothing passes the removed quirks_mode keyword anymore).
+# Note 3.x rejects duplicate keys by default, e.g. a Hash with both :a and "a" now raises on generate (#136).
+gem 'json', '~> 3.1'
 
 # jruby-rack doesn't fully support Rack 3 yet (jruby/jruby-rack#325); pin Rack 2.2 + jruby-rack 2.0.
 gem 'jruby-rack', '~> 2.0.0', platforms: :jruby
